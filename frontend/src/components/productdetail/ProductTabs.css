@@ -1,0 +1,299 @@
+/* ============================================
+   PREMIUM PRODUCT TABS
+   ============================================ */
+
+.pt-container {
+  margin: 48px 0;
+  border-top: 1px solid #e5e5e5;
+  padding-top: 48px;
+}
+
+/* Header */
+.pt-header {
+  display: flex;
+  border-bottom: 2px solid #1a1a1a;
+  margin-bottom: 32px;
+  overflow-x: auto;
+}
+
+.pt-tab {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 28px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #888;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  position: relative;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.pt-tab:hover {
+  color: #1a1a1a;
+  background: #fafafa;
+}
+
+.pt-tab.active {
+  color: #1a1a1a;
+  background: #f0f0f0;
+}
+
+.pt-tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #1a1a1a;
+}
+
+.pt-tab-icon {
+  font-size: 1rem;
+}
+
+/* Body */
+.pt-body {
+  min-height: 300px;
+}
+
+.pt-content-inner {
+  animation: fadeSlideUp 0.4s ease;
+}
+
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.pt-content-inner h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 24px;
+  font-family: 'Playfair Display', serif;
+}
+
+/* Description Box */
+.pt-desc-box {
+  background: #fafafa;
+  border: 1px solid #e5e5e5;
+  padding: 32px;
+}
+
+.pt-desc-box p {
+  color: #555;
+  line-height: 1.8;
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* Grid Cards */
+.pt-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.pt-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 24px;
+  border: 1px solid #e5e5e5;
+  transition: all 0.3s ease;
+  background: #fff;
+}
+
+.pt-card:hover {
+  transform: translateX(4px);
+  border-color: #1a1a1a;
+}
+
+.pt-card-icon {
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+.pt-card-green .pt-card-icon {
+  color: #2d5a27;
+}
+
+.pt-card-green {
+  background: #f8faf8;
+}
+
+.pt-card-gold .pt-card-icon {
+  color: #c4943a;
+}
+
+.pt-card-gold {
+  background: #fdfbf7;
+}
+
+.pt-card span {
+  font-weight: 500;
+  color: #1a1a1a;
+  font-size: 0.95rem;
+}
+
+/* Usage Box */
+.pt-usage-box {
+  border: 1px solid #e5e5e5;
+}
+
+.pt-usage-main {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 32px;
+  background: #fafafa;
+}
+
+.pt-usage-icon {
+  font-size: 2rem;
+  color: #1a1a1a;
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+.pt-usage-main p {
+  font-size: 1.05rem;
+  color: #333;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.pt-tips {
+  padding: 24px 32px;
+  border-top: 1px solid #e5e5e5;
+}
+
+.pt-tips h4 {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.pt-tips ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.pt-tips li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.pt-tips li svg {
+  color: #2d5a27;
+  font-size: 0.7rem;
+}
+
+/* Who Can Use */
+.pt-who-box {
+  border: 1px solid #e5e5e5;
+}
+
+.pt-who-main {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 32px;
+  background: #fafafa;
+}
+
+.pt-who-icon {
+  font-size: 2rem;
+  color: #1a1a1a;
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+.pt-who-main p {
+  font-size: 1.05rem;
+  color: #333;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.pt-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 20px 32px;
+  border-top: 1px solid #e5e5e5;
+}
+
+.pt-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: 1px solid;
+}
+
+.pt-tag-yes {
+  background: #f0fdf4;
+  color: #166534;
+  border-color: #bbf7d0;
+}
+
+.pt-tag-maybe {
+  background: #fffbeb;
+  color: #92400e;
+  border-color: #fcd34d;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .pt-header {
+    gap: 0;
+  }
+  
+  .pt-tab {
+    padding: 12px 16px;
+    font-size: 0.8rem;
+  }
+  
+  .pt-tab-label {
+    display: none;
+  }
+  
+  .pt-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .pt-tips ul {
+    grid-template-columns: 1fr;
+  }
+  
+  .pt-desc-box,
+  .pt-usage-main,
+  .pt-who-main {
+    padding: 20px;
+  }
+}

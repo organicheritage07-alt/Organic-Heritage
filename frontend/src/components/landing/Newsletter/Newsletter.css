@@ -1,0 +1,556 @@
+/* ========================================
+   NEWSLETTER PREMIUM SECTION
+   COMPLETE OPTIMIZED VERSION
+   ======================================== */
+
+.newsletter-premium {
+    position: relative;
+    padding: 80px 0;
+    background: linear-gradient(135deg, #F8FAF8 0%, #E8F3EC 100%);
+    overflow: hidden;
+    z-index: 10;
+    margin-top: -40px;
+}
+
+/* Smooth transition spacer */
+.newsletter-premium::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: 0;
+    right: 0;
+    height: 50px;
+    background: linear-gradient(to bottom, transparent, rgba(232, 243, 236, 0.5));
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* Floating Elements Animation */
+.newsletter-floating-elements {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.floating-leaf {
+    position: absolute;
+    font-size: 2rem;
+    opacity: 0.12;
+    animation: floatLeaf 10s ease-in-out infinite;
+}
+
+.leaf-1 {
+    top: 15%;
+    left: 5%;
+    animation-delay: 0s;
+}
+
+.leaf-2 {
+    bottom: 20%;
+    right: 8%;
+    animation-delay: 2s;
+    font-size: 2.8rem;
+}
+
+.leaf-3 {
+    top: 30%;
+    right: 12%;
+    animation-delay: 4s;
+    font-size: 1.8rem;
+}
+
+.leaf-4 {
+    bottom: 25%;
+    left: 10%;
+    animation-delay: 6s;
+    font-size: 2.2rem;
+}
+
+.leaf-5 {
+    top: 60%;
+    left: 20%;
+    animation-delay: 8s;
+    font-size: 1.5rem;
+    opacity: 0.1;
+}
+
+@keyframes floatLeaf {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-25px) rotate(12deg);
+    }
+}
+
+/* Container */
+.newsletter-premium-container {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 0 40px;
+    position: relative;
+    z-index: 10;
+}
+
+/* Main Content Card */
+.newsletter-content {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    border-radius: 48px;
+    padding: 55px 45px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.newsletter-content:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 25px 50px rgba(45, 106, 79, 0.08);
+}
+
+/* Badge */
+.newsletter-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(45, 106, 79, 0.12);
+    padding: 8px 22px;
+    border-radius: 60px;
+    margin-bottom: 28px;
+    border: 1px solid rgba(45, 106, 79, 0.08);
+}
+
+.badge-icon {
+    font-size: 1rem;
+}
+
+.newsletter-badge span:last-child {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #2D6A4F;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+}
+
+/* Title */
+.newsletter-title {
+    font-size: 2.6rem;
+    font-weight: 700;
+    color: #1B2E1A;
+    margin-bottom: 20px;
+    font-family: 'Playfair Display', serif;
+    line-height: 1.2;
+}
+
+.title-highlight {
+    color: #2D6A4F;
+    position: relative;
+    display: inline-block;
+}
+
+.title-highlight::after {
+    content: '';
+    position: absolute;
+    bottom: 8px;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background: rgba(45, 106, 79, 0.2);
+    border-radius: 4px;
+    z-index: -1;
+}
+
+/* Subtitle */
+.newsletter-subtitle {
+    font-size: 1.05rem;
+    color: #6B7280;
+    max-width: 550px;
+    margin: 0 auto 32px;
+    line-height: 1.7;
+}
+
+/* Benefits Row */
+.newsletter-benefits {
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    flex-wrap: wrap;
+    margin-bottom: 38px;
+}
+
+.benefit-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.88rem;
+    color: #4A5568;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 6px 14px;
+    border-radius: 50px;
+    border: 1px solid rgba(45, 106, 79, 0.08);
+}
+
+.benefit-check {
+    width: 18px;
+    height: 18px;
+    background: #2D6A4F;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.65rem;
+    color: white;
+    font-weight: 700;
+}
+
+/* Form */
+.newsletter-form {
+    display: flex;
+    gap: 16px;
+    max-width: 550px;
+    margin: 0 auto 35px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.input-wrapper {
+    flex: 1;
+    position: relative;
+    min-width: 260px;
+}
+
+.input-icon {
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.1rem;
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+.newsletter-input {
+    width: 100%;
+    padding: 15px 20px 15px 50px;
+    font-size: 0.95rem;
+    border: 1.5px solid #E5E7EB;
+    border-radius: 60px;
+    background: white;
+    transition: all 0.3s ease;
+    outline: none;
+    font-family: 'Inter', sans-serif;
+}
+
+.newsletter-input:focus {
+    border-color: #2D6A4F;
+    box-shadow: 0 0 0 3px rgba(45, 106, 79, 0.1);
+}
+
+/* Subscribe Button */
+.newsletter-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #2D6A4F;
+    color: white;
+    border: none;
+    padding: 15px 32px;
+    border-radius: 60px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.newsletter-btn svg {
+    transition: transform 0.3s ease;
+}
+
+.newsletter-btn:hover {
+    background: #40916C;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(45, 106, 79, 0.25);
+}
+
+.newsletter-btn:hover svg {
+    transform: rotate(90deg);
+}
+
+/* Social Proof */
+.newsletter-social-proof {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    padding-top: 10px;
+}
+
+.avatar-stack {
+    display: flex;
+    align-items: center;
+}
+
+.avatar {
+    width: 42px;
+    height: 42px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    border: 2px solid #E8F3EC;
+    margin-right: -8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.avatar:last-child {
+    margin-right: 0;
+}
+
+.avatar-count {
+    width: 42px;
+    height: 42px;
+    background: #2D6A4F;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: white;
+    margin-left: 4px;
+    border: 2px solid #E8F3EC;
+}
+
+.social-proof-text {
+    font-size: 0.88rem;
+    color: #6B7280;
+}
+
+.social-proof-text strong {
+    color: #2D6A4F;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .newsletter-premium {
+        padding: 70px 0;
+        margin-top: -30px;
+    }
+    
+    .newsletter-premium::before {
+        top: -40px;
+        height: 40px;
+    }
+    
+    .newsletter-content {
+        padding: 45px 35px;
+    }
+    
+    .newsletter-title {
+        font-size: 2.3rem;
+    }
+    
+    .newsletter-benefits {
+        gap: 20px;
+        margin-bottom: 35px;
+    }
+    
+    .benefit-item {
+        font-size: 0.82rem;
+        padding: 5px 12px;
+    }
+}
+
+/* Mobile Large */
+@media (max-width: 768px) {
+    .newsletter-premium {
+        padding: 60px 0;
+        margin-top: -20px;
+    }
+    
+    .newsletter-premium::before {
+        top: -30px;
+        height: 30px;
+    }
+    
+    .newsletter-premium-container {
+        padding: 0 24px;
+    }
+    
+    .newsletter-content {
+        padding: 35px 28px;
+        border-radius: 36px;
+    }
+    
+    .newsletter-title {
+        font-size: 2rem;
+        margin-bottom: 16px;
+    }
+    
+    .title-highlight::after {
+        bottom: 5px;
+        height: 6px;
+    }
+    
+    .newsletter-subtitle {
+        font-size: 0.95rem;
+        margin-bottom: 28px;
+    }
+    
+    .newsletter-benefits {
+        gap: 14px;
+        margin-bottom: 30px;
+    }
+    
+    .benefit-item {
+        font-size: 0.78rem;
+        padding: 4px 10px;
+    }
+    
+    .benefit-check {
+        width: 16px;
+        height: 16px;
+        font-size: 0.6rem;
+    }
+    
+    .newsletter-form {
+        flex-direction: column;
+        gap: 12px;
+        margin-bottom: 30px;
+    }
+    
+    .input-wrapper {
+        min-width: auto;
+    }
+    
+    .newsletter-input {
+        padding: 13px 18px 13px 48px;
+        font-size: 0.9rem;
+    }
+    
+    .newsletter-btn {
+        justify-content: center;
+        padding: 13px 28px;
+    }
+    
+    .avatar {
+        width: 38px;
+        height: 38px;
+        font-size: 1rem;
+    }
+    
+    .avatar-count {
+        width: 38px;
+        height: 38px;
+        font-size: 0.65rem;
+    }
+    
+    .social-proof-text {
+        font-size: 0.82rem;
+    }
+    
+    .floating-leaf {
+        display: none;
+    }
+}
+
+/* Mobile Small */
+@media (max-width: 480px) {
+    .newsletter-premium {
+        padding: 50px 0;
+        margin-top: -15px;
+    }
+    
+    .newsletter-premium::before {
+        top: -20px;
+        height: 20px;
+    }
+    
+    .newsletter-premium-container {
+        padding: 0 20px;
+    }
+    
+    .newsletter-content {
+        padding: 28px 20px;
+        border-radius: 28px;
+    }
+    
+    .newsletter-badge {
+        padding: 6px 16px;
+        margin-bottom: 22px;
+    }
+    
+    .newsletter-badge span:last-child {
+        font-size: 0.7rem;
+        letter-spacing: 0.6px;
+    }
+    
+    .newsletter-title {
+        font-size: 1.6rem;
+        margin-bottom: 14px;
+    }
+    
+    .newsletter-subtitle {
+        font-size: 0.88rem;
+        margin-bottom: 24px;
+        line-height: 1.6;
+    }
+    
+    .newsletter-benefits {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 28px;
+    }
+    
+    .benefit-item {
+        font-size: 0.75rem;
+        padding: 5px 14px;
+        width: fit-content;
+    }
+    
+    .input-icon {
+        left: 15px;
+        font-size: 0.95rem;
+    }
+    
+    .newsletter-input {
+        padding: 12px 15px 12px 45px;
+        font-size: 0.85rem;
+    }
+    
+    .newsletter-btn {
+        padding: 12px 24px;
+        font-size: 0.85rem;
+    }
+    
+    .avatar-stack {
+        justify-content: center;
+    }
+    
+    .avatar {
+        width: 34px;
+        height: 34px;
+        font-size: 0.9rem;
+    }
+    
+    .avatar-count {
+        width: 34px;
+        height: 34px;
+        font-size: 0.6rem;
+    }
+    
+    .social-proof-text {
+        font-size: 0.75rem;
+    }
+}

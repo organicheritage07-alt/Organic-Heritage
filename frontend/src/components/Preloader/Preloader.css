@@ -1,0 +1,490 @@
+/* ===== ISOLATED PRELOADER - ZERO GLOBAL IMPACT ===== */
+/* Scoped strictly to .preloader class only */
+
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-color: #fafaf8;
+    font-family: Georgia, 'Times New Roman', serif;
+    transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1), visibility 1s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Force isolation */
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+    width: 100vw;
+    height: 100vh;
+}
+
+.preloader.preloader--hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* ===== BACKGROUND ===== */
+.preloader .preloader-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    margin: 0;
+    padding: 0;
+}
+
+.preloader .preloader-bg .preloader-bg-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    animation: preloader-bg-zoom 20s ease-in-out infinite alternate;
+    pointer-events: none;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+@keyframes preloader-bg-zoom {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.1); }
+}
+
+.preloader .preloader-bg .preloader-bg-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        180deg,
+        rgba(250, 250, 248, 0.85) 0%,
+        rgba(250, 250, 248, 0.7) 40%,
+        rgba(250, 250, 248, 0.78) 70%,
+        rgba(250, 250, 248, 0.9) 100%
+    );
+    pointer-events: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* ===== FLOATING LEAVES ===== */
+.preloader .preloader-leaves {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+.preloader .preloader-leaves .preloader-leaf {
+    position: absolute;
+    color: rgba(76, 175, 80, 0.1);
+    pointer-events: none;
+    margin: 0;
+    padding: 0;
+}
+
+.preloader .preloader-leaves .preloader-leaf svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+.preloader .preloader-leaves .preloader-leaf.preloader-leaf-1 { width: 120px; height: 120px; top: 8%; left: 6%; animation: preloader-leaf-float-1 9s ease-in-out infinite; }
+.preloader .preloader-leaves .preloader-leaf.preloader-leaf-2 { width: 90px; height: 90px; top: 12%; right: 10%; animation: preloader-leaf-float-2 11s ease-in-out infinite 1s; }
+.preloader .preloader-leaves .preloader-leaf.preloader-leaf-3 { width: 100px; height: 100px; bottom: 18%; left: 5%; animation: preloader-leaf-float-3 10s ease-in-out infinite 2s; }
+.preloader .preloader-leaves .preloader-leaf.preloader-leaf-4 { width: 80px; height: 80px; bottom: 12%; right: 8%; animation: preloader-leaf-float-4 12s ease-in-out infinite 0.5s; }
+.preloader .preloader-leaves .preloader-leaf.preloader-leaf-5 { width: 70px; height: 70px; top: 48%; right: 5%; animation: preloader-leaf-float-1 8s ease-in-out infinite 1.5s; }
+.preloader .preloader-leaves .preloader-leaf.preloader-leaf-6 { width: 60px; height: 60px; top: 55%; left: 10%; animation: preloader-leaf-float-2 9s ease-in-out infinite 2.5s; }
+
+@keyframes preloader-leaf-float-1 {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    50% { transform: translate(15px, -20px) rotate(8deg); }
+}
+
+@keyframes preloader-leaf-float-2 {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    50% { transform: translate(-20px, 15px) rotate(-10deg); }
+}
+
+@keyframes preloader-leaf-float-3 {
+    0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); }
+    50% { transform: translate(20px, -15px) rotate(12deg) scale(1.08); }
+}
+
+@keyframes preloader-leaf-float-4 {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    50% { transform: translate(-15px, -20px) rotate(-8deg); }
+}
+
+/* ===== CONTENT ===== */
+.preloader .preloader-content {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    margin: 0;
+    border: none;
+    box-sizing: border-box;
+}
+
+.preloader .preloader-content.preloader-content-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ===== LOGO ===== */
+.preloader .preloader-logo-wrap {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin-bottom: 2rem;
+    opacity: 0;
+    transform: scale(0.5);
+    transition: all 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s;
+    padding: 0;
+    border: none;
+}
+
+.preloader .preloader-logo-wrap.preloader-logo-visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.preloader .preloader-logo-wrap .preloader-logo-circle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.04);
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+.preloader .preloader-logo-wrap .preloader-logo-circle .preloader-logo-img {
+    width: 72%;
+    height: 72%;
+    object-fit: contain;
+    display: block;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+.preloader .preloader-logo-wrap .preloader-logo-pulse {
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+    border: 1.5px solid rgba(76, 175, 80, 0.2);
+    border-radius: 50%;
+    animation: preloader-logo-pulse-anim 2.5s ease-out infinite;
+    margin: 0;
+    padding: 0;
+}
+
+.preloader .preloader-logo-wrap .preloader-logo-pulse-2 {
+    position: absolute;
+    top: -16px;
+    left: -16px;
+    right: -16px;
+    bottom: -16px;
+    border: 1px solid rgba(76, 175, 80, 0.1);
+    border-radius: 50%;
+    animation: preloader-logo-pulse-anim 2.5s ease-out infinite 0.5s;
+    margin: 0;
+    padding: 0;
+}
+
+@keyframes preloader-logo-pulse-anim {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(1.18); opacity: 0; }
+}
+
+/* ===== BRAND TITLE ===== */
+.preloader .preloader-brand {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(2.2rem, 5.5vw, 4rem);
+    font-weight: 600;
+    color: #1b5e20;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    line-height: 1.2;
+    margin: 0 0 0.8rem 0;
+    opacity: 0;
+    transform: translateY(15px);
+    transition: all 0.6s ease 0.3s;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+}
+
+.preloader .preloader-brand.preloader-brand-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.preloader .preloader-brand .preloader-brand-word {
+    display: inline-flex;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+.preloader .preloader-brand .preloader-brand-space {
+    display: inline-block;
+    width: 0.35em;
+    margin: 0;
+    padding: 0;
+}
+
+.preloader .preloader-brand .preloader-brand-word .preloader-brand-char {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(100%);
+    animation: preloader-char-reveal 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    margin: 0;
+    padding: 0;
+}
+
+@keyframes preloader-char-reveal {
+    0% { opacity: 0; transform: translateY(100%); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== DIVIDER ===== */
+.preloader .preloader-divider {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin: 0.5rem 0 1rem;
+    opacity: 0;
+    transform: scaleX(0);
+    transition: all 0.7s ease 0.9s;
+    padding: 0;
+    border: none;
+}
+
+.preloader .preloader-divider.preloader-divider-visible {
+    opacity: 1;
+    transform: scaleX(1);
+}
+
+.preloader .preloader-divider .preloader-divider-line {
+    display: block;
+    width: 50px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(27, 94, 32, 0.3), transparent);
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+.preloader .preloader-divider .preloader-divider-icon {
+    width: 14px;
+    height: 14px;
+    animation: preloader-star-spin 6s linear infinite;
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+@keyframes preloader-star-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* ===== TAGLINE ===== */
+.preloader .preloader-tagline {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(0.75rem, 1.5vw, 1rem);
+    font-weight: 400;
+    font-style: italic;
+    color: rgba(27, 94, 32, 0.55);
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    margin: 0 0 2.5rem 0;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.6s ease 1.1s;
+    padding: 0;
+    border: none;
+}
+
+.preloader .preloader-tagline.preloader-tagline-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ===== PROGRESS ===== */
+.preloader .preloader-progress-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.5s ease 1.4s;
+    width: 100%;
+    max-width: 260px;
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+}
+
+.preloader .preloader-progress-wrap.preloader-progress-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.preloader .preloader-progress-wrap .preloader-progress-track {
+    width: 100%;
+    height: 3px;
+    background-color: rgba(27, 94, 32, 0.08);
+    border-radius: 3px;
+    overflow: hidden;
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+.preloader .preloader-progress-wrap .preloader-progress-track .preloader-progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #81c784, #4caf50, #388e3c);
+    border-radius: 3px;
+    transition: width 0.25s ease;
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+.preloader .preloader-progress-wrap .preloader-progress-track .preloader-progress-bar::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    right: 0;
+    width: 8px;
+    height: 7px;
+    background-color: #66bb6a;
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(102, 187, 106, 0.5);
+    margin: 0;
+    padding: 0;
+}
+
+.preloader .preloader-progress-wrap .preloader-progress-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 2px;
+    margin: 0;
+    border: none;
+    box-sizing: border-box;
+}
+
+.preloader .preloader-progress-wrap .preloader-progress-info .preloader-progress-num {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #2e7d32;
+    font-variant-numeric: tabular-nums;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.preloader .preloader-progress-wrap .preloader-progress-info .preloader-progress-label {
+    font-size: 0.6rem;
+    font-weight: 500;
+    color: rgba(27, 94, 32, 0.35);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin: 0;
+    padding: 0;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .preloader .preloader-bg .preloader-bg-img { background-position: center 25%; }
+    .preloader .preloader-bg .preloader-bg-overlay {
+        background: linear-gradient(
+            180deg,
+            rgba(250, 250, 248, 0.9) 0%,
+            rgba(250, 250, 248, 0.75) 35%,
+            rgba(250, 250, 248, 0.83) 65%,
+            rgba(250, 250, 248, 0.94) 100%
+        );
+    }
+    .preloader .preloader-leaves .preloader-leaf { opacity: 0.4; }
+    .preloader .preloader-leaves .preloader-leaf.preloader-leaf-1 { width: 80px; height: 80px; }
+    .preloader .preloader-leaves .preloader-leaf.preloader-leaf-2 { width: 65px; height: 65px; }
+    .preloader .preloader-leaves .preloader-leaf.preloader-leaf-3 { width: 75px; height: 75px; }
+    .preloader .preloader-leaves .preloader-leaf.preloader-leaf-4 { width: 60px; height: 60px; }
+    .preloader .preloader-leaves .preloader-leaf.preloader-leaf-5 { width: 55px; height: 55px; }
+    .preloader .preloader-leaves .preloader-leaf.preloader-leaf-6 { width: 50px; height: 50px; }
+    .preloader .preloader-logo-wrap { width: 80px; height: 80px; margin-bottom: 1.5rem; }
+    .preloader .preloader-logo-wrap .preloader-logo-pulse { top: -6px; left: -6px; right: -6px; bottom: -6px; }
+    .preloader .preloader-logo-wrap .preloader-logo-pulse-2 { top: -12px; left: -12px; right: -12px; bottom: -12px; }
+    .preloader .preloader-brand { letter-spacing: 0.1em; font-size: clamp(1.6rem, 6vw, 2.4rem); }
+    .preloader .preloader-brand .preloader-brand-space { width: 0.25em; }
+    .preloader .preloader-tagline { letter-spacing: 0.15em; font-size: clamp(0.65rem, 1.8vw, 0.85rem); margin-bottom: 2rem; }
+    .preloader .preloader-progress-wrap { max-width: 200px; }
+    .preloader .preloader-divider .preloader-divider-line { width: 35px; }
+}
+
+@media (max-width: 480px) {
+    .preloader .preloader-content { padding: 1.5rem; }
+    .preloader .preloader-logo-wrap { width: 70px; height: 70px; margin-bottom: 1.2rem; }
+    .preloader .preloader-brand { font-size: 1.4rem; letter-spacing: 0.08em; }
+    .preloader .preloader-brand .preloader-brand-space { width: 0.2em; }
+    .preloader .preloader-tagline { font-size: 0.6rem; letter-spacing: 0.12em; margin-bottom: 1.5rem; }
+    .preloader .preloader-progress-wrap { max-width: 160px; }
+    .preloader .preloader-progress-wrap .preloader-progress-info .preloader-progress-num { font-size: 0.7rem; }
+    .preloader .preloader-progress-wrap .preloader-progress-info .preloader-progress-label { font-size: 0.5rem; letter-spacing: 0.15em; }
+    .preloader .preloader-divider .preloader-divider-line { width: 25px; }
+    .preloader .preloader-divider .preloader-divider-icon { width: 12px; height: 12px; }
+}

@@ -1,0 +1,425 @@
+/* ============================================
+   INGREDIENTS PAGE - PREMIUM DIRECTORY
+   Warm Off-White • Visual Grid • Split Modal
+   ============================================ */
+
+:root {
+    --oh-dark: #1B2E1A;
+    --oh-green: #2D6A4F;
+    --oh-green-light: #40916C;
+    --oh-green-lighter: #52B788;
+    --oh-warm: #FAF9F5;
+    --oh-bg-white: #FFFFFF;
+    --oh-text-dark: #1B2E1A;
+    --oh-text-muted: #6B7280;
+    --oh-border: #E5E7EB;
+}
+
+.ingredients-page-premium {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: var(--oh-text-dark);
+    overflow-x: hidden;
+    background: var(--oh-warm);
+}
+
+/* ============================================
+   HERO SECTION - WARM OFF-WHITE
+   ============================================ */
+.ingredients-hero-premium {
+    padding: 60px 40px 40px;
+    background: var(--oh-warm);
+}
+
+.ingredients-hero-premium-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.ingredients-hero-premium-content {
+    max-width: 700px;
+}
+
+.hero-tag {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: var(--oh-green);
+    background: rgba(45, 106, 79, 0.06);
+    padding: 6px 20px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    border: 1px solid rgba(45, 106, 79, 0.04);
+}
+
+.hero-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+    font-weight: 700;
+    color: var(--oh-text-dark);
+    line-height: 1.1;
+    margin-bottom: 12px;
+    letter-spacing: -0.02em;
+}
+
+.hero-highlight {
+    color: var(--oh-green);
+    position: relative;
+}
+
+.hero-highlight::after {
+    content: '';
+    position: absolute;
+    bottom: 4px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: rgba(45, 106, 79, 0.1);
+    z-index: -1;
+}
+
+.hero-subtitle {
+    font-size: 0.95rem;
+    color: var(--oh-text-muted);
+    line-height: 1.7;
+    max-width: 580px;
+}
+
+/* ============================================
+   SEARCH & FILTER BAR
+   ============================================ */
+.ingredients-filter-premium {
+    padding: 0 40px 20px;
+    background: var(--oh-warm);
+}
+
+.filter-premium-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.search-premium-wrapper {
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    border-radius: 8px;
+    border: 1px solid var(--oh-border);
+    padding: 0 16px;
+    transition: all 0.3s ease;
+    max-width: 500px;
+}
+
+.search-premium-wrapper:focus-within {
+    border-color: var(--oh-green);
+    box-shadow: 0 0 0 3px rgba(45, 106, 79, 0.06);
+}
+
+.search-premium-icon {
+    color: #9CA3AF;
+    font-size: 0.9rem;
+}
+
+.search-premium-input {
+    flex: 1;
+    padding: 12px 12px;
+    border: none;
+    outline: none;
+    font-size: 0.85rem;
+    font-family: 'Inter', sans-serif;
+    color: var(--oh-text-dark);
+    background: transparent;
+}
+
+.search-premium-input::placeholder {
+    color: #9CA3AF;
+}
+
+.search-premium-clear {
+    background: none;
+    border: none;
+    color: #9CA3AF;
+    cursor: pointer;
+    padding: 8px;
+    transition: color 0.2s;
+}
+
+.search-premium-clear:hover {
+    color: #DC2626;
+}
+
+.filter-premium-chips {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.filter-premium-chip {
+    padding: 6px 18px;
+    background: transparent;
+    border: 1px solid var(--oh-border);
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--oh-text-muted);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Inter', sans-serif;
+}
+
+.filter-premium-chip:hover {
+    border-color: var(--oh-green);
+    color: var(--oh-green);
+}
+
+.filter-premium-chip.active {
+    background: var(--oh-green);
+    border-color: var(--oh-green);
+    color: #ffffff;
+}
+
+/* ============================================
+   VISUAL INTERACTIVE GRID
+   ============================================ */
+.ingredients-grid-premium {
+    padding: 20px 40px 60px;
+    background: var(--oh-warm);
+}
+
+.grid-premium-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.grid-premium {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+/* ===== CARD ===== */
+.grid-premium-card {
+    cursor: pointer;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #ffffff;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.02);
+}
+
+.grid-premium-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+    background: rgba(45, 106, 79, 0.02);
+}
+
+/* Image - 70% of card */
+.card-premium-image {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4/5;
+    overflow: hidden;
+    background: #f0ede8;
+}
+
+.card-premium-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.grid-premium-card:hover .card-premium-image img {
+    transform: scale(1.06);
+}
+
+.card-premium-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(27, 46, 26, 0.15);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.grid-premium-card:hover .card-premium-overlay {
+    opacity: 1;
+}
+
+.card-premium-click {
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding: 8px 20px;
+    border: 1.5px solid rgba(255,255,255,0.6);
+    border-radius: 50px;
+    backdrop-filter: blur(4px);
+}
+
+/* Info - 30% of card */
+.card-premium-info {
+    padding: 16px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+    transition: background 0.4s ease;
+}
+
+.grid-premium-card:hover .card-premium-info {
+    background: rgba(45, 106, 79, 0.02);
+}
+
+.card-premium-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--oh-text-dark);
+    margin: 0;
+}
+
+.card-premium-tag {
+    font-size: 0.65rem;
+    font-weight: 600;
+    opacity: 0.7;
+}
+
+/* ===== EMPTY STATE ===== */
+.grid-premium-empty {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--oh-text-muted);
+}
+
+.empty-icon {
+    font-size: 3rem;
+    color: var(--oh-text-muted);
+    opacity: 0.3;
+    margin-bottom: 16px;
+}
+
+.grid-premium-empty h3 {
+    font-size: 1.2rem;
+    color: var(--oh-text-dark);
+    margin-bottom: 4px;
+}
+
+.grid-premium-empty p {
+    font-size: 0.9rem;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 1024px) {
+    .grid-premium {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+    .ingredients-hero-premium {
+        padding: 40px 30px 30px;
+    }
+    
+    .ingredients-filter-premium {
+        padding: 0 30px 20px;
+    }
+    
+    .ingredients-grid-premium {
+        padding: 20px 30px 50px;
+    }
+}
+
+@media (max-width: 768px) {
+    .ingredients-hero-premium {
+        padding: 30px 20px 24px;
+    }
+    
+    .ingredients-filter-premium {
+        padding: 0 20px 16px;
+    }
+    
+    .ingredients-grid-premium {
+        padding: 16px 20px 40px;
+    }
+    
+    .grid-premium {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+    
+    .card-premium-image {
+        aspect-ratio: 4/5;
+    }
+    
+    .card-premium-info {
+        padding: 12px 14px;
+    }
+    
+    .card-premium-name {
+        font-size: 0.85rem;
+    }
+    
+    .card-premium-tag {
+        font-size: 0.55rem;
+    }
+    
+    .search-premium-wrapper {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .grid-premium {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+    
+    .card-premium-image {
+        aspect-ratio: 4/5;
+    }
+    
+    .card-premium-info {
+        padding: 10px 12px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2px;
+    }
+    
+    .card-premium-name {
+        font-size: 0.75rem;
+    }
+    
+    .card-premium-tag {
+        font-size: 0.5rem;
+    }
+    
+    .hero-title {
+        font-size: 1.8rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 0.85rem;
+    }
+    
+    .filter-premium-chips {
+        gap: 6px;
+    }
+    
+    .filter-premium-chip {
+        font-size: 0.65rem;
+        padding: 4px 14px;
+    }
+    
+    .search-premium-input {
+        font-size: 0.8rem;
+        padding: 10px 8px;
+    }
+}

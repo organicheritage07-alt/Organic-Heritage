@@ -1,0 +1,625 @@
+/* AdminDashboard.css - Complete Redesign with Hover Sidebar */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --organic-green: #2D5A27;
+  --organic-green-light: #4A7A42;
+  --organic-green-dark: #1A3E17;
+  --organic-gold: #C4973A;
+  --organic-gold-light: #D4B05A;
+  --organic-cream: #F8F5EE;
+  --organic-white: #FFFFFF;
+  --organic-gray: #6B7280;
+  --organic-gray-light: #F3F4F6;
+  --organic-gray-dark: #4B5563;
+  --organic-red: #DC2626;
+  --sidebar-width: 260px;
+  --sidebar-collapsed: 80px;
+  --header-height: 72px;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--organic-gray-light);
+}
+
+/* ============================================
+   ADMIN TOPBAR
+   ============================================ */
+.admin-topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--header-height);
+  background: var(--organic-green-dark);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  border-bottom: 2px solid var(--organic-gold);
+}
+
+.admin-topbar-inner {
+  width: 100%;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.admin-topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.admin-hamburger {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: var(--organic-white);
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.admin-hamburger:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.admin-topbar-logo {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+.admin-topbar-center {
+  text-align: center;
+  flex: 1;
+}
+
+.admin-topbar-center h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--organic-white);
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.admin-topbar-date {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.6);
+  display: block;
+  margin-top: 4px;
+}
+
+.admin-topbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.admin-user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.admin-user-info:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.admin-user-info span {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--organic-white);
+}
+
+.admin-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--organic-gold);
+  color: var(--organic-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+/* ============================================
+   SIDEBAR - HOVER EFFECT (WHITE + GREEN)
+   ============================================ */
+.admin-sidebar-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 149;
+}
+
+.admin-sidebar-overlay.show {
+  display: block;
+}
+
+.admin-body {
+  display: flex;
+  padding-top: var(--header-height);
+  min-height: 100vh;
+}
+
+.admin-sidebar {
+  position: fixed;
+  top: var(--header-height);
+  left: 0;
+  width: var(--sidebar-collapsed);
+  bottom: 0;
+  background: var(--organic-white);
+  z-index: 150;
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  box-shadow: 2px 0 20px rgba(0, 0, 0, 0.05);
+  border-right: 1px solid #E5E7EB;
+  overflow: hidden;
+}
+
+.admin-sidebar.hovered,
+.admin-sidebar.mobile-open {
+  width: var(--sidebar-width);
+}
+
+/* Sidebar Header */
+.admin-sidebar-header {
+  padding: 20px 16px;
+  border-bottom: 1px solid #E5E7EB;
+  margin-bottom: 20px;
+}
+
+.sidebar-logo-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  overflow: hidden;
+}
+
+.sidebar-logo {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.sidebar-brand {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--organic-green-dark);
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.admin-sidebar.hovered .sidebar-brand,
+.admin-sidebar.mobile-open .sidebar-brand {
+  opacity: 1;
+}
+
+/* Sidebar Navigation */
+.admin-sidebar-nav {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 0 12px;
+}
+
+.admin-sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  background: transparent;
+  border: none;
+  color: var(--organic-gray);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+  text-align: left;
+  width: 100%;
+  position: relative;
+  white-space: nowrap;
+}
+
+.sidebar-icon {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  min-width: 20px;
+  color: var(--organic-gray);
+  transition: all 0.2s ease;
+}
+
+.admin-sidebar-item:hover {
+  background: rgba(45, 90, 39, 0.08);
+  color: var(--organic-green);
+}
+
+.admin-sidebar-item:hover .sidebar-icon {
+  color: var(--organic-green);
+}
+
+.admin-sidebar-item.active {
+  background: var(--organic-green);
+  color: var(--organic-white);
+}
+
+.admin-sidebar-item.active .sidebar-icon {
+  color: var(--organic-white);
+}
+
+.sidebar-label {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  font-size: 0.85rem;
+}
+
+.admin-sidebar.hovered .sidebar-label,
+.admin-sidebar.mobile-open .sidebar-label {
+  opacity: 1;
+}
+
+/* Active Indicator */
+.sidebar-active-indicator {
+  position: absolute;
+  right: 8px;
+  width: 4px;
+  height: 20px;
+  background: var(--organic-gold);
+  border-radius: 2px;
+}
+
+.admin-sidebar:not(.hovered) .sidebar-active-indicator {
+  display: none;
+}
+
+/* Sidebar Footer */
+.admin-sidebar-footer {
+  padding: 20px 12px;
+  border-top: 1px solid #E5E7EB;
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.home-btn,
+.logout-btn {
+  background: transparent !important;
+}
+
+.home-btn:hover {
+  background: rgba(45, 90, 39, 0.08) !important;
+  color: var(--organic-green) !important;
+}
+
+.logout-btn:hover {
+  background: rgba(220, 38, 38, 0.08) !important;
+  color: var(--organic-red) !important;
+}
+
+.logout-btn:hover .sidebar-icon {
+  color: var(--organic-red) !important;
+}
+
+/* ============================================
+   PROFILE DROPDOWN
+   ============================================ */
+.admin-user-info {
+  position: relative;
+}
+
+.admin-profile-dropdown {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  width: 260px;
+  background: var(--organic-white);
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  z-index: 300;
+  overflow: hidden;
+  border: 1px solid #E5E7EB;
+}
+
+.apd-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px;
+  background: var(--organic-gray-light);
+}
+
+.apd-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--organic-green);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.apd-header strong {
+  font-size: 0.9rem;
+  color: var(--organic-green-dark);
+  display: block;
+  font-weight: 700;
+}
+
+.apd-header span {
+  font-size: 0.7rem;
+  color: var(--organic-gray);
+  display: block;
+  margin-top: 2px;
+}
+
+.apd-divider {
+  height: 1px;
+  background: #E5E7EB;
+  margin: 4px 0;
+}
+
+.admin-profile-dropdown button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: transparent;
+  border: none;
+  font-size: 0.85rem;
+  color: var(--organic-gray-dark);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.admin-profile-dropdown button:hover {
+  background: var(--organic-gray-light);
+  color: var(--organic-green);
+}
+
+/* ============================================
+   MAIN CONTENT
+   ============================================ */
+.admin-main {
+  flex: 1;
+  padding: 24px;
+  min-height: calc(100vh - var(--header-height));
+  width: 100%;
+  margin-left: var(--sidebar-collapsed);
+  transition: margin-left 0.3s ease;
+  background: var(--organic-gray-light);
+}
+
+.admin-sidebar.hovered + .admin-main,
+.admin-sidebar.mobile-open + .admin-main {
+  margin-left: var(--sidebar-width);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+  .admin-topbar {
+    height: 60px;
+  }
+  
+  .admin-body {
+    padding-top: 60px;
+  }
+  
+  .admin-topbar-inner {
+    padding: 0 16px;
+  }
+  
+  .admin-topbar-center h1 {
+    font-size: 1rem;
+  }
+  
+  .admin-topbar-logo {
+    display: none;
+  }
+  
+  .admin-user-info span {
+    display: none;
+  }
+  
+  .admin-sidebar {
+    left: -80px;
+    width: 80px;
+    z-index: 151;
+  }
+  
+  .admin-sidebar.mobile-open {
+    left: 0;
+    width: var(--sidebar-width);
+  }
+  
+  .admin-sidebar.mobile-open .sidebar-label,
+  .admin-sidebar.mobile-open .sidebar-brand {
+    opacity: 1;
+  }
+  
+  .admin-main {
+    margin-left: 0 !important;
+    padding: 16px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .admin-main {
+    padding: 20px;
+  }
+}/* Add these styles to your existing AdminDashboard.css */
+
+/* ============================================
+   SIDEBAR BADGE - WITH LABEL
+   ============================================ */
+
+.admin-sidebar-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  width: 100%;
+  border: none;
+  background: transparent;
+  color: var(--organic-gray);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-align: left;
+  white-space: nowrap;
+}
+
+/* Badge Style - with label text */
+.sidebar-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  padding: 2px 10px;
+  height: 22px;
+  border-radius: 20px;
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-left: auto;
+  flex-shrink: 0;
+  letter-spacing: 0.3px;
+  animation: badgePulse 2s ease-in-out infinite;
+  white-space: nowrap;
+}
+
+@keyframes badgePulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* Different badge colors */
+.sidebar-badge[style*="background-color: #3B82F6"] {
+  /* Users - Blue */
+}
+
+.sidebar-badge[style*="background-color: #F59E0B"] {
+  /* Products - Amber */
+}
+
+.sidebar-badge[style*="background-color: #EF4444"] {
+  /* Orders - Red */
+}
+
+.sidebar-badge[style*="background-color: #8B5CF6"] {
+  /* Benefits - Purple */
+}
+
+.sidebar-badge[style*="background-color: #10B981"] {
+  /* Reviews - Green */
+}
+
+/* Hover sidebar - badge remains visible */
+.admin-sidebar:not(.hovered) .sidebar-badge {
+  font-size: 0.5rem;
+  padding: 1px 6px;
+  min-width: 16px;
+  height: 18px;
+}
+
+.admin-sidebar:not(.hovered) .sidebar-badge {
+  margin-left: auto;
+}
+
+/* Sidebar icon spacing */
+.sidebar-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.sidebar-label {
+  flex: 1;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  font-size: 0.85rem;
+}
+
+.admin-sidebar.hovered .sidebar-label,
+.admin-sidebar.mobile-open .sidebar-label {
+  opacity: 1;
+}
+
+/* Active indicator */
+.sidebar-active-indicator {
+  position: absolute;
+  right: 8px;
+  width: 4px;
+  height: 20px;
+  background: var(--organic-gold);
+  border-radius: 2px;
+}
+
+.admin-sidebar:not(.hovered) .sidebar-active-indicator {
+  display: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .sidebar-badge {
+    font-size: 0.5rem !important;
+    padding: 1px 8px !important;
+    height: 18px !important;
+    min-width: 16px !important;
+  }
+}
+
+@media (min-width: 769px) {
+  .admin-sidebar:not(.hovered) .sidebar-badge {
+    font-size: 0.45rem;
+    padding: 1px 4px;
+    min-width: 12px;
+    height: 16px;
+  }
+}

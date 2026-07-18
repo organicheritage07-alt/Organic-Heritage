@@ -1,0 +1,250 @@
+/* ============================================
+   THE BREATHING CONTACT ORB
+   Premium Floating Social Action Button
+   ============================================ */
+
+/* ===== OVERLAY ===== */
+.orb-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(27, 46, 26, 0.15);
+    backdrop-filter: blur(2px);
+    z-index: 2999;
+    animation: orbFadeIn 0.3s ease;
+}
+
+@keyframes orbFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* ===== ORB CONTAINER ===== */
+.contact-orb {
+    position: fixed;
+    bottom: 24px;
+    left: 24px;
+    z-index: 3000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+}
+
+/* ===== MAIN TRIGGER BUTTON — The Breathing Orb ===== */
+.orb-main-btn {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: none;
+    background: #2D5A27;
+    color: #ffffff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 3001;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 
+        0 4px 20px rgba(45, 90, 39, 0.3),
+        0 0 0 0 rgba(45, 90, 39, 0.4);
+    animation: orbBreathe 3s ease-in-out infinite;
+}
+
+/* Breathing Pulse Effect */
+@keyframes orbBreathe {
+    0%, 100% {
+        box-shadow: 
+            0 4px 20px rgba(45, 90, 39, 0.3),
+            0 0 0 0 rgba(45, 90, 39, 0.4);
+    }
+    50% {
+        box-shadow: 
+            0 4px 25px rgba(45, 90, 39, 0.35),
+            0 0 0 8px rgba(45, 90, 39, 0);
+    }
+}
+
+.orb-main-btn:hover {
+    transform: scale(1.08);
+    background: #1B2E1A;
+}
+
+.orb-main-btn:active {
+    transform: scale(0.95);
+}
+
+/* Icon inside main button */
+.orb-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.orb-icon-close {
+    transform: rotate(90deg);
+}
+
+/* ===== SOCIAL ICONS CONTAINER ===== */
+.orb-socials {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    position: relative;
+}
+
+/* ===== EACH SOCIAL ITEM ===== */
+.orb-social-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(20px) scale(0.8);
+    pointer-events: none;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transition-delay: var(--delay, 0ms);
+}
+
+/* When orb is open — reveal socials with stagger */
+.orb-open .orb-social-item {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+}
+
+/* Reverse stagger on close */
+.contact-orb:not(.orb-open) .orb-social-item {
+    transition-delay: 0ms;
+}
+
+/* ===== SOCIAL BUTTON ===== */
+.orb-social-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: none;
+    background: #FAF9F5;
+    color: #2D5A27;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.15rem;
+    box-shadow: 
+        0 2px 12px rgba(0, 0, 0, 0.08),
+        0 1px 3px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    position: relative;
+}
+
+.orb-social-btn:hover {
+    transform: scale(1.12);
+    background: #ffffff;
+    box-shadow: 
+        0 6px 24px rgba(0, 0, 0, 0.12),
+        0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+.orb-social-btn:active {
+    transform: scale(0.95);
+}
+
+/* ===== TOOLTIP ===== */
+.orb-tooltip {
+    position: absolute;
+    left: 60px;
+    background: #1B2E1A;
+    color: #ffffff;
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateX(8px);
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    letter-spacing: 0.3px;
+    box-shadow: 0 4px 16px rgba(27, 46, 26, 0.2);
+}
+
+.orb-tooltip::after {
+    content: '';
+    position: absolute;
+    left: -5px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-right: 5px solid #1B2E1A;
+}
+
+.orb-social-item:hover .orb-tooltip {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* ============================================
+   MOBILE ADJUSTMENTS
+   ============================================ */
+@media (max-width: 768px) {
+    .contact-orb {
+        bottom: 20px;
+        left: 20px;
+    }
+
+    .orb-main-btn {
+        width: 52px;
+        height: 52px;
+    }
+
+    .orb-icon {
+        font-size: 1rem;
+    }
+
+    .orb-social-btn {
+        width: 44px;
+        height: 44px;
+        font-size: 1rem;
+    }
+
+    .orb-socials {
+        gap: 10px;
+        margin-bottom: 14px;
+    }
+
+    /* Tooltip hidden on mobile (touch devices) */
+    .orb-tooltip {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-orb {
+        bottom: 16px;
+        left: 16px;
+    }
+
+    .orb-main-btn {
+        width: 48px;
+        height: 48px;
+    }
+
+    .orb-social-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 0.95rem;
+    }
+
+    .orb-socials {
+        gap: 8px;
+        margin-bottom: 12px;
+    }
+}

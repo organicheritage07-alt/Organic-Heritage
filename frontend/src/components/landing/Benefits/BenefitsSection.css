@@ -1,0 +1,896 @@
+/* ========================================
+   FINAL VIDEO-STYLE ANIMATED PRODUCT CARDS
+   Desktop & Mobile: Perfect alignment
+   ======================================== */
+
+.benefits-section {
+    width: 100%;
+    padding: 80px 40px;
+    background: #ffffff;
+    overflow-x: hidden;
+}
+
+/* Header */
+.benefits-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.benefits-tag {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #2D6A4F;
+    background: rgba(45, 106, 79, 0.08);
+    padding: 8px 24px;
+    border: 1px solid rgba(45, 106, 79, 0.12);
+    margin-bottom: 18px;
+}
+
+.benefits-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-weight: 800;
+    color: #1B2E1A;
+    margin-bottom: 12px;
+}
+
+.benefits-title .title-highlight {
+    color: #2D6A4F;
+    position: relative;
+}
+
+.benefits-title .title-highlight::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background: rgba(45, 106, 79, 0.12);
+    z-index: -1;
+}
+
+.benefits-subtitle {
+    font-size: 1rem;
+    color: #6B7280;
+    max-width: 500px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+/* ========================================
+   ROW OF CARDS
+   ======================================== */
+.video-cards-row {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 50px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    transition: all 0.4s ease;
+    position: relative;
+}
+
+/* When any card is hovered, dim other cards */
+.video-cards-row.has-hover .v-card.is-dimmed {
+    opacity: 0;
+    filter: blur(2px);
+    transform: scale(0.9);
+    pointer-events: none;
+    visibility: hidden;
+    transition: opacity 0.3s ease, filter 0.3s ease, transform 0.3s ease, visibility 0s linear 0.3s;
+}
+
+/* ========================================
+   SINGLE VIDEO CARD
+   ======================================== */
+.v-card {
+    position: relative;
+    width: 200px;
+    height: 380px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    z-index: 1;
+    transition: opacity 0.4s ease, filter 0.4s ease, transform 0.4s ease, visibility 0.4s ease;
+    flex-shrink: 0;
+}
+
+.v-card.is-hovered {
+    z-index: 100;
+    opacity: 1 !important;
+    filter: none !important;
+    transform: scale(1) !important;
+    visibility: visible !important;
+}
+
+/* ========================================
+   EXPANDING BACKGROUND (Circle -> Card)
+   ======================================== */
+.v-card-bg {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: transparent;
+    border: 2px solid rgba(0,0,0,0.05);
+    transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1;
+}
+
+.v-card.is-hovered .v-card-bg {
+    width: 550px;
+    height: auto;
+    min-height: 320px;
+    border-radius: 20px;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--card-bg);
+    border: none;
+}
+
+/* ========================================
+   GLOW EFFECT
+   ======================================== */
+.v-card-glow {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    filter: blur(35px);
+    opacity: 0;
+    z-index: 0;
+    transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.v-card.is-hovered .v-card-glow {
+    width: 570px;
+    height: 340px;
+    opacity: 0.12;
+    border-radius: 20px;
+    top: 0;
+}
+
+/* ========================================
+   DEFAULT CIRCLE WITH BIG PRODUCT IMAGE
+   ======================================== */
+.v-circle {
+    position: relative;
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+    margin-top: 20px;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: visible;
+    background: transparent;
+}
+
+.v-circle-img {
+    width: 240px;
+    height: 240px;
+    object-fit: contain;
+    transition: all 0.5s ease;
+    filter: drop-shadow(0 10px 25px rgba(0,0,0,0.1));
+    position: relative;
+    z-index: 6;
+}
+
+.v-card.is-hovered .v-circle {
+    opacity: 0;
+    transform: scale(0.5);
+}
+
+/* ========================================
+   PRODUCT LABEL
+   ======================================== */
+.v-product-label {
+    margin-top: 45px;
+    text-align: center;
+    z-index: 5;
+    transition: all 0.3s ease;
+}
+
+.v-label-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #1B2E1A;
+}
+
+.v-card.is-hovered .v-product-label {
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+/* ========================================
+   ANIMATED PRODUCT IMAGE (on hover)
+   ======================================== */
+.v-product-animated {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.3) rotate(0deg);
+    width: 320px;
+    height: auto;
+    max-height: 350px;
+    object-fit: contain;
+    z-index: 10;
+    opacity: 0;
+    pointer-events: none;
+    filter: drop-shadow(0 8px 20px rgba(0,0,0,0.12));
+    transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.v-card.is-hovered .v-product-animated {
+    opacity: 1;
+    transform: translate(50%, -45%) scale(1) rotate(-10deg);
+    filter: drop-shadow(0 8px 20px rgba(0,0,0,0.12));
+}
+
+/* ========================================
+   CONTENT (appears on hover - LEFT SIDE)
+   ======================================== */
+.v-content {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 550px;
+    height: auto;
+    min-height: 320px;
+    padding: 40px 50px 40px 45px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 15;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s ease;
+    transition-delay: 0s;
+    pointer-events: none;
+}
+
+.v-card.is-hovered .v-content {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0.3s;
+    pointer-events: auto;
+}
+
+.v-highlight {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 10px;
+    width: fit-content;
+}
+
+.v-content h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.v-desc {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 18px;
+    font-weight: 500;
+}
+
+.v-benefits-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px 16px;
+}
+
+.v-benefits-list li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.95);
+    line-height: 1.4;
+}
+
+.v-check {
+    width: 18px;
+    height: 18px;
+    min-width: 18px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.25);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.6rem;
+    font-weight: 800;
+    color: white;
+    flex-shrink: 0;
+}
+
+.v-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #ffffff;
+    color: #1a1a1a;
+    padding: 12px 26px;
+    border-radius: 10px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    width: fit-content;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+.v-btn:hover {
+    transform: translateX(5px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+
+.v-btn svg {
+    transition: transform 0.3s ease;
+}
+
+.v-btn:hover svg {
+    transform: translateX(3px);
+}
+
+/* ========================================
+   RESPONSIVE - 1200px
+   ======================================== */
+@media (max-width: 1200px) {
+    .video-cards-row {
+        gap: 40px;
+        flex-wrap: wrap;
+    }
+
+    .v-card {
+        width: 180px;
+        height: 360px;
+    }
+
+    .v-circle {
+        width: 150px;
+        height: 150px;
+    }
+
+    .v-circle-img {
+        width: 210px;
+        height: 210px;
+    }
+
+    .v-product-label {
+        margin-top: 40px;
+    }
+
+    .v-label-name {
+        font-size: 1.25rem;
+    }
+
+    .v-card.is-hovered .v-card-bg {
+        width: 500px;
+        min-height: 300px;
+    }
+
+    .v-card.is-hovered .v-card-glow {
+        width: 520px;
+        height: 320px;
+    }
+
+    .v-content {
+        width: 500px;
+        min-height: 300px;
+        padding: 35px 40px;
+    }
+
+    .v-product-animated {
+        width: 280px;
+        max-height: 320px;
+    }
+
+    .v-card.is-hovered .v-product-animated {
+        transform: translate(45%, -45%) scale(1) rotate(-10deg);
+    }
+
+    .v-content h3 {
+        font-size: 1.9rem;
+    }
+
+    .v-benefits-list {
+        gap: 4px 12px;
+    }
+
+    .v-benefits-list li {
+        font-size: 0.78rem;
+    }
+}
+
+/* ========================================
+   RESPONSIVE - 992px
+   ======================================== */
+@media (max-width: 992px) {
+    .video-cards-row {
+        gap: 30px;
+        max-width: 700px;
+    }
+
+    .v-card {
+        width: 160px;
+        height: 340px;
+    }
+
+    .v-circle {
+        width: 130px;
+        height: 130px;
+        margin-top: 18px;
+    }
+
+    .v-circle-img {
+        width: 180px;
+        height: 180px;
+    }
+
+    .v-product-label {
+        margin-top: 38px;
+    }
+
+    .v-label-name {
+        font-size: 1.15rem;
+    }
+
+    .v-card-bg {
+        width: 130px;
+        height: 130px;
+        top: 18px;
+    }
+
+    .v-card-glow {
+        width: 150px;
+        height: 150px;
+        top: 18px;
+    }
+
+    .v-card.is-hovered .v-card-bg {
+        width: 460px;
+        min-height: 280px;
+    }
+
+    .v-card.is-hovered .v-card-glow {
+        width: 480px;
+        height: 300px;
+    }
+
+    .v-content {
+        width: 460px;
+        min-height: 280px;
+        padding: 30px 35px;
+    }
+
+    .v-product-animated {
+        width: 240px;
+        max-height: 280px;
+    }
+
+    .v-card.is-hovered .v-product-animated {
+        transform: translate(40%, -45%) scale(1) rotate(-10deg);
+    }
+
+    .v-content h3 {
+        font-size: 1.6rem;
+    }
+
+    .v-benefits-list {
+        gap: 4px 10px;
+    }
+
+    .v-benefits-list li {
+        font-size: 0.74rem;
+    }
+}
+
+/* ========================================
+   RESPONSIVE - 768px
+   ======================================== */
+@media (max-width: 768px) {
+    .benefits-section {
+        padding: 50px 20px;
+    }
+
+    .video-cards-row {
+        gap: 25px;
+        padding: 40px 10px;
+    }
+
+    .v-card {
+        width: 140px;
+        height: 310px;
+    }
+
+    .v-circle {
+        width: 115px;
+        height: 115px;
+        margin-top: 15px;
+    }
+
+    .v-circle-img {
+        width: 155px;
+        height: 155px;
+    }
+
+    .v-card-bg {
+        width: 115px;
+        height: 115px;
+        top: 15px;
+    }
+
+    .v-card-glow {
+        width: 135px;
+        height: 135px;
+        top: 15px;
+    }
+
+    .v-product-label {
+        margin-top: 35px;
+    }
+
+    .v-label-name {
+        font-size: 1.05rem;
+    }
+
+    .v-card.is-hovered .v-card-bg {
+        width: 420px;
+        min-height: 260px;
+        top: 0;
+    }
+
+    .v-card.is-hovered .v-card-glow {
+        width: 440px;
+        height: 280px;
+        top: 0;
+    }
+
+    .v-content {
+        width: 420px;
+        min-height: 260px;
+        padding: 26px 30px;
+        top: 0;
+    }
+
+    .v-product-animated {
+        width: 200px;
+        max-height: 240px;
+    }
+
+    .v-card.is-hovered .v-product-animated {
+        transform: translate(35%, -45%) scale(1) rotate(-10deg);
+    }
+
+    .v-content h3 {
+        font-size: 1.4rem;
+    }
+
+    .v-desc {
+        font-size: 0.82rem;
+        margin-bottom: 14px;
+    }
+
+    .v-benefits-list {
+        gap: 4px 8px;
+        margin-bottom: 16px;
+    }
+
+    .v-benefits-list li {
+        font-size: 0.7rem;
+    }
+
+    .v-btn {
+        padding: 10px 22px;
+        font-size: 0.82rem;
+    }
+}
+
+/* ========================================
+   MOBILE - Same side-by-side layout as desktop
+   ======================================== */
+@media (max-width: 600px) {
+    .benefits-section {
+        padding: 40px 10px;
+    }
+
+    .video-cards-row {
+        gap: 20px 15px;
+        padding: 30px 5px;
+        position: relative;
+        flex-wrap: wrap;
+    }
+
+    .v-card {
+        width: 100px;
+        height: 240px;
+    }
+
+    .v-circle {
+        width: 85px;
+        height: 85px;
+        margin-top: 12px;
+    }
+
+    .v-circle-img {
+        width: 115px;
+        height: 115px;
+    }
+
+    .v-card-bg {
+        width: 85px;
+        height: 85px;
+        top: 12px;
+    }
+
+    .v-card-glow {
+        width: 105px;
+        height: 105px;
+        top: 12px;
+    }
+
+    .v-product-label {
+        margin-top: 28px;
+    }
+
+    .v-label-name {
+        font-size: 0.85rem;
+    }
+
+    /* ========================================
+       MOBILE HOVER: Same desktop layout - image right, content left
+       NOT fixed position - stays in section flow
+       ======================================== */
+    .v-card.is-hovered {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none !important;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        min-height: auto;
+        z-index: 100;
+        margin: 0;
+        flex-shrink: 0;
+    }
+
+    .v-card.is-hovered .v-card-bg {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        min-height: 280px;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 16px;
+    }
+
+    .v-card.is-hovered .v-card-glow {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 16px;
+    }
+
+    .v-card.is-hovered .v-circle {
+        display: none;
+    }
+
+    .v-card.is-hovered .v-product-label {
+        display: none;
+    }
+
+    /* ========================================
+       MOBILE: Product image on RIGHT (same as desktop)
+       ======================================== */
+    .v-card.is-hovered .v-product-animated {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(40%, -45%) scale(1) rotate(-10deg);
+        width: 160px;
+        max-height: 200px;
+        opacity: 1;
+        z-index: 10;
+    }
+
+    /* ========================================
+       MOBILE: Content on LEFT (same as desktop)
+       ======================================== */
+    .v-card.is-hovered .v-content {
+        position: relative;
+        width: 100%;
+        min-height: 280px;
+        padding: 24px 20px 24px 20px;
+        top: auto;
+        left: auto;
+        transform: none;
+        opacity: 1;
+        visibility: visible;
+        transition-delay: 0;
+        z-index: 15;
+        pointer-events: auto;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .v-content h3 {
+        font-size: 1.2rem;
+    }
+
+    .v-desc {
+        font-size: 0.78rem;
+        margin-bottom: 12px;
+    }
+
+    .v-benefits-list {
+        gap: 8px;
+        margin-bottom: 16px;
+        grid-template-columns: 1fr;  /* Single column - 1 benefit per row */
+        width: 100%;
+    }
+
+    .v-benefits-list li {
+        font-size: 0.7rem;
+        gap: 6px;
+        text-align: left;
+    }
+
+    .v-check {
+        width: 16px;
+        height: 16px;
+        min-width: 16px;
+        font-size: 0.55rem;
+    }
+
+    .v-btn {
+        padding: 10px 18px;
+        font-size: 0.78rem;
+    }
+
+    .video-cards-row.has-hover .v-card.is-dimmed {
+        opacity: 0;
+        visibility: hidden;
+        position: absolute;
+    }
+}
+
+@media (max-width: 400px) {
+    .v-card {
+        width: 90px;
+        height: 230px;
+    }
+
+    .v-circle {
+        width: 75px;
+        height: 75px;
+    }
+
+    .v-circle-img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .v-card-bg {
+        width: 75px;
+        height: 75px;
+    }
+
+    .v-product-label {
+        margin-top: 24px;
+    }
+
+    .v-label-name {
+        font-size: 0.78rem;
+    }
+
+    .v-card.is-hovered .v-card-bg {
+        min-height: 260px;
+    }
+
+    .v-card.is-hovered .v-product-animated {
+        width: 130px;
+        max-height: 170px;
+        transform: translate(35%, -45%) scale(1) rotate(-10deg);
+    }
+
+    .v-card.is-hovered .v-content {
+        min-height: 260px;
+        padding: 20px 16px 20px 16px;
+    }
+
+    .v-content h3 {
+        font-size: 1.1rem;
+    }
+
+    .v-desc {
+        font-size: 0.72rem;
+    }
+
+    .v-benefits-list {
+        gap: 6px;
+        grid-template-columns: 1fr;  /* Single column */
+    }
+
+    .v-benefits-list li {
+        font-size: 0.65rem;
+    }
+
+    .v-btn {
+        padding: 9px 16px;
+        font-size: 0.72rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .v-card.is-hovered .v-card-bg {
+        min-height: 240px;
+    }
+
+    .v-card.is-hovered .v-product-animated {
+        width: 110px;
+        max-height: 150px;
+        transform: translate(30%, -45%) scale(1) rotate(-10deg);
+    }
+
+    .v-card.is-hovered .v-content {
+        min-height: 240px;
+        padding: 18px 14px 18px 14px;
+    }
+
+    .v-content h3 {
+        font-size: 1rem;
+    }
+
+    .v-benefits-list {
+        grid-template-columns: 1fr;
+        gap: 4px;
+    }
+
+    .v-benefits-list li {
+        font-size: 0.62rem;
+    }
+
+    .v-btn {
+        padding: 8px 14px;
+        font-size: 0.68rem;
+    }
+}

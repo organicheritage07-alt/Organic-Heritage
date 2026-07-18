@@ -1,0 +1,336 @@
+/* ============================================
+   TRUST PILLARS - PREMIUM INTERACTIVE SECTION
+   Guided by Purpose, Driven by Impact
+   ============================================ */
+
+.trust-pillars-section {
+    padding: 60px 0 70px;
+    background: #FFFFFF;
+    position: relative;
+    overflow: hidden;
+}
+
+.trust-pillars-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+/* ===== HEADER ===== */
+.trust-pillars-header {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.trust-pillars-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-weight: 700;
+    color: #1B2E1A;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+}
+
+.trust-pillars-highlight {
+    color: #2D5A27;
+    position: relative;
+}
+
+.trust-pillars-highlight::after {
+    content: '';
+    position: absolute;
+    bottom: 4px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: rgba(45, 90, 39, 0.12);
+    z-index: -1;
+}
+
+.trust-pillars-subtitle {
+    font-size: 0.95rem;
+    color: #6B7B65;
+    font-weight: 300;
+    letter-spacing: 0.02em;
+}
+
+/* ===== GRID - 5 Columns ===== */
+.trust-pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+}
+
+/* ===== CARD ===== */
+.trust-pillar-card {
+    background: #FBFBF9;
+    border-radius: 16px;
+    padding: 32px 20px 28px;
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.02);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: default;
+    position: relative;
+}
+
+/* ✅ HOVER EFFECTS - Card Elevation */
+.trust-pillar-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.03);
+    border-color: rgba(45, 90, 39, 0.04);
+}
+
+/* ===== ICON WRAPPER ===== */
+.trust-pillar-icon-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.trust-pillar-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6B8E5A;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ✅ ICON HOVER - Scale & Color Shift */
+.trust-pillar-card:hover .trust-pillar-icon {
+    transform: scale(1.12) translateY(-2px);
+    color: #2D5A27;
+}
+
+.trust-pillar-icon svg {
+    width: 100%;
+    height: 100%;
+    stroke-width: 1.5;
+    transition: stroke-width 0.3s ease;
+}
+
+.trust-pillar-card:hover .trust-pillar-icon svg {
+    stroke-width: 2;
+}
+
+/* ===== TITLE ===== */
+.trust-pillar-title {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #1B2E1A;
+    margin: 0 0 6px 0;
+    letter-spacing: 0.02em;
+    transition: color 0.3s ease;
+}
+
+.trust-pillar-card:hover .trust-pillar-title {
+    color: #2D5A27;
+}
+
+/* ===== DESCRIPTION ===== */
+.trust-pillar-description {
+    font-size: 0.7rem;
+    font-weight: 400;
+    color: rgba(107, 123, 101, 0.7);
+    line-height: 1.5;
+    margin: 0;
+    transition: opacity 0.4s ease, color 0.4s ease;
+    max-width: 180px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ✅ TEXT REVEAL ON HOVER */
+.trust-pillar-card:hover .trust-pillar-description {
+    opacity: 1;
+    color: #6B7B65;
+}
+
+/* ============================================
+   RESPONSIVE - TABLET
+   ============================================ */
+@media (max-width: 1024px) {
+    .trust-pillars-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+    }
+
+    .trust-pillar-card {
+        padding: 28px 16px 24px;
+    }
+
+    .trust-pillar-title {
+        font-size: 0.85rem;
+    }
+
+    .trust-pillar-description {
+        font-size: 0.65rem;
+        max-width: 160px;
+    }
+}
+
+/* ============================================
+   RESPONSIVE - MOBILE (2 Columns + Center 5th)
+   ============================================ */
+@media (max-width: 768px) {
+    .trust-pillars-section {
+        padding: 40px 0 50px;
+    }
+
+    .trust-pillars-container {
+        padding: 0 16px;
+    }
+
+    .trust-pillars-header {
+        margin-bottom: 32px;
+    }
+
+    .trust-pillars-title {
+        font-size: 1.5rem;
+    }
+
+    .trust-pillars-subtitle {
+        font-size: 0.85rem;
+    }
+
+    /* ✅ 2-Column Grid with 5th centered */
+    .trust-pillars-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+        justify-items: center;
+    }
+
+    /* 5th card - full width bottom center */
+    .trust-pillar-card:nth-child(5) {
+        grid-column: 1 / -1;
+        max-width: 280px;
+        justify-self: center;
+    }
+
+    .trust-pillar-card {
+        padding: 24px 14px 20px;
+        width: 100%;
+        max-width: 240px;
+    }
+
+    .trust-pillar-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .trust-pillar-title {
+        font-size: 0.8rem;
+    }
+
+    .trust-pillar-description {
+        font-size: 0.6rem;
+        max-width: 140px;
+    }
+
+    .trust-pillar-card:nth-child(5) .trust-pillar-description {
+        max-width: 200px;
+    }
+}
+
+/* ============================================
+   RESPONSIVE - SMALL MOBILE
+   ============================================ */
+@media (max-width: 480px) {
+    .trust-pillars-grid {
+        gap: 10px;
+    }
+
+    .trust-pillar-card {
+        padding: 18px 10px 16px;
+        max-width: 180px;
+        border-radius: 12px;
+    }
+
+    .trust-pillar-icon {
+        width: 34px;
+        height: 34px;
+    }
+
+    .trust-pillar-title {
+        font-size: 0.7rem;
+    }
+
+    .trust-pillar-description {
+        display: none;
+    }
+
+    .trust-pillar-card:nth-child(5) {
+        max-width: 200px;
+    }
+
+    .trust-pillars-title {
+        font-size: 1.2rem;
+    }
+
+    .trust-pillars-subtitle {
+        font-size: 0.75rem;
+    }
+}
+
+/* ============================================
+   DARK MODE
+   ============================================ */
+@media (prefers-color-scheme: dark) {
+    .trust-pillars-section {
+        background: #1B2E1A;
+    }
+
+    .trust-pillars-title {
+        color: #F8F5EE;
+    }
+
+    .trust-pillars-highlight {
+        color: #52B788;
+    }
+
+    .trust-pillars-highlight::after {
+        background: rgba(82, 183, 136, 0.15);
+    }
+
+    .trust-pillars-subtitle {
+        color: rgba(255, 255, 255, 0.5);
+    }
+
+    .trust-pillar-card {
+        background: rgba(255, 255, 255, 0.03);
+        border-color: rgba(255, 255, 255, 0.02);
+    }
+
+    .trust-pillar-card:hover {
+        border-color: rgba(82, 183, 136, 0.08);
+        box-shadow: 0 16px 48px rgba(0, 0, 0, 0.2);
+    }
+
+    .trust-pillar-icon {
+        color: #52B788;
+    }
+
+    .trust-pillar-card:hover .trust-pillar-icon {
+        color: #6BCB9E;
+    }
+
+    .trust-pillar-title {
+        color: #F8F5EE;
+    }
+
+    .trust-pillar-card:hover .trust-pillar-title {
+        color: #52B788;
+    }
+
+    .trust-pillar-description {
+        color: rgba(255, 255, 255, 0.3);
+    }
+
+    .trust-pillar-card:hover .trust-pillar-description {
+        color: rgba(255, 255, 255, 0.5);
+    }
+}
