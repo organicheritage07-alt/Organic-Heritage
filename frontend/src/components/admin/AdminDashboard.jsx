@@ -7,7 +7,7 @@ import {
   FaBox, FaListUl, FaStar, FaEnvelope, FaLeaf
 } from 'react-icons/fa';
 import axios from 'axios';
-import Users from './tabs/users/Users';
+import Users from './tabs/users/users';
 import Settings from './tabs/settings/Settings';
 import Products from './tabs/products/Products';
 import Orders from './tabs/orders/Orders';
