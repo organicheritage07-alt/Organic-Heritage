@@ -7,7 +7,7 @@ import {
 } from 'react-icons/fa';
 import Swal from 'sweetalert2';
 import axios from 'axios';
-import './Settings.css';
+import './settings.css';
 
 const API_URL = 'http://localhost:5000/api/auth';
 
