@@ -8,7 +8,7 @@ import {
     FaTimes, FaSave, FaImage, FaListUl, FaArrowLeft,
     FaSyncAlt, FaCloudUploadAlt
 } from 'react-icons/fa';
-import './Ingredients.css';
+import './ingredients.css';
 
 const API_URL = 'http://localhost:5000/api/ingredients';
 
