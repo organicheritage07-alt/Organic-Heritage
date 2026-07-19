@@ -10,7 +10,7 @@ import * as XLSX from 'xlsx';
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
 import Swal from 'sweetalert2';
-import './Users.css';
+import './users.css';
 
 const API_URL = 'http://localhost:5000/api/auth';
 
