@@ -10,7 +10,7 @@ import {
 } from 'react-icons/fa';
 import axios from 'axios';
 import Swal from 'sweetalert2';
-import './Products.css';
+import './products.css';
 
 const API_URL = 'http://localhost:5000/api/products';
 
