@@ -10,10 +10,10 @@ import axios from 'axios';
 import Users from './tabs/users/users';
 import Settings from './tabs/settings/settings';
 import Products from './tabs/products/products';
-import Orders from './tabs/orders/orders';
-import Benefits from './tabs/benefits/benefits';
-import Reviews from './tabs/reviews/reviews';
-import ContactMessages from './tabs/contact/contactMessages';
+import Orders from './tabs/orders/Orders';
+import Benefits from './tabs/benefits/Benefits';
+import Reviews from './tabs/reviews/Reviews';
+import ContactMessages from './tabs/contact/ContactMessages';
 import Ingredients from './tabs/ingredients/ingredients'; // ✅ IMPORT INGREDIENTS
 import './AdminDashboard.css';
 
