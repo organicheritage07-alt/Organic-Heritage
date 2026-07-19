@@ -8,14 +8,14 @@ import {
 } from 'react-icons/fa';
 import axios from 'axios';
 import Users from './tabs/users/users';
-import Settings from './tabs/settings/settingsettings';
+import Settings from './tabs/settings/settings';
 import Products from './tabs/products/products';
 import Orders from './tabs/orders/orders';
 import Benefits from './tabs/benefits/benefits';
 import Reviews from './tabs/reviews/reviews';
 import ContactMessages from './tabs/contact/contactMessages';
 import Ingredients from './tabs/ingredients/ingredients'; // ✅ IMPORT INGREDIENTS
-import './adminDashboard.css';
+import './AdminDashboard.css';
 
 const AdminDashboard = () => {
   const [user, setUser] = useState(null);
