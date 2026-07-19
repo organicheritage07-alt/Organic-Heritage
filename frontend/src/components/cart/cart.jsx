@@ -5,7 +5,7 @@ import {
     FaTrash, FaPlus, FaMinus, FaShoppingCart, 
     FaArrowLeft, FaLock, FaLongArrowAltLeft 
 } from 'react-icons/fa';
-import './Cart.css';
+import './cart.css';
 
 const Cart = () => {
     const { cartItems, loading, total, updateQuantity, removeFromCart, clearCart } = useCart();
