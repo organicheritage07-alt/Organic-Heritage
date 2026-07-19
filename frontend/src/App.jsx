@@ -32,7 +32,7 @@ import ProtectedRoute from './components/ProtectedRoute';
 import AdminDashboard from './components/admin/AdminDashboard';
 
 // ✅ Cart Component
-import Cart from './components/cart/Cart';
+import Cart from './components/cart/cart';
 
 // ✅ Product Detail Component
 import ProductDetail from './components/productdetail/productdetail';
