@@ -1,5 +1,5 @@
 {
-  "buildCommand": "VITE_API_URL=https://organic-heritage.onrender.com/api npm run build",
+   "buildCommand": "VITE_API_URL=https://organic-heritage.onrender.com/api npm run build",
   "outputDirectory": "dist",
   "installCommand": "npm install",
   "headers": [
