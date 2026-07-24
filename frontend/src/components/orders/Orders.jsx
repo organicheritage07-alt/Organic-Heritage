@@ -29,7 +29,7 @@ const Orders = () => {
     const fetchOrders = async () => {
         setLoading(true);
         try {
-            const response = await axios.get('http://localhost:5000/api/orders', {
+            const response = await axios.get('https://organic-heritage.onrender.com/api/orders', {
                 headers: { Authorization: `Bearer ${token}` }
             });
             
@@ -49,7 +49,7 @@ const Orders = () => {
         
         try {
             const response = await axios.put(
-                `http://localhost:5000/api/orders/${orderId}/cancel`,
+                `https://organic-heritage.onrender.com/api/orders/${orderId}/cancel`,
                 {},
                 { headers: { Authorization: `Bearer ${token}` } }
             );

@@ -13,7 +13,7 @@ import {
 } from 'react-icons/fa';
 import './ContactMessages.css';
 
-const API_URL = 'http://localhost:5000/api/contact';
+const API_URL = 'https://organic-heritage.onrender.com/api/contact';
 
 const ContactMessages = () => {
     const [messages, setMessages] = useState([]);

@@ -12,7 +12,7 @@ import axios from 'axios';
 import Swal from 'sweetalert2';
 import './products.css';
 
-const API_URL = 'http://localhost:5000/api/products';
+const API_URL = 'https://organic-heritage.onrender.com/api/products';
 
 const Products = () => {
   const [products, setProducts] = useState([]);

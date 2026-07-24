@@ -10,7 +10,7 @@ import {
 } from 'react-icons/fa';
 import './ingredients.css';
 
-const API_URL = 'http://localhost:5000/api/ingredients';
+const API_URL = 'https://organic-heritage.onrender.com/api/ingredients';
 
 const Ingredients = () => {
     const [ingredients, setIngredients] = useState([]);

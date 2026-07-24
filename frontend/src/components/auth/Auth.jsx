@@ -21,7 +21,7 @@ import axios from 'axios';
 import toast, { Toaster } from 'react-hot-toast';
 import './Auth.css';
 
-const API_URL = 'http://localhost:5000/api/auth';
+const API_URL = 'https://organic-heritage.onrender.com/api/auth';
 
 const Auth = () => {
     const [isLogin, setIsLogin] = useState(true);

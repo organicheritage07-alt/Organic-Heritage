@@ -12,7 +12,7 @@ import 'jspdf-autotable';
 import Swal from 'sweetalert2';
 import './users.css';
 
-const API_URL = 'http://localhost:5000/api/auth';
+const API_URL = 'https://organic-heritage.onrender.com/api/auth';
 
 const Users = () => {
   const [users, setUsers] = useState([]);

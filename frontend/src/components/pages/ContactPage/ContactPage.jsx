@@ -38,7 +38,7 @@ function ContactPage() {
         setIsSubmitting(true);
 
         try {
-            const response = await axios.post('http://localhost:5000/api/contact', {
+            const response = await axios.post('https://organic-heritage.onrender.com/api/contact', {
                 name: formData.name,
                 email: formData.email,
                 subject: formData.subject,

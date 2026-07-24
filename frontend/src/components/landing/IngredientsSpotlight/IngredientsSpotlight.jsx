@@ -32,7 +32,7 @@ const IngredientsSpotlight = () => {
         const fetchIngredients = async () => {
             try {
                 setLoading(true);
-                const response = await axios.get('http://localhost:5000/api/ingredients');
+                const response = await axios.get('https://organic-heritage.onrender.com/api/ingredients');
                 if (response.data.success && response.data.ingredients.length > 0) {
                     setIngredients(response.data.ingredients);
                 } else {

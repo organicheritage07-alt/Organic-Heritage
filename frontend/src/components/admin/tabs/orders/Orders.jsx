@@ -21,7 +21,7 @@ import jsPDF from 'jspdf';
 import 'jspdf-autotable';
 import * as XLSX from 'xlsx';
 
-const API_URL = 'http://localhost:5000/api/orders';
+const API_URL = 'https://organic-heritage.onrender.com/api/orders';
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);

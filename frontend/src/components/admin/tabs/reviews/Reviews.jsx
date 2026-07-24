@@ -11,7 +11,7 @@ import {
 } from 'react-icons/fa';
 import './Reviews.css';
 
-const API_URL = 'http://localhost:5000/api/reviews';
+const API_URL = 'https://organic-heritage.onrender.com/api/reviews';
 
 const Reviews = () => {
     const [reviews, setReviews] = useState([]);

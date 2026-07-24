@@ -25,7 +25,7 @@ function ProductsPage() {
     const filterRef = useRef(null);
     const cardsRef = useRef([]);
 
-    const API_URL = 'http://localhost:5000/api/products';
+    const API_URL = 'https://organic-heritage.onrender.com/api/products';
 
     useEffect(() => {
         const fetchData = async () => {

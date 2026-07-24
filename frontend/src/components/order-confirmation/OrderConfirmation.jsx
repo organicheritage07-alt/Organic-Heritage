@@ -26,7 +26,7 @@ const OrderConfirmation = () => {
                 }
 
                 const response = await axios.get(
-                    `http://localhost:5000/api/orders/${id}`,
+                    `https://organic-heritage.onrender.com/api/orders/${id}`,
                     { headers: { Authorization: `Bearer ${token}` } }
                 );
 

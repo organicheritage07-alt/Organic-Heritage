@@ -15,7 +15,7 @@ function BenefitsSection() {
     const fetchBenefits = async () => {
         try {
             setLoading(true);
-            const response = await axios.get('http://localhost:5000/api/benefits');
+            const response = await axios.get('https://organic-heritage.onrender.com/api/benefits');
             if (response.data.success) {
                 setBenefits(response.data.benefits);
             }

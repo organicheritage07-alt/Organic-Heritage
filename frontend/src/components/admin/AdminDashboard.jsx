@@ -40,7 +40,7 @@ const AdminDashboard = () => {
   const fetchCounts = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get('http://localhost:5000/api/notifications/counts', {
+      const response = await axios.get('https://organic-heritage.onrender.com/api/notifications/counts', {
         headers: { Authorization: `Bearer ${token}` }
       });
       

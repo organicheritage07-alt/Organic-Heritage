@@ -36,7 +36,7 @@ const ProductDetail = () => {
     const [showLightbox, setShowLightbox] = useState(false);
     const imageRef = useRef(null);
 
-    const API_URL = 'http://localhost:5000/api/products';
+    const API_URL = 'https://organic-heritage.onrender.com/api/products';
 
     // ===== FETCH PRODUCT =====
     useEffect(() => {

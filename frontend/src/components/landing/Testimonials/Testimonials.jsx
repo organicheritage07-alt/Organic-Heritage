@@ -96,7 +96,7 @@ function Testimonials() {
         const fetchReviews = async () => {
             try {
                 setLoading(true);
-                const response = await axios.get('http://localhost:5000/api/reviews/public');
+                const response = await axios.get('https://organic-heritage.onrender.com/api/reviews/public');
                 if (response.data.success && response.data.reviews.length > 0) {
                     const formattedReviews = response.data.reviews.map((review) => ({
                         id: review._id,
@@ -206,7 +206,7 @@ function Testimonials() {
         try {
             const token = localStorage.getItem('token');
             const response = await axios.post(
-                'http://localhost:5000/api/reviews',
+                'https://organic-heritage.onrender.com/api/reviews',
                 {
                     rating,
                     title,
@@ -231,7 +231,7 @@ function Testimonials() {
                 setShowReviewForm(false);
                 
                 // Refetch reviews
-                const refreshResponse = await axios.get('http://localhost:5000/api/reviews/public');
+                const refreshResponse = await axios.get('https://organic-heritage.onrender.com/api/reviews/public');
                 if (refreshResponse.data.success && refreshResponse.data.reviews.length > 0) {
                     const formatted = refreshResponse.data.reviews.map((review) => ({
                         id: review._id,
