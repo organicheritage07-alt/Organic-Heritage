@@ -1,8 +1,8 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const API_URL = import.meta.env.VITE_API_URL || 'https://organic-heritage.onrender.com/api/auth';
-// Get user from localStorage
+const API_BASE = import.meta.env.VITE_API_URL || 'https://organic-heritage.onrender.com/api';
+const API_URL = `${API_BASE}/auth`;// Get user from localStorage
 const getUserFromStorage = () => {
     try {
         const user = localStorage.getItem('user');
