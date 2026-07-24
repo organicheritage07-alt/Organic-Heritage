@@ -9,6 +9,10 @@ const { sendOTPEmail, sendWelcomeEmail, sendPasswordResetOTP, sendPasswordChange
 
 const otpStore = new Map();
 
+// ✅ Production URLs from environment variables
+const BACKEND_URL = process.env.BACKEND_URL || 'https://organic-heritage.onrender.com';
+const FRONTEND_URL = process.env.FRONTEND_URL || 'https://organic-heritage-gqe7-xi.vercel.app';
+
 const generateToken = (id, role) => {
     return jwt.sign({ id, role }, process.env.JWT_SECRET, { expiresIn: '7d' });
 };
@@ -19,7 +23,7 @@ const generateToken = (id, role) => {
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: process.env.GOOGLE_CALLBACK_URL || "http://localhost:5000/api/auth/google/callback"
+    callbackURL: `${BACKEND_URL}/api/auth/google/callback`
   },
   async (accessToken, refreshToken, profile, done) => {
     try {
@@ -72,10 +76,10 @@ router.get('/google',
 );
 
 // ============================================
-// GOOGLE CALLBACK — FIXED: JWT Token + Role-based Redirect
+// GOOGLE CALLBACK — FIXED: Production Redirects
 // ============================================
 router.get('/google/callback',
-    passport.authenticate('google', { failureRedirect: '/login?error=google_failed' }),
+    passport.authenticate('google', { failureRedirect: `${FRONTEND_URL}/login?error=google_failed` }),
     async (req, res) => {
         try {
             const user = req.user;
@@ -92,12 +96,11 @@ router.get('/google/callback',
             // Encode user data for URL
             const encodedUser = encodeURIComponent(JSON.stringify(userData));
 
-            // Redirect to frontend callback page with token and user data
-            // Frontend will handle storing in Redux and role-based redirect
-            res.redirect(`http://localhost:5173/auth/callback?token=${token}&user=${encodedUser}`);
+            // ✅ Redirect to PRODUCTION frontend callback page
+            res.redirect(`${FRONTEND_URL}/auth/callback?token=${token}&user=${encodedUser}`);
         } catch (error) {
             console.error('Google callback error:', error);
-            res.redirect('http://localhost:5173/login?error=server_error');
+            res.redirect(`${FRONTEND_URL}/login?error=server_error`);
         }
     }
 );
