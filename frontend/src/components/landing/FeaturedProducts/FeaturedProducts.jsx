@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './FeaturedProducts.css';
 import { useCart } from '../../../context/CartContext';
+import { productAPI } from '../../../services/api.js';
 import toast from 'react-hot-toast';
 
 function FeaturedProducts() {
@@ -24,23 +24,21 @@ function FeaturedProducts() {
     const cardsRef = useRef([]);
     const footerRef = useRef(null);
 
-    const API_URL = 'http://localhost:5000/api/products';
-
     useEffect(() => {
         const fetchData = async () => {
             try {
                 setLoading(true);
                 setError(null);
-                
-                const productsRes = await axios.get(API_URL);
-                
+
+                const productsRes = await productAPI.getAll();
+
                 if (productsRes.data.success) {
                     setProducts(productsRes.data.products);
                 } else {
                     setError('Failed to load products');
                 }
 
-                const categoriesRes = await axios.get(`${API_URL}/categories/all`);
+                const categoriesRes = await productAPI.getCategories();
                 if (categoriesRes.data.success) {
                     setCategories(categoriesRes.data.categories);
                 }
@@ -114,18 +112,18 @@ function FeaturedProducts() {
         });
     };
 
-    // ✅ UPDATED: HANDLE ADD TO CART WITH LOGIN CHECK
+    // UPDATED: HANDLE ADD TO CART WITH LOGIN CHECK
     const handleAddToCart = async (productId, e) => {
         e.stopPropagation();
-        
-        // ✅ CHECK IF USER IS LOGGED IN
+
+        // CHECK IF USER IS LOGGED IN
         const token = localStorage.getItem('token');
-        
+
         if (!token) {
-            // ✅ Save current path to redirect back after login
+            // Save current path to redirect back after login
             sessionStorage.setItem('redirectAfterLogin', window.location.pathname);
-            
-            // ✅ Show toast message
+
+            // Show toast message
             toast.error('Please login to add items to your cart', {
                 duration: 3000,
                 style: {
@@ -134,33 +132,33 @@ function FeaturedProducts() {
                     borderRadius: '8px',
                 }
             });
-            
-            // ✅ Redirect to login page after short delay
+
+            // Redirect to login page after short delay
             setTimeout(() => {
                 navigate('/login');
             }, 1000);
-            
+
             return;
         }
-        
+
         // Set loading state for this product
         setAddingToCart(productId);
-        
+
         try {
             // Add to cart
             const result = await addToCart(productId, 1);
-            
+
             if (result) {
                 // Show success state briefly
                 setTimeout(() => {
                     setAddingToCart(null);
-                    // ✅ OPEN CART DRAWER AUTOMATICALLY
+                    // OPEN CART DRAWER AUTOMATICALLY
                     openCart();
                 }, 400);
             } else {
                 setAddingToCart(null);
             }
-            
+
         } catch (error) {
             console.error('Error adding to cart:', error);
             setAddingToCart(null);
@@ -273,7 +271,7 @@ function FeaturedProducts() {
                     ) : (
                         filteredProducts.map((product, index) => {
                             const isAdding = addingToCart === product._id;
-                            
+
                             return (
                                 <div 
                                     key={product._id || product.id} 
@@ -392,7 +390,7 @@ function FeaturedProducts() {
                 @keyframes spin {
                     to { transform: rotate(360deg); }
                 }
-                
+
                 .fp-btn-spinner {
                     width: 16px;
                     height: 16px;
@@ -403,7 +401,7 @@ function FeaturedProducts() {
                     display: inline-block;
                     margin-right: 6px;
                 }
-                
+
                 .fp-cart-btn.adding {
                     opacity: 0.8;
                     cursor: wait;
