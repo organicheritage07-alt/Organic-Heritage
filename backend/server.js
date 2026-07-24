@@ -25,6 +25,11 @@ dotenv.config();
 const app = express();
 
 // ============================================
+// TRUST PROXY — Required for Render (behind proxy)
+// ============================================
+app.set('trust proxy', 1);
+
+// ============================================
 // SESSION MIDDLEWARE — Required for Passport Google OAuth
 // ============================================
 app.use(session({
@@ -32,8 +37,9 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
     cookie: {
-        secure: process.env.NODE_ENV === 'production', // false for local dev
+        secure: process.env.NODE_ENV === 'production', // true on Render (HTTPS)
         httpOnly: true,
+        sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax', // 'none' for cross-domain cookies
         maxAge: 24 * 60 * 60 * 1000 // 24 hours
     }
 }));
@@ -44,9 +50,27 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-// ✅ CORS
+// ============================================
+// ✅ CORS — Explicit origins for Vercel + Render
+// ============================================
+const allowedOrigins = [
+    'https://organic-heritage-gqe7-xi.vercel.app',
+    'https://organic-heritage-gqe7-lgxl3t1ji-organicheritage07-alts-projects.vercel.app',
+    'http://localhost:3000',
+    'http://localhost:5173'
+];
+
 app.use(cors({
-    origin: true,
+    origin: function (origin, callback) {
+        // Allow requests with no origin (like mobile apps, curl, Postman)
+        if (!origin) return callback(null, true);
+        if (allowedOrigins.indexOf(origin) !== -1 || allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            console.log('❌ CORS blocked origin:', origin);
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization']
@@ -107,7 +131,7 @@ app.use((err, req, res, next) => {
 // Start server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-    console.log(`🚀 Server running on http://localhost:${PORT}`);
+    console.log(`🚀 Server running on port ${PORT}`);
     console.log(`📦 API Endpoints:`);
     console.log(`   - /api/auth          → Auth routes`);
     console.log(`   - /api/products      → Product routes`);
