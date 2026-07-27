@@ -1,3 +1,4 @@
+// Auth.jsx (Updated - Google OAuth + User-Friendly Errors + Clean Welcome Email)
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
@@ -20,9 +21,7 @@ import axios from 'axios';
 import toast, { Toaster } from 'react-hot-toast';
 import './Auth.css';
 
-// ✅ DYNAMIC API URL — Local pe localhost, Live pe Render
-const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
-const API_URL = `${API_BASE}/auth`;
+const API_URL = 'https://organic-heritage.onrender.com/api/auth';
 
 const Auth = () => {
     const [isLogin, setIsLogin] = useState(true);

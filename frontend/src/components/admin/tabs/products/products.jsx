@@ -8,9 +8,11 @@ import {
   FaExclamationTriangle, FaCheckCircle, FaListUl, FaHashtag,
   FaArrowLeft, FaCloudUploadAlt, FaMinusCircle
 } from 'react-icons/fa';
-import api from '../../../../services/api.js';
+import axios from 'axios';
 import Swal from 'sweetalert2';
 import './products.css';
+
+const API_URL = 'https://organic-heritage.onrender.com/api/products';
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -57,11 +59,15 @@ const Products = () => {
   const [highlightsInput, setHighlightsInput] = useState('');
   const [benefitsInput, setBenefitsInput] = useState('');
 
+  const token = localStorage.getItem('token');
+
   // Fetch products
   const fetchProducts = async () => {
     setLoading(true);
     try {
-      const response = await api.get('/products/admin/all');
+      const response = await axios.get(`${API_URL}/admin/all`, {
+        headers: { Authorization: `Bearer ${token}` }
+      });
       setProducts(response.data.products || []);
       setInactiveProducts(response.data.inactiveProducts || []);
       setDeletedProducts(response.data.deletedProducts || []);
@@ -77,7 +83,7 @@ const Products = () => {
   // Fetch categories
   const fetchCategories = async () => {
     try {
-      const response = await api.get('/products/categories/all');
+      const response = await axios.get(`${API_URL}/categories/all`);
       setCategories(response.data.categories || ['All']);
     } catch (error) {
       console.error('Error fetching categories:', error);
@@ -152,7 +158,9 @@ const Products = () => {
 
     if (result.isConfirmed) {
       try {
-        await api.delete(`/products/${editingProduct._id}/images/${index}`);
+        await axios.delete(`${API_URL}/${editingProduct._id}/images/${index}`, {
+          headers: { Authorization: `Bearer ${token}` }
+        });
 
         setExistingImages(prev => prev.filter((_, i) => i !== index));
         setFormData(prev => ({
@@ -244,9 +252,10 @@ const Products = () => {
 
       console.log('Creating product with files:', additionalImageFiles.length, 'additional images');
 
-      const response = await api.post('/products', formDataToSend, {
+      const response = await axios.post(API_URL, formDataToSend, {
         headers: {
-          'Content-Type': 'multipart/form-data'
+          'Content-Type': 'multipart/form-data',
+          Authorization: `Bearer ${token}`
         }
       });
 
@@ -303,9 +312,10 @@ const Products = () => {
 
       console.log('Updating product. Existing images:', existingImages.length, 'New files:', additionalImageFiles.length);
 
-      const response = await api.put(`/products/${editingProduct._id}`, formDataToSend, {
+      const response = await axios.put(`${API_URL}/${editingProduct._id}`, formDataToSend, {
         headers: {
-          'Content-Type': 'multipart/form-data'
+          'Content-Type': 'multipart/form-data',
+          Authorization: `Bearer ${token}`
         }
       });
 
@@ -416,7 +426,7 @@ const Products = () => {
       Swal.fire({ title: 'Deleting...', text: 'Please wait', icon: 'info', showConfirmButton: false, didOpen: () => Swal.showLoading() });
       try {
         await Promise.all(selectedIds.map(id => 
-          api.delete(`/products/${id}`)
+          axios.delete(`${API_URL}/${id}`, { headers: { Authorization: `Bearer ${token}` } })
         ));
         setSelectedIds([]);
         await fetchProducts();
@@ -449,7 +459,7 @@ const Products = () => {
       Swal.fire({ title: 'Restoring...', text: 'Please wait', icon: 'info', showConfirmButton: false, didOpen: () => Swal.showLoading() });
       try {
         await Promise.all(selectedIds.map(id => 
-          api.put(`/products/${id}/restore`)
+          axios.put(`${API_URL}/${id}/restore`, {}, { headers: { Authorization: `Bearer ${token}` } })
         ));
         setSelectedIds([]);
         await fetchProducts();
@@ -476,7 +486,9 @@ const Products = () => {
     if (result.isConfirmed) {
       Swal.fire({ title: 'Moving...', text: 'Please wait', icon: 'info', showConfirmButton: false, didOpen: () => Swal.showLoading() });
       try {
-        await api.delete(`/products/${productId}`);
+        await axios.delete(`${API_URL}/${productId}`, {
+          headers: { Authorization: `Bearer ${token}` }
+        });
         await fetchProducts();
         Swal.fire({ title: 'Moved to Trash!', text: `${productName} moved to trash.`, icon: 'success', confirmButtonColor: '#2D5A27', timer: 2000 });
       } catch (error) {
@@ -501,7 +513,9 @@ const Products = () => {
     if (result.isConfirmed) {
       Swal.fire({ title: 'Restoring...', text: 'Please wait', icon: 'info', showConfirmButton: false, didOpen: () => Swal.showLoading() });
       try {
-        await api.put(`/products/${productId}/restore`);
+        await axios.put(`${API_URL}/${productId}/restore`, {}, {
+          headers: { Authorization: `Bearer ${token}` }
+        });
         await fetchProducts();
         Swal.fire({ title: 'Restored!', text: `${productName} restored.`, icon: 'success', confirmButtonColor: '#2D5A27', timer: 2000 });
       } catch (error) {
@@ -526,7 +540,9 @@ const Products = () => {
     if (result.isConfirmed) {
       Swal.fire({ title: 'Deleting...', text: 'Please wait', icon: 'info', showConfirmButton: false, didOpen: () => Swal.showLoading() });
       try {
-        await api.delete(`/products/${productId}/permanent`);
+        await axios.delete(`${API_URL}/${productId}/permanent`, {
+          headers: { Authorization: `Bearer ${token}` }
+        });
         await fetchProducts();
         Swal.fire({ title: 'Deleted!', text: `${productName} permanently deleted.`, icon: 'success', confirmButtonColor: '#2D5A27', timer: 2000 });
       } catch (error) {
@@ -552,7 +568,9 @@ const Products = () => {
     if (result.isConfirmed) {
       Swal.fire({ title: 'Updating...', text: 'Please wait', icon: 'info', showConfirmButton: false, didOpen: () => Swal.showLoading() });
       try {
-        await api.patch(`/products/${productId}/toggle-active`);
+        await axios.patch(`${API_URL}/${productId}/toggle-active`, {}, {
+          headers: { Authorization: `Bearer ${token}` }
+        });
         await fetchProducts();
         Swal.fire({ 
           title: `${action}d!`, 
