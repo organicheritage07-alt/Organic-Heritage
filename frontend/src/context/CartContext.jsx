@@ -1,6 +1,6 @@
 import React, { createContext, useState, useContext, useEffect } from 'react';
 import { toast } from 'react-hot-toast';
-import axios from 'axios';
+import api from '../services/api';  // ✅ AXIOS ki jagah apni API import ki
 
 const CartContext = createContext();
 
@@ -19,10 +19,13 @@ export const CartProvider = ({ children }) => {
     const [itemCount, setItemCount] = useState(0);
     const [isCartOpen, setIsCartOpen] = useState(false);
 
-    const token = localStorage.getItem('token');
-    const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+    // ❌ YE DONO LINES HATADI — api.js already handle kar rahi hai
+    // const token = localStorage.getItem('token');
+    // const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
 
     const fetchCart = async () => {
+        const token = localStorage.getItem('token'); // ✅ function ke andar se lo
+        
         if (!token) {
             setLoading(false);
             return;
@@ -30,9 +33,8 @@ export const CartProvider = ({ children }) => {
 
         try {
             setLoading(true);
-            const response = await axios.get(`${API_URL}/cart`, {
-                headers: { Authorization: `Bearer ${token}` }
-            });
+            // ✅ axios ki jagah api use karo, headers ki zaroorat nahi
+            const response = await api.get('/cart');
             
             if (response.data.success) {
                 setCartItems(response.data.items || []);
@@ -72,14 +74,11 @@ export const CartProvider = ({ children }) => {
 
     // ✅ UPDATED ADD TO CART - WITH LOGIN CHECK
     const addToCart = async (productId, quantity = 1) => {
-        // ✅ CHECK IF USER IS LOGGED IN
         const token = localStorage.getItem('token');
         
         if (!token) {
-            // ✅ Save current path to redirect back after login
             sessionStorage.setItem('redirectAfterLogin', window.location.pathname);
             
-            // ✅ Show toast message
             toast.error('Please login to add items to your cart', {
                 duration: 3000,
                 style: {
@@ -90,7 +89,6 @@ export const CartProvider = ({ children }) => {
                 icon: '🔒'
             });
             
-            // ✅ Redirect to login page after short delay
             setTimeout(() => {
                 window.location.href = '/login';
             }, 1000);
@@ -99,10 +97,8 @@ export const CartProvider = ({ children }) => {
         }
 
         try {
-            const response = await axios.post(`${API_URL}/cart`, 
-                { productId, quantity },
-                { headers: { Authorization: `Bearer ${token}` } }
-            );
+            // ✅ api use karo, headers ki zaroorat nahi
+            const response = await api.post('/cart', { productId, quantity });
             
             if (response.data.success) {
                 toast.success('Added to cart! 🛒', {
@@ -114,14 +110,12 @@ export const CartProvider = ({ children }) => {
                     }
                 });
                 await fetchCart();
-                // ✅ Open cart drawer after adding
                 setIsCartOpen(true);
                 return true;
             }
         } catch (error) {
             console.error('Error adding to cart:', error);
             
-            // ✅ Handle specific errors
             if (error.response?.status === 401) {
                 toast.error('Please login to add items to your cart');
                 setTimeout(() => {
@@ -136,10 +130,8 @@ export const CartProvider = ({ children }) => {
 
     const updateQuantity = async (cartId, quantity) => {
         try {
-            const response = await axios.put(`${API_URL}/cart/${cartId}`,
-                { quantity },
-                { headers: { Authorization: `Bearer ${token}` } }
-            );
+            // ✅ api use karo
+            const response = await api.put(`/cart/${cartId}`, { quantity });
             
             if (response.data.success) {
                 await fetchCart();
@@ -154,9 +146,8 @@ export const CartProvider = ({ children }) => {
 
     const removeFromCart = async (cartId) => {
         try {
-            const response = await axios.delete(`${API_URL}/cart/${cartId}`, {
-                headers: { Authorization: `Bearer ${token}` }
-            });
+            // ✅ api use karo
+            const response = await api.delete(`/cart/${cartId}`);
             
             if (response.data.success) {
                 toast.success('Item removed from cart');
@@ -172,9 +163,8 @@ export const CartProvider = ({ children }) => {
 
     const clearCart = async () => {
         try {
-            const response = await axios.delete(`${API_URL}/cart/clear/all`, {
-                headers: { Authorization: `Bearer ${token}` }
-            });
+            // ✅ api use karo
+            const response = await api.delete('/cart/clear/all');
             
             if (response.data.success) {
                 setCartItems([]);
@@ -192,7 +182,7 @@ export const CartProvider = ({ children }) => {
 
     useEffect(() => {
         fetchCart();
-    }, [token]);
+    }, [localStorage.getItem('token')]); // ✅ token ko direct yahan se access karo
 
     useEffect(() => {
         const newTotal = cartItems.reduce((sum, item) => {

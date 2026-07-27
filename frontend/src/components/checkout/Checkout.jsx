@@ -236,7 +236,7 @@ const Checkout = () => {
             console.log('Sending order data:', JSON.stringify(orderData, null, 2));
 
             const response = await axios.post(
-                'http://localhost:5000/api/orders',
+                'https://organic-heritage.onrender.com/api/orders',
                 orderData,
                 { 
                     headers: { 
