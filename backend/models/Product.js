@@ -1,11 +1,29 @@
 const mongoose = require('mongoose');
 
+// ============================================
+// HELPER: Generate URL-friendly slug
+// ============================================
+const generateSlug = (text) => {
+  return text
+    .toString()
+    .toLowerCase()
+    .trim()
+    .replace(/\s+/g, '-')
+    .replace(/[^\w\-]+/g, '')
+    .replace(/\-\-+/g, '-');
+};
+
 const productSchema = new mongoose.Schema({
   name: {
     type: String,
     required: [true, 'Product name is required'],
     trim: true,
     maxlength: [100, 'Product name cannot exceed 100 characters']
+  },
+  slug: {
+    type: String,
+    unique: true,
+    index: true
   },
   subtitle: {
     type: String,
@@ -15,8 +33,8 @@ const productSchema = new mongoose.Schema({
   },
   description: {
     type: String,
-    required: [true, 'Description is required'],
     trim: true
+    // ❌ REMOVED: required validation
   },
   price: {
     type: Number,
@@ -45,7 +63,8 @@ const productSchema = new mongoose.Schema({
   category: {
     type: String,
     required: [true, 'Category is required'],
-    enum: ['Capsules', 'Powder', 'Liquid', 'Tablets', 'Other']
+    trim: true
+    // ❌ REMOVED: enum restriction — admin can now type any category
   },
   tag: {
     type: String,
@@ -120,20 +139,50 @@ productSchema.virtual('calculatedDiscount').get(function() {
   return 0;
 });
 
-// ✅ FIXED: Pre-save middleware - WITHOUT next parameter
-productSchema.pre('save', function() {
+// ✅ Pre-save: Discount calculate + Slug generate
+productSchema.pre('save', async function() {
+  // Discount calculation
   if (this.originalPrice > 0 && this.price < this.originalPrice) {
     this.discount = Math.round(((this.originalPrice - this.price) / this.originalPrice) * 100);
   } else {
     this.discount = 0;
   }
+
+  // Slug generation (unique check)
+  if (this.isModified('name') || !this.slug) {
+    let baseSlug = generateSlug(this.name);
+    let slug = baseSlug;
+    let counter = 1;
+
+    while (await mongoose.model('Product').findOne({ slug, _id: { $ne: this._id } })) {
+      slug = `${baseSlug}-${counter}`;
+      counter++;
+    }
+    this.slug = slug;
+  }
 });
 
-// ✅ FIXED: Pre-update middleware - WITHOUT next parameter
-productSchema.pre('findOneAndUpdate', function() {
+// ✅ Pre-update: Discount calculate + Slug regenerate if name changed
+productSchema.pre('findOneAndUpdate', async function() {
   const update = this.getUpdate();
+
+  // Discount calculation
   if (update && update.price && update.originalPrice && update.originalPrice > 0) {
     update.discount = Math.round(((update.originalPrice - update.price) / update.originalPrice) * 100);
+  }
+
+  // Slug regeneration
+  if (update && update.name) {
+    let baseSlug = generateSlug(update.name);
+    let slug = baseSlug;
+    let counter = 1;
+    const currentId = this.getQuery()._id;
+
+    while (await mongoose.model('Product').findOne({ slug, _id: { $ne: currentId } })) {
+      slug = `${baseSlug}-${counter}`;
+      counter++;
+    }
+    update.slug = slug;
   }
 });
 

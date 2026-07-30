@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const mongoose = require('mongoose');
 const Product = require('../models/Product');
 const { protect, adminOnly } = require('../middleware/authMiddleware');
 const cloudinary = require('cloudinary').v2;
@@ -96,7 +97,7 @@ const deleteFromCloudinary = async (imageUrl) => {
 // PUBLIC ROUTES
 // ============================================
 
-// ✅ GET ALL ACTIVE PRODUCTS (Public - FeaturedProducts ke liye)
+// ✅ GET ALL ACTIVE PRODUCTS (Public)
 router.get('/', async (req, res) => {
     try {
         const { category, search } = req.query;
@@ -110,7 +111,7 @@ router.get('/', async (req, res) => {
         }
 
         const products = await Product.find(filter)
-            .select('name subtitle description price originalPrice rating reviews image category tag discount stock')
+            .select('name slug subtitle description price originalPrice rating reviews image category tag discount stock')
             .sort({ createdAt: -1 });
             
         res.json({
@@ -118,23 +119,6 @@ router.get('/', async (req, res) => {
             count: products.length,
             products
         });
-    } catch (error) {
-        res.status(500).json({ success: false, message: error.message });
-    }
-});
-
-// ✅ GET SINGLE PRODUCT (Public - ProductDetail ke liye - ALL FIELDS)
-router.get('/:id', async (req, res) => {
-    try {
-        const product = await Product.findOne({ 
-            _id: req.params.id, 
-            isDeleted: false,
-            isActive: true 
-        });
-        if (!product) {
-            return res.status(404).json({ success: false, message: 'Product not found' });
-        }
-        res.json({ success: true, product });
     } catch (error) {
         res.status(500).json({ success: false, message: error.message });
     }
@@ -154,7 +138,7 @@ router.get('/categories/all', async (req, res) => {
 });
 
 // ============================================
-// ADMIN ROUTES
+// ADMIN GET ROUTES (Place BEFORE /:identifier)
 // ============================================
 
 // ✅ GET ALL PRODUCTS (Admin)
@@ -193,6 +177,24 @@ router.get('/admin/all', protect, adminOnly, async (req, res) => {
         res.status(500).json({ success: false, message: error.message });
     }
 });
+
+// ✅ GET DELETED PRODUCTS (Admin)
+router.get('/admin/deleted', protect, adminOnly, async (req, res) => {
+    try {
+        const deletedProducts = await Product.find({ isDeleted: true }).sort({ deletedAt: -1 });
+        res.json({
+            success: true,
+            count: deletedProducts.length,
+            products: deletedProducts
+        });
+    } catch (error) {
+        res.status(500).json({ success: false, message: error.message });
+    }
+});
+
+// ============================================
+// ADMIN MODIFY ROUTES
+// ============================================
 
 // ✅ CREATE PRODUCT (Admin - WITH MULTIPLE IMAGES)
 router.post('/', protect, adminOnly, uploadFields, async (req, res) => {
@@ -254,7 +256,7 @@ router.post('/', protect, adminOnly, uploadFields, async (req, res) => {
         const productData = {
             name: req.body.name,
             subtitle: req.body.subtitle,
-            description: req.body.description,
+            description: req.body.description || '',
             price: parseFloat(req.body.price),
             originalPrice: parseFloat(req.body.originalPrice),
             image: imageUrl,
@@ -363,12 +365,12 @@ router.put('/:id', protect, adminOnly, uploadFields, async (req, res) => {
         const updateData = {
             name: req.body.name || product.name,
             subtitle: req.body.subtitle || product.subtitle,
-            description: req.body.description || product.description,
+            description: req.body.description !== undefined ? req.body.description : product.description,
             price: req.body.price ? parseFloat(req.body.price) : product.price,
             originalPrice: req.body.originalPrice ? parseFloat(req.body.originalPrice) : product.originalPrice,
             image: imageUrl,
             category: req.body.category || product.category,
-            tag: req.body.tag || product.tag,
+            tag: req.body.tag !== undefined ? req.body.tag : product.tag,
             stock: req.body.stock ? parseInt(req.body.stock) : product.stock,
             rating: req.body.rating ? parseFloat(req.body.rating) : product.rating,
             reviews: req.body.reviews ? parseInt(req.body.reviews) : product.reviews,
@@ -393,6 +395,39 @@ router.put('/:id', protect, adminOnly, uploadFields, async (req, res) => {
     } catch (error) {
         console.error('Update product error:', error);
         res.status(400).json({ success: false, message: error.message });
+    }
+});
+
+// ✅ DELETE SINGLE ADDITIONAL IMAGE (Admin)
+router.delete('/:id/images/:index', protect, adminOnly, async (req, res) => {
+    try {
+        const product = await Product.findById(req.params.id);
+        if (!product) {
+            return res.status(404).json({ success: false, message: 'Product not found' });
+        }
+
+        const index = parseInt(req.params.index);
+        if (isNaN(index) || index < 0 || index >= product.images.length) {
+            return res.status(400).json({ success: false, message: 'Invalid image index' });
+        }
+
+        const imageUrl = product.images[index];
+
+        // Delete from Cloudinary
+        await deleteFromCloudinary(imageUrl);
+
+        // Remove from array
+        product.images.splice(index, 1);
+        await product.save();
+
+        res.json({
+            success: true,
+            message: 'Image deleted successfully',
+            images: product.images
+        });
+    } catch (error) {
+        console.error('Delete image error:', error);
+        res.status(500).json({ success: false, message: error.message });
     }
 });
 
@@ -488,15 +523,27 @@ router.patch('/:id/toggle-active', protect, adminOnly, async (req, res) => {
     }
 });
 
-// ✅ GET DELETED PRODUCTS (Admin)
-router.get('/admin/deleted', protect, adminOnly, async (req, res) => {
+// ============================================
+// GET SINGLE PRODUCT — BY ID OR SLUG
+// ✅ MUST BE LAST — catches any single-segment param
+// ============================================
+router.get('/:identifier', async (req, res) => {
     try {
-        const deletedProducts = await Product.find({ isDeleted: true }).sort({ deletedAt: -1 });
-        res.json({
-            success: true,
-            count: deletedProducts.length,
-            products: deletedProducts
-        });
+        let query = { isDeleted: false, isActive: true };
+
+        // Check if identifier is valid MongoDB ObjectId
+        if (mongoose.Types.ObjectId.isValid(req.params.identifier)) {
+            query._id = req.params.identifier;
+        } else {
+            // Otherwise treat as slug
+            query.slug = req.params.identifier;
+        }
+
+        const product = await Product.findOne(query);
+        if (!product) {
+            return res.status(404).json({ success: false, message: 'Product not found' });
+        }
+        res.json({ success: true, product });
     } catch (error) {
         res.status(500).json({ success: false, message: error.message });
     }
