@@ -45,17 +45,7 @@ const Preloader = ({ onComplete }) => {
                 <div className="preloader-bg-overlay" />
             </div>
 
-            {/* Floating Leaves */}
-            <div className="preloader-leaves">
-                {[1, 2, 3, 4, 5, 6].map((n) => (
-                    <div key={n} className={`preloader-leaf preloader-leaf-${n}`}>
-                        <svg viewBox="0 0 100 100" fill="none">
-                            <path d="M50 5C25 18 15 45 18 68C21 88 35 95 50 92C65 95 79 88 82 68C85 45 75 18 50 5Z" fill="currentColor"/>
-                            <path d="M50 15C50 15 50 50 50 88" stroke="rgba(255,255,255,0.3)" strokeWidth="1" strokeLinecap="round"/>
-                        </svg>
-                    </div>
-                ))}
-            </div>
+            
 
             {/* Main Content */}
             <div className={`preloader-content ${phase >= 1 ? 'preloader-content-visible' : ''}`}>

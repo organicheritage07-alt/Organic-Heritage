@@ -11,8 +11,8 @@ const slides = [
         description: 'Ancient adaptogenic herb for modern wellness. Supports stress relief, energy and vitality with 100% organic ingredients.',
         cta: 'Order Now',
         explore: 'Explore',
-        price: 'Rs 1,000',
-        originalPrice: 'Rs 2,000',
+        
+        
         nutrition: [
             { label: 'Fat', value: '0.2g' },
             { label: 'Sodium', value: '5mg' },
@@ -35,8 +35,7 @@ const slides = [
         description: 'Premium women wellness formula. Balances hormones, boosts immunity and rejuvenates body and mind naturally.',
         cta: 'Order Now',
         explore: 'Explore',
-        price: 'Rs 1,250',
-        originalPrice: 'Rs 2,450',
+        
         nutrition: [
             { label: 'Fat', value: '0.1g' },
             { label: 'Sodium', value: '10mg' },
@@ -59,8 +58,7 @@ const slides = [
         description: 'Nutrient-dense superfood with 92 vitamins and minerals. Supports immunity, heart health and natural energy boost.',
         cta: 'Order Now',
         explore: 'Explore',
-        price: 'Rs 650',
-        originalPrice: 'Rs 1,250',
+        
         nutrition: [
             { label: 'Fat', value: '0.3g' },
             { label: 'Sodium', value: '15mg' },
@@ -83,8 +81,7 @@ const slides = [
         description: 'Organic beetroot extract for natural blood purification. Boosts stamina, immunity and overall cardiovascular health.',
         cta: 'Order Now',
         explore: 'Explore',
-        price: 'Rs 1,000',
-        originalPrice: 'Rs 2,000',
+        
         nutrition: [
             { label: 'Fat', value: '0.1g' },
             { label: 'Sodium', value: '20mg' },
@@ -100,29 +97,28 @@ const slides = [
         bgText: 'BEETROOT'
     },
     {
-        id: 5,
-        kicker: 'POPULAR',
-        title: 'Organic Haldi Turmeric Power Capsules',
-
-        description: 'Pure turmeric with black pepper for maximum absorption. Anti-inflammatory powerhouse for joint and skin health.',
-        cta: 'Order Now',
-        explore: 'Explore',
-        price: 'Rs 430',
-        originalPrice: 'Rs 930',
-        nutrition: [
-            { label: 'Fat', value: '0.2g' },
-            { label: 'Sodium', value: '3mg' },
-            { label: 'Carbs', value: '1.5g' },
-            { label: 'Fiber', value: '0.8g' },
-            { label: 'Sugar', value: '0.1g' },
-            { label: 'Protein', value: '0.3g' },
-            { label: 'Calcium', value: '10mg' },
-            { label: 'Iron', value: '2.5mg' },
-            { label: 'Potassium', value: '170mg' }
-        ],
-        productImage: '/Pumkin.png',
-        bgText: 'PUMPKIN SEEDS'
-    },
+    id: 5,
+    kicker: 'BESTSELLER',
+    title: 'Organic Beetroot Blood Booster Capsules',
+    description: 'Organic beetroot extract for natural blood purification. Boosts stamina, immunity and overall cardiovascular health.',
+    cta: 'Order Now',
+    explore: 'Explore',
+    price: 'Rs 1,000',
+    originalPrice: 'Rs 2,000',
+    nutrition: [
+        { label: 'Fat', value: '0.1g' },
+        { label: 'Sodium', value: '20mg' },
+        { label: 'Carbs', value: '5.0g' },
+        { label: 'Fiber', value: '1.0g' },
+        { label: 'Sugar', value: '3.0g' },
+        { label: 'Protein', value: '0.8g' },
+        { label: 'Calcium', value: '15mg' },
+        { label: 'Iron', value: '0.8mg' },
+        { label: 'Potassium', value: '320mg' }
+    ],
+    productImage: '/beetroot.png',
+    bgText: 'BEETROOT'
+},
     {
         id: 6,
         kicker: 'POPULAR',
@@ -131,8 +127,7 @@ const slides = [
         description: 'Pure turmeric with black pepper for maximum absorption. Anti-inflammatory powerhouse for joint and skin health.',
         cta: 'Order Now',
         explore: 'Explore',
-        price: 'Rs 430',
-        originalPrice: 'Rs 930',
+        
         nutrition: [
             { label: 'Fat', value: '0.2g' },
             { label: 'Sodium', value: '3mg' },

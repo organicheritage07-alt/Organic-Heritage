@@ -165,25 +165,10 @@ function FeaturedProducts() {
         }
     };
 
-    const handleCardClick = (productId) => {
-        navigate(`/product/${productId}`);
-    };
-
-    const renderStars = (rating) => {
-        const fullStars = Math.floor(rating || 0);
-        const hasHalf = rating % 1 >= 0.5;
-        const stars = [];
-
-        for (let i = 0; i < fullStars; i++) {
-            stars.push(<span key={i} className="star-filled">★</span>);
-        }
-        if (hasHalf) {
-            stars.push(<span key="half" className="star-half">★</span>);
-        }
-        for (let i = stars.length; i < 5; i++) {
-            stars.push(<span key={i} className="star-empty">☆</span>);
-        }
-        return stars;
+    // ✅ UPDATED: Navigate by SLUG (fallback to _id for old products)
+    const handleCardClick = (product) => {
+        const identifier = product.slug || product._id;
+        navigate(`/product/${identifier}`);
     };
 
     const formatPrice = (price) => {
@@ -282,7 +267,7 @@ function FeaturedProducts() {
                                     style={{ transitionDelay: `${0.1 + index * 0.08}s` }}
                                     onMouseEnter={() => setHoveredCard(product._id)}
                                     onMouseLeave={() => setHoveredCard(null)}
-                                    onClick={() => handleCardClick(product._id)}
+                                    onClick={() => handleCardClick(product)}
                                 >
                                     {product.discount > 0 && (
                                         <div className="fp-discount-badge">
@@ -315,14 +300,13 @@ function FeaturedProducts() {
                                     <div className="fp-body">
                                         <h3 className="fp-name">{product.name}</h3>
                                         <p className="fp-subtitle-text">{product.subtitle}</p>
-                                        <p className="fp-description">{product.description}</p>
+                                        
+                                        {/* ✅ ONLY SHOW DESCRIPTION IF IT EXISTS AND IS MEANINGFUL */}
+                                        {product.description && product.description.trim().length > 0 && (
+                                            <p className="fp-description">{product.description}</p>
+                                        )}
 
-                                        <div className="fp-rating">
-                                            <div className="fp-stars">
-                                                {renderStars(product.rating || 4.5)}
-                                            </div>
-                                            <span className="fp-reviews">({product.reviews || 0} reviews)</span>
-                                        </div>
+                                        {/* ❌ REMOVED: Stars + Reviews section completely */}
 
                                         <div className="fp-price-section">
                                             <div className="fp-price-row">

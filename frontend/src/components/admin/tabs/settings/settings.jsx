@@ -97,7 +97,7 @@ const Settings = () => {
           title: 'Success!',
           text: 'Profile updated successfully',
           icon: 'success',
-          confirmButtonColor: '#2D5A27',
+          confirmButtonColor: '#2d5a27',
           timer: 2000
         });
       }
@@ -106,7 +106,7 @@ const Settings = () => {
         title: 'Error!',
         text: error.response?.data?.message || 'Failed to update profile',
         icon: 'error',
-        confirmButtonColor: '#2D5A27'
+        confirmButtonColor: '#2d5a27'
       });
     } finally {
       setLoading(false);
@@ -159,7 +159,7 @@ const Settings = () => {
           title: 'Password Changed!',
           text: 'Your password has been updated successfully',
           icon: 'success',
-          confirmButtonColor: '#2D5A27',
+          confirmButtonColor: '#2d5a27',
           timer: 2000
         });
       }
@@ -168,7 +168,7 @@ const Settings = () => {
         title: 'Error!',
         text: error.response?.data?.message || 'Failed to change password',
         icon: 'error',
-        confirmButtonColor: '#2D5A27'
+        confirmButtonColor: '#2d5a27'
       });
     } finally {
       setLoading(false);

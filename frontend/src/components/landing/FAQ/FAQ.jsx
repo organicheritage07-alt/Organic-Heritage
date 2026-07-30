@@ -1,7 +1,7 @@
 // FAQ.jsx - Luxury Minimal Accordion with Left Form
 import React, { useState, useRef } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
-import { FaPlus, FaMinus, FaInstagram, FaFacebook, FaTwitter } from 'react-icons/fa';
+import { FaPlus, FaMinus, FaInstagram, FaFacebook,FaWhatsapp,FaYoutube,FaTiktok } from 'react-icons/fa';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import './FAQ.css';
@@ -229,9 +229,11 @@ const FAQ = () => {
                         <div className="faq-social-section">
                             <span className="faq-social-label">Follow Us</span>
                             <div className="faq-social-icons">
-                                <a href="#" className="faq-social-icon"><FaInstagram /></a>
-                                <a href="#" className="faq-social-icon"><FaFacebook /></a>
-                                <a href="#" className="faq-social-icon"><FaTwitter /></a>
+                                <a href="https://www.instagram.com/organicheritage09?igsh=c3pnZmkwZmxhOGg4" className="faq-social-icon"><FaInstagram /></a>
+                                <a href="https://www.facebook.com/share/1F7PAiT1d3/" className="faq-social-icon"><FaFacebook /></a>
+                                <a href="https://wa.me/923094085644" className="faq-social-icon"><FaWhatsapp /></a>
+                                <a href="https://www.youtube.com/channel/UCT3dfUeJv3xzk96N-xGtz8A" className="faq-social-icon"><FaYoutube /></a>
+                                <a href="https://www.tiktok.com/@organicheritage?is_from_webapp=1&sender_device=pc" className="faq-social-icon"><FaTiktok /></a>
                             </div>
                         </div>
                     </div>

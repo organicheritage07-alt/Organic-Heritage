@@ -9,7 +9,7 @@
     font-family: 'Inter', sans-serif;
     background: #ffffff;
     min-height: 100vh;
-    color: #2D5A27;
+    color: #2d5a27;
 }
 
 /* ===== HEADER ===== */
@@ -31,7 +31,7 @@
 .cm-header-icon {
     width: 48px;
     height: 48px;
-    background: #2D5A27;
+    background: #2d5a27;
     color: #ffffff;
     display: flex;
     align-items: center;
@@ -42,7 +42,7 @@
 .cm-header h2 {
     font-size: 1.5rem;
     font-weight: 700;
-    color: #2D5A27;
+    color: #2d5a27;
     margin: 0;
     letter-spacing: -0.5px;
 }
@@ -108,7 +108,7 @@
 
 .cm-stat-card.active {
     background: #f3f4f6;
-    border-bottom: 3px solid #2D5A27;
+    border-bottom: 3px solid #2d5a27;
 }
 
 .cm-stat-icon {
@@ -129,7 +129,7 @@
 .cm-stat-number {
     font-size: 1.6rem;
     font-weight: 800;
-    color: #2D5A27;
+    color: #2d5a27;
     line-height: 1.1;
 }
 
@@ -195,7 +195,7 @@
 }
 
 .cm-search-box:focus-within {
-    border-color: #2D5A27;
+    border-color: #2d5a27;
 }
 
 .cm-search-box svg {
@@ -209,7 +209,7 @@
     font-size: 0.85rem;
     font-family: 'Inter', sans-serif;
     width: 100%;
-    color: #2D5A27;
+    color: #2d5a27;
     background: transparent;
 }
 
@@ -229,7 +229,7 @@
 }
 
 .cm-sort-select:focus {
-    border-color: #2D5A27;
+    border-color: #2d5a27;
 }
 
 /* Filter Tabs */
@@ -256,12 +256,12 @@
 }
 
 .cm-filter-tab:hover {
-    color: #2D5A27;
+    color: #2d5a27;
 }
 
 .cm-filter-tab.active {
-    color: #2D5A27;
-    border-bottom-color: #2D5A27;
+    color: #2d5a27;
+    border-bottom-color: #2d5a27;
 }
 
 /* Messages List */
@@ -285,7 +285,7 @@
 
 .cm-message-item.selected {
     background: #f3f4f6;
-    border-left: 3px solid #2D5A27;
+    border-left: 3px solid #2d5a27;
 }
 
 .cm-message-item.unread {
@@ -306,7 +306,7 @@
     width: 44px;
     height: 44px;
     min-width: 44px;
-    background: #2D5A27;
+    background: #2d5a27;
     color: #ffffff;
     display: flex;
     align-items: center;
@@ -337,7 +337,7 @@
 
 .cm-message-sender-info strong {
     font-size: 0.9rem;
-    color: #2D5A27;
+    color: #2d5a27;
     font-weight: 600;
     white-space: nowrap;
     overflow: hidden;
@@ -373,7 +373,7 @@
 .cm-message-subject {
     font-size: 0.85rem;
     font-weight: 600;
-    color: #2D5A27;
+    color: #2d5a27;
     margin-bottom: 4px;
     white-space: nowrap;
     overflow: hidden;
@@ -508,7 +508,7 @@
 }
 
 .cm-detail-action-btn.reply {
-    background: #2D5A27;
+    background: #2d5a27;
     color: #ffffff;
 }
 
@@ -538,7 +538,7 @@
 .cm-contact-avatar {
     width: 56px;
     height: 56px;
-    background: #2D5A27;
+    background: #2d5a27;
     color: #ffffff;
     display: flex;
     align-items: center;
@@ -556,7 +556,7 @@
 .cm-contact-info h3 {
     font-size: 1.1rem;
     font-weight: 700;
-    color: #2D5A27;
+    color: #2d5a27;
     margin: 0 0 6px 0;
 }
 
@@ -613,7 +613,7 @@
     width: 36px;
     height: 36px;
     min-width: 36px;
-    background: #2D5A27;
+    background: #2d5a27;
     color: #ffffff;
     display: flex;
     align-items: center;
@@ -634,7 +634,7 @@
 
 .cm-thread-message.incoming .cm-thread-bubble {
     background: #f3f4f6;
-    border-left: 3px solid #2D5A27;
+    border-left: 3px solid #2d5a27;
 }
 
 .cm-thread-message.outgoing .cm-thread-bubble {
@@ -653,7 +653,7 @@
 .cm-thread-header strong {
     font-size: 0.85rem;
     font-weight: 700;
-    color: #2D5A27;
+    color: #2d5a27;
 }
 
 .cm-thread-header span {
@@ -716,7 +716,7 @@
     font-family: 'Inter', sans-serif;
     outline: none;
     background: #ffffff;
-    color: #2D5A27;
+    color: #2d5a27;
     cursor: pointer;
 }
 
@@ -725,13 +725,13 @@
 }
 
 .cm-quick-reply input:focus {
-    border-color: #2D5A27;
+    border-color: #2d5a27;
 }
 
 .cm-quick-reply button {
     width: 46px;
     height: 46px;
-    background: #2D5A27;
+    background: #2d5a27;
     color: #ffffff;
     border: none;
     display: flex;
@@ -782,7 +782,7 @@
 .cm-modal-header-info h3 {
     font-size: 1.1rem;
     font-weight: 700;
-    color: #2D5A27;
+    color: #2d5a27;
     margin: 0 0 4px 0;
 }
 
@@ -834,7 +834,7 @@
 .cm-reply-ref-subject {
     font-size: 0.9rem;
     font-weight: 700;
-    color: #2D5A27;
+    color: #2d5a27;
     margin-bottom: 8px;
     padding-bottom: 8px;
     border-bottom: 1px solid #e5e5e5;
@@ -868,12 +868,12 @@
     resize: vertical;
     outline: none;
     transition: border-color 0.15s;
-    color: #2D5A27;
+    color: #2d5a27;
     background: #ffffff;
 }
 
 .cm-reply-input-area textarea:focus {
-    border-color: #2D5A27;
+    border-color: #2d5a27;
 }
 
 .cm-reply-input-area textarea::placeholder {
@@ -905,7 +905,7 @@
 }
 
 .cm-modal-btn.send {
-    background: #2D5A27;
+    background: #2d5a27;
     color: #ffffff;
 }
 
@@ -933,7 +933,7 @@
     width: 36px;
     height: 36px;
     border: 3px solid #e5e5e5;
-    border-top-color: #2D5A27;
+    border-top-color: #2d5a27;
     animation: cmSpin 0.8s linear infinite;
     margin: 0 auto 16px;
 }

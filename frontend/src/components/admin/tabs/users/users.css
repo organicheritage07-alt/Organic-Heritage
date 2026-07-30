@@ -27,7 +27,7 @@
 }
 
 .breadcrumb-home:hover {
-  color: #2D5A27;
+  color: #2d5a27;
 }
 
 .breadcrumb-separator {
@@ -35,14 +35,14 @@
 }
 
 .breadcrumb-current {
-  color: #2D5A27;
+  color: #2d5a27;
   font-weight: 600;
 }
 
 .page-title {
   font-size: 1.6rem;
   font-weight: 700;
-  color: #2D5A27;
+  color: #2d5a27;
   margin: 0 0 6px 0;
   font-family: 'Playfair Display', serif;
 }
@@ -106,7 +106,7 @@
 }
 
 .search-wrapper:focus-within {
-  border-color: #2D5A27;
+  border-color: #2d5a27;
 }
 
 .search-icon {
@@ -157,8 +157,8 @@
 }
 
 .btn-refresh:hover {
-  background: #2D5A27;
-  border-color: #2D5A27;
+  background: #2d5a27;
+  border-color: #2d5a27;
   color: white;
 }
 
@@ -187,8 +187,8 @@
 }
 
 .btn-back:hover {
-  background: #2D5A27;
-  border-color: #2D5A27;
+  background: #2d5a27;
+  border-color: #2d5a27;
   color: white;
 }
 
@@ -240,7 +240,7 @@
 .user-avatar {
   width: 40px;
   height: 40px;
-  background: #2D5A27;
+  background: #2d5a27;
   color: white;
   display: flex;
   align-items: center;
@@ -291,12 +291,12 @@
 }
 
 .role-badge-select:focus {
-  border-color: #2D5A27;
+  border-color: #2d5a27;
 }
 
 .role-badge-select.user {
-  color: #2D5A27;
-  border-color: #2D5A27;
+  color: #2d5a27;
+  border-color: #2d5a27;
 }
 
 .role-badge-select.admin {
@@ -314,7 +314,7 @@
 
 .role-badge.user {
   background: rgba(45, 90, 39, 0.1);
-  color: #2D5A27;
+  color: #2d5a27;
   border: 1px solid rgba(45, 90, 39, 0.2);
 }
 
@@ -392,7 +392,7 @@
 }
 
 .footer-stat.user {
-  color: #2D5A27;
+  color: #2d5a27;
   border-color: rgba(45, 90, 39, 0.3);
 }
 
@@ -405,7 +405,7 @@
 .empty-state svg {
   margin-bottom: 16px;
   opacity: 0.3;
-  color: #2D5A27;
+  color: #2d5a27;
 }
 
 .empty-state h3 {
@@ -430,7 +430,7 @@
   width: 36px;
   height: 36px;
   border: 3px solid #F3F4F6;
-  border-top-color: #2D5A27;
+  border-top-color: #2d5a27;
   animation: spin 0.8s linear infinite;
   margin: 0 auto 16px;
 }
@@ -467,7 +467,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 18px 24px;
-  background: #2D5A27;
+  background: #2d5a27;
   color: white;
 }
 
@@ -511,7 +511,7 @@
 .user-profile-avatar {
   width: 72px;
   height: 72px;
-  background: #2D5A27;
+  background: #2d5a27;
   color: white;
   display: flex;
   align-items: center;
@@ -542,7 +542,7 @@
 }
 
 .detail-icon {
-  color: #2D5A27;
+  color: #2d5a27;
   font-size: 1rem;
   margin-top: 2px;
   flex-shrink: 0;

@@ -1,12 +1,12 @@
 // src/components/admin/tabs/products/Products.jsx
-console.log('✅ Products.jsx LOADED - MULTIPLE IMAGES FULL VERSION');
+console.log('✅ Products.jsx LOADED - SLUG + FREE CATEGORY + OPTIONAL DESCRIPTION');
 import { useState, useEffect } from 'react';
 import { 
   FaSearch, FaTrash, FaEdit, FaPlus, FaSyncAlt, FaLeaf,
   FaTrashRestore, FaTimes, FaEye, FaToggleOn, FaToggleOff, 
   FaSave, FaImage, FaTag, FaMoneyBill, FaBoxes,
   FaExclamationTriangle, FaCheckCircle, FaListUl, FaHashtag,
-  FaArrowLeft, FaCloudUploadAlt, FaMinusCircle
+  FaArrowLeft, FaCloudUploadAlt, FaMinusCircle, FaLink
 } from 'react-icons/fa';
 import axios from 'axios';
 import Swal from 'sweetalert2';
@@ -74,7 +74,7 @@ const Products = () => {
       setStats(response.data.stats || { total: 0, inactive: 0, deleted: 0 });
     } catch (error) {
       console.error('Fetch products error:', error);
-      Swal.fire({ title: 'Error!', text: 'Failed to fetch products', icon: 'error', confirmButtonColor: '#2D5A27' });
+      Swal.fire({ title: 'Error!', text: 'Failed to fetch products', icon: 'error', confirmButtonColor: '#2d5a27' });
     } finally {
       setLoading(false);
     }
@@ -119,7 +119,7 @@ const Products = () => {
         title: 'Limit Exceeded',
         text: `You can only upload max 5 additional images. Currently have ${existingImages.length + additionalImageFiles.length}.`,
         icon: 'warning',
-        confirmButtonColor: '#2D5A27'
+        confirmButtonColor: '#2d5a27'
       });
       return;
     }
@@ -172,7 +172,7 @@ const Products = () => {
           title: 'Deleted!',
           text: 'Image removed successfully.',
           icon: 'success',
-          confirmButtonColor: '#2D5A27',
+          confirmButtonColor: '#2d5a27',
           timer: 1500
         });
       } catch (error) {
@@ -180,7 +180,7 @@ const Products = () => {
           title: 'Error!',
           text: error.response?.data?.message || 'Failed to delete image',
           icon: 'error',
-          confirmButtonColor: '#2D5A27'
+          confirmButtonColor: '#2d5a27'
         });
       }
     }
@@ -264,12 +264,13 @@ const Products = () => {
           title: 'Success!', 
           text: 'Product created successfully', 
           icon: 'success',
-          confirmButtonColor: '#2D5A27',
+          confirmButtonColor: '#2d5a27',
           timer: 2000
         });
         setShowAddForm(false);
         resetForm();
         fetchProducts();
+        fetchCategories(); // Refresh categories in case a new one was added
       }
     } catch (error) {
       console.error('Create product error:', error);
@@ -277,7 +278,7 @@ const Products = () => {
         title: 'Error!', 
         text: error.response?.data?.message || 'Failed to create product', 
         icon: 'error',
-        confirmButtonColor: '#2D5A27'
+        confirmButtonColor: '#2d5a27'
       });
     } finally {
       setUploading(false);
@@ -324,12 +325,13 @@ const Products = () => {
           title: 'Success!', 
           text: 'Product updated successfully', 
           icon: 'success',
-          confirmButtonColor: '#2D5A27',
+          confirmButtonColor: '#2d5a27',
           timer: 2000
         });
         setEditingProduct(null);
         resetForm();
         fetchProducts();
+        fetchCategories(); // Refresh categories in case a new one was added
       }
     } catch (error) {
       console.error('Update product error:', error);
@@ -337,7 +339,7 @@ const Products = () => {
         title: 'Error!', 
         text: error.response?.data?.message || 'Failed to update product', 
         icon: 'error',
-        confirmButtonColor: '#2D5A27'
+        confirmButtonColor: '#2d5a27'
       });
     } finally {
       setUploading(false);
@@ -379,7 +381,7 @@ const Products = () => {
     setFormData({
       name: product.name,
       subtitle: product.subtitle,
-      description: product.description,
+      description: product.description || '',
       price: product.price,
       originalPrice: product.originalPrice,
       category: product.category,
@@ -407,7 +409,7 @@ const Products = () => {
   // Bulk Delete
   const handleBulkDelete = async () => {
     if (selectedIds.length === 0) {
-      Swal.fire({ title: 'No Selection', text: 'Please select products to delete', icon: 'info', confirmButtonColor: '#2D5A27' });
+      Swal.fire({ title: 'No Selection', text: 'Please select products to delete', icon: 'info', confirmButtonColor: '#2d5a27' });
       return;
     }
 
@@ -430,9 +432,9 @@ const Products = () => {
         ));
         setSelectedIds([]);
         await fetchProducts();
-        Swal.fire({ title: 'Deleted!', text: `${selectedIds.length} products moved to trash.`, icon: 'success', confirmButtonColor: '#2D5A27', timer: 2000 });
+        Swal.fire({ title: 'Deleted!', text: `${selectedIds.length} products moved to trash.`, icon: 'success', confirmButtonColor: '#2d5a27', timer: 2000 });
       } catch (error) {
-        Swal.fire({ title: 'Error!', text: 'Failed to delete products', icon: 'error', confirmButtonColor: '#2D5A27' });
+        Swal.fire({ title: 'Error!', text: 'Failed to delete products', icon: 'error', confirmButtonColor: '#2d5a27' });
       }
     }
   };
@@ -440,7 +442,7 @@ const Products = () => {
   // Bulk Restore
   const handleBulkRestore = async () => {
     if (selectedIds.length === 0) {
-      Swal.fire({ title: 'No Selection', text: 'Please select products to restore', icon: 'info', confirmButtonColor: '#2D5A27' });
+      Swal.fire({ title: 'No Selection', text: 'Please select products to restore', icon: 'info', confirmButtonColor: '#2d5a27' });
       return;
     }
 
@@ -463,9 +465,9 @@ const Products = () => {
         ));
         setSelectedIds([]);
         await fetchProducts();
-        Swal.fire({ title: 'Restored!', text: `${selectedIds.length} products restored.`, icon: 'success', confirmButtonColor: '#2D5A27', timer: 2000 });
+        Swal.fire({ title: 'Restored!', text: `${selectedIds.length} products restored.`, icon: 'success', confirmButtonColor: '#2d5a27', timer: 2000 });
       } catch (error) {
-        Swal.fire({ title: 'Error!', text: 'Failed to restore products', icon: 'error', confirmButtonColor: '#2D5A27' });
+        Swal.fire({ title: 'Error!', text: 'Failed to restore products', icon: 'error', confirmButtonColor: '#2d5a27' });
       }
     }
   };
@@ -490,9 +492,9 @@ const Products = () => {
           headers: { Authorization: `Bearer ${token}` }
         });
         await fetchProducts();
-        Swal.fire({ title: 'Moved to Trash!', text: `${productName} moved to trash.`, icon: 'success', confirmButtonColor: '#2D5A27', timer: 2000 });
+        Swal.fire({ title: 'Moved to Trash!', text: `${productName} moved to trash.`, icon: 'success', confirmButtonColor: '#2d5a27', timer: 2000 });
       } catch (error) {
-        Swal.fire({ title: 'Error!', text: error.response?.data?.message, icon: 'error', confirmButtonColor: '#2D5A27' });
+        Swal.fire({ title: 'Error!', text: error.response?.data?.message, icon: 'error', confirmButtonColor: '#2d5a27' });
       }
     }
   };
@@ -517,9 +519,9 @@ const Products = () => {
           headers: { Authorization: `Bearer ${token}` }
         });
         await fetchProducts();
-        Swal.fire({ title: 'Restored!', text: `${productName} restored.`, icon: 'success', confirmButtonColor: '#2D5A27', timer: 2000 });
+        Swal.fire({ title: 'Restored!', text: `${productName} restored.`, icon: 'success', confirmButtonColor: '#2d5a27', timer: 2000 });
       } catch (error) {
-        Swal.fire({ title: 'Error!', text: error.response?.data?.message, icon: 'error', confirmButtonColor: '#2D5A27' });
+        Swal.fire({ title: 'Error!', text: error.response?.data?.message, icon: 'error', confirmButtonColor: '#2d5a27' });
       }
     }
   };
@@ -544,9 +546,9 @@ const Products = () => {
           headers: { Authorization: `Bearer ${token}` }
         });
         await fetchProducts();
-        Swal.fire({ title: 'Deleted!', text: `${productName} permanently deleted.`, icon: 'success', confirmButtonColor: '#2D5A27', timer: 2000 });
+        Swal.fire({ title: 'Deleted!', text: `${productName} permanently deleted.`, icon: 'success', confirmButtonColor: '#2d5a27', timer: 2000 });
       } catch (error) {
-        Swal.fire({ title: 'Error!', text: error.response?.data?.message, icon: 'error', confirmButtonColor: '#2D5A27' });
+        Swal.fire({ title: 'Error!', text: error.response?.data?.message, icon: 'error', confirmButtonColor: '#2d5a27' });
       }
     }
   };
@@ -576,11 +578,11 @@ const Products = () => {
           title: `${action}d!`, 
           text: `${productName} ${currentStatus ? 'deactivated' : 'activated'}.`, 
           icon: 'success',
-          confirmButtonColor: '#2D5A27',
+          confirmButtonColor: '#2d5a27',
           timer: 2000
         });
       } catch (error) {
-        Swal.fire({ title: 'Error!', text: error.response?.data?.message, icon: 'error', confirmButtonColor: '#2D5A27' });
+        Swal.fire({ title: 'Error!', text: error.response?.data?.message, icon: 'error', confirmButtonColor: '#2d5a27' });
       }
     }
   };
@@ -838,14 +840,36 @@ const Products = () => {
               </div>
             </div>
 
+            {/* ✅ SLUG DISPLAY (Read Only) - Shows SEO-friendly URL */}
+            {editingProduct && editingProduct.slug && (
+              <div className="form-group">
+                <label>
+                  <FaLink style={{ marginRight: '6px', fontSize: '0.8rem' }} />
+                  Product Slug (Auto-generated URL)
+                </label>
+                <input
+                  type="text"
+                  value={editingProduct.slug}
+                  disabled
+                  readOnly
+                  style={{ 
+                    background: '#F3F4F6', 
+                    color: '#6B7280', 
+                    fontFamily: 'monospace',
+                    fontSize: '0.85rem'
+                  }}
+                />
+                <span className="label-hint">This slug is auto-generated from the product name for SEO-friendly URLs</span>
+              </div>
+            )}
+
             <div className="form-group">
-              <label>Description *</label>
+              <label>Description</label>
               <textarea
                 value={formData.description}
                 onChange={(e) => setFormData({...formData, description: e.target.value})}
-                required
                 rows="3"
-                placeholder="Describe your product..."
+                placeholder="Describe your product... (Optional)"
               />
             </div>
 
@@ -875,18 +899,25 @@ const Products = () => {
             </div>
 
             <div className="form-row">
+              {/* ✅ FREE TEXT CATEGORY WITH DATALIST */}
               <div className="form-group">
                 <label>Category *</label>
-                <select
+                <input
+                  type="text"
+                  list="category-suggestions"
                   value={formData.category}
                   onChange={(e) => setFormData({...formData, category: e.target.value})}
                   required
-                >
-                  <option value="Capsules">Capsules</option>
-                  <option value="Powder">Powder</option>
-                  <option value="Liquid">Liquid</option>
-                  <option value="Tablets">Tablets</option>
-                </select>
+                  placeholder="Type or pick: Capsules, Powder, Seeds, Tablets..."
+                />
+                <datalist id="category-suggestions">
+                  {categories
+                    .filter(c => c !== 'All')
+                    .map(cat => (
+                      <option key={cat} value={cat} />
+                    ))}
+                </datalist>
+                <span className="label-hint">Type any category or pick from existing ones. You can create new categories.</span>
               </div>
               <div className="form-group">
                 <label>Tag</label>
@@ -957,7 +988,7 @@ const Products = () => {
             {/* BULLET POINT SYSTEM */}
             <div className="form-section">
               <h4>
-                <FaListUl style={{ marginRight: '10px', color: '#2D5A27' }} />
+                <FaListUl style={{ marginRight: '10px', color: '#2d5a27' }} />
                 Product Details (For Product Detail Page)
               </h4>
               <p className="section-hint">Add information using bullet points for better readability</p>
@@ -1321,6 +1352,11 @@ const Products = () => {
                       {selectedProduct.tag}
                     </span>
                   )}
+                  {selectedProduct.slug && (
+                    <div style={{ marginTop: '6px', fontSize: '0.75rem', color: '#9CA3AF', fontFamily: 'monospace' }}>
+                      /product/{selectedProduct.slug}
+                    </div>
+                  )}
                 </div>
               </div>
 
@@ -1376,7 +1412,7 @@ const Products = () => {
                 <div className="detail-row full">
                   <div>
                     <label>Description</label>
-                    <p>{selectedProduct.description}</p>
+                    <p>{selectedProduct.description || <em style={{color: '#9CA3AF'}}>No description provided</em>}</p>
                   </div>
                 </div>
                 {selectedProduct.highlights && selectedProduct.highlights.length > 0 && (

@@ -38,7 +38,7 @@
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.2em;
-    color: #2D5A27;
+    color: #2d5a27;
     background: rgba(45, 90, 39, 0.06);
     padding: 4px 14px;
     border-radius: 4px;
@@ -57,7 +57,7 @@
 }
 
 .faq-title-highlight {
-    color: #2D5A27;
+    color: #2d5a27;
     position: relative;
 }
 
@@ -119,7 +119,7 @@
 .faq-form-group input:focus,
 .faq-form-group textarea:focus {
     outline: none;
-    border-color: #2D5A27;
+    border-color: #2d5a27;
     background: #ffffff;
     box-shadow: 0 0 0 3px rgba(45, 90, 39, 0.06);
 }
@@ -132,7 +132,7 @@
 .faq-form-btn {
     width: 100%;
     padding: 11px 24px;
-    background: #2D5A27;
+    background: #2d5a27;
     color: #ffffff;
     border: none;
     border-radius: 8px;
@@ -168,7 +168,7 @@
     display: block;
     font-size: 0.65rem;
     font-weight: 600;
-    color: #6B7B65;
+    color: #2d5a27;
     text-transform: uppercase;
     letter-spacing: 0.06em;
     margin-bottom: 10px;
@@ -187,15 +187,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #6B7B65;
+    color: #2d5a27;
     font-size: 0.9rem;
     transition: all 0.3s ease;
     text-decoration: none;
 }
 
 .faq-social-icon:hover {
-    background: #2D5A27;
-    border-color: #2D5A27;
+    background: #2d5a27;
+    border-color: #2d5a27;
     color: #ffffff;
     transform: translateY(-2px);
 }
@@ -216,7 +216,7 @@
 }
 
 .faq-item.active {
-    border-bottom-color: #2D5A27;
+    border-bottom-color: #2d5a27;
 }
 
 .faq-question {
@@ -235,7 +235,7 @@
 }
 
 .faq-question:hover .faq-question-text {
-    color: #2D5A27;
+    color: #2d5a27;
 }
 
 .faq-question-text {
@@ -248,7 +248,7 @@
 }
 
 .faq-item.active .faq-question-text {
-    color: #2D5A27;
+    color: #2d5a27;
 }
 
 .faq-icon {
@@ -267,7 +267,7 @@
 }
 
 .faq-item.active .faq-icon {
-    background: #2D5A27;
+    background: #2d5a27;
     color: #ffffff;
     transform: rotate(180deg);
 }
@@ -484,7 +484,7 @@
     }
 
     .faq-social-label {
-        color: rgba(255, 255, 255, 0.3);
+        color: #2d5a27;
     }
 
     .faq-social-icon {

@@ -26,7 +26,7 @@
 }
 
 .breadcrumb-home:hover {
-  color: #2D5A27;
+  color: #2d5a27;
 }
 
 .breadcrumb-separator {
@@ -34,7 +34,7 @@
 }
 
 .breadcrumb-current {
-  color: #2D5A27;
+  color: #2d5a27;
   font-weight: 600;
 }
 
@@ -120,7 +120,7 @@
 
 .form-group input:focus {
   outline: none;
-  border-color: #2D5A27;
+  border-color: #2d5a27;
 }
 
 .form-group input.disabled-input {
@@ -171,7 +171,7 @@
   gap: 8px;
   width: 100%;
   padding: 10px 16px;
-  background: #2D5A27;
+  background: #2d5a27;
   color: white;
   font-size: 0.8rem;
   font-weight: 600;

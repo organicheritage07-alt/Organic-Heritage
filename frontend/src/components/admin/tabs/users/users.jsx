@@ -40,7 +40,7 @@ const Users = () => {
       setDeletedUsers(response.data.deletedUsers || []);
       setStats(response.data.stats || { total: 0, admins: 0, users: 0, deleted: 0 });
     } catch (error) {
-      Swal.fire({ title: 'Error!', text: 'Failed to fetch users', icon: 'error', confirmButtonColor: '#2D5A27' });
+      Swal.fire({ title: 'Error!', text: 'Failed to fetch users', icon: 'error', confirmButtonColor: '#2d5a27' });
     } finally {
       setLoading(false);
     }
@@ -51,7 +51,7 @@ const Users = () => {
     const currentUsers = showDeleted ? deletedUsers : users;
 
     if (currentUsers.length === 0) {
-      Swal.fire({ title: 'No Data', text: 'No users to export', icon: 'info', confirmButtonColor: '#2D5A27' });
+      Swal.fire({ title: 'No Data', text: 'No users to export', icon: 'info', confirmButtonColor: '#2d5a27' });
       return;
     }
 
@@ -161,13 +161,13 @@ const Users = () => {
             title: 'PDF Downloaded!',
             html: `Successfully exported ${currentUsers.length} users.`,
             icon: 'success',
-            confirmButtonColor: '#2D5A27',
+            confirmButtonColor: '#2d5a27',
             timer: 2000,
             showConfirmButton: true
           });
         } catch (err) {
           console.error('PDF Generation Error:', err);
-          Swal.fire({ title: 'Error!', text: 'Failed to generate PDF', icon: 'error', confirmButtonColor: '#2D5A27' });
+          Swal.fire({ title: 'Error!', text: 'Failed to generate PDF', icon: 'error', confirmButtonColor: '#2d5a27' });
         }
       };
 
@@ -186,7 +186,7 @@ const Users = () => {
 
     } catch (error) {
       console.error('PDF Error:', error);
-      Swal.fire({ title: 'Error!', text: 'Failed to generate PDF. Please try again.', icon: 'error', confirmButtonColor: '#2D5A27' });
+      Swal.fire({ title: 'Error!', text: 'Failed to generate PDF. Please try again.', icon: 'error', confirmButtonColor: '#2d5a27' });
     }
   };
 
@@ -195,7 +195,7 @@ const Users = () => {
     const currentUsers = showDeleted ? deletedUsers : users;
 
     if (currentUsers.length === 0) {
-      Swal.fire({ title: 'No Data', text: 'No users to export', icon: 'info', confirmButtonColor: '#2D5A27' });
+      Swal.fire({ title: 'No Data', text: 'No users to export', icon: 'info', confirmButtonColor: '#2d5a27' });
       return;
     }
 
@@ -230,14 +230,14 @@ const Users = () => {
         title: 'Excel Downloaded!',
         html: `Successfully exported ${currentUsers.length} users.`,
         icon: 'success',
-        confirmButtonColor: '#2D5A27',
+        confirmButtonColor: '#2d5a27',
         timer: 2000,
         showConfirmButton: true
       });
 
     } catch (error) {
       console.error('Excel Error:', error);
-      Swal.fire({ title: 'Error!', text: 'Failed to generate Excel file', icon: 'error', confirmButtonColor: '#2D5A27' });
+      Swal.fire({ title: 'Error!', text: 'Failed to generate Excel file', icon: 'error', confirmButtonColor: '#2d5a27' });
     }
   };
 
@@ -259,9 +259,9 @@ const Users = () => {
         const token = localStorage.getItem('token');
         await axios.delete(`${API_URL}/admin/users/${userId}`, { headers: { Authorization: `Bearer ${token}` } });
         await fetchUsers();
-        Swal.fire({ title: 'Moved to Trash!', text: `${userName} moved to trash.`, icon: 'success', confirmButtonColor: '#2D5A27', timer: 2000 });
+        Swal.fire({ title: 'Moved to Trash!', text: `${userName} moved to trash.`, icon: 'success', confirmButtonColor: '#2d5a27', timer: 2000 });
       } catch (error) {
-        Swal.fire({ title: 'Error!', text: error.response?.data?.message, icon: 'error', confirmButtonColor: '#2D5A27' });
+        Swal.fire({ title: 'Error!', text: error.response?.data?.message, icon: 'error', confirmButtonColor: '#2d5a27' });
       }
     }
   };
@@ -284,9 +284,9 @@ const Users = () => {
         const token = localStorage.getItem('token');
         await axios.put(`${API_URL}/admin/users/${userId}/restore`, {}, { headers: { Authorization: `Bearer ${token}` } });
         await fetchUsers();
-        Swal.fire({ title: 'Restored!', text: `${userName} restored.`, icon: 'success', confirmButtonColor: '#2D5A27', timer: 2000 });
+        Swal.fire({ title: 'Restored!', text: `${userName} restored.`, icon: 'success', confirmButtonColor: '#2d5a27', timer: 2000 });
       } catch (error) {
-        Swal.fire({ title: 'Error!', text: error.response?.data?.message, icon: 'error', confirmButtonColor: '#2D5A27' });
+        Swal.fire({ title: 'Error!', text: error.response?.data?.message, icon: 'error', confirmButtonColor: '#2d5a27' });
       }
     }
   };
@@ -309,9 +309,9 @@ const Users = () => {
         const token = localStorage.getItem('token');
         await axios.delete(`${API_URL}/admin/users/${userId}/permanent`, { headers: { Authorization: `Bearer ${token}` } });
         await fetchUsers();
-        Swal.fire({ title: 'Deleted!', text: `${userName} permanently deleted.`, icon: 'success', confirmButtonColor: '#2D5A27', timer: 2000 });
+        Swal.fire({ title: 'Deleted!', text: `${userName} permanently deleted.`, icon: 'success', confirmButtonColor: '#2d5a27', timer: 2000 });
       } catch (error) {
-        Swal.fire({ title: 'Error!', text: error.response?.data?.message, icon: 'error', confirmButtonColor: '#2D5A27' });
+        Swal.fire({ title: 'Error!', text: error.response?.data?.message, icon: 'error', confirmButtonColor: '#2d5a27' });
       }
     }
   };
@@ -323,7 +323,7 @@ const Users = () => {
       html: `Make <strong>${userName}</strong> ${newRole === 'admin' ? 'an Admin' : 'a User'}?`, 
       icon: 'question',
       showCancelButton: true, 
-      confirmButtonColor: '#2D5A27', 
+      confirmButtonColor: '#2d5a27', 
       cancelButtonColor: '#6B7280',
       confirmButtonText: `Yes, make ${newRole === 'admin' ? 'Admin' : 'User'}`, 
       cancelButtonText: 'Cancel'
@@ -335,9 +335,9 @@ const Users = () => {
         const token = localStorage.getItem('token');
         await axios.put(`${API_URL}/admin/users/${userId}/role`, { role: newRole }, { headers: { Authorization: `Bearer ${token}` } });
         await fetchUsers();
-        Swal.fire({ title: 'Role Updated!', text: `${userName} is now ${newRole === 'admin' ? 'an Admin' : 'a User'}.`, icon: 'success', confirmButtonColor: '#2D5A27', timer: 2000 });
+        Swal.fire({ title: 'Role Updated!', text: `${userName} is now ${newRole === 'admin' ? 'an Admin' : 'a User'}.`, icon: 'success', confirmButtonColor: '#2d5a27', timer: 2000 });
       } catch (error) {
-        Swal.fire({ title: 'Error!', text: error.response?.data?.message, icon: 'error', confirmButtonColor: '#2D5A27' });
+        Swal.fire({ title: 'Error!', text: error.response?.data?.message, icon: 'error', confirmButtonColor: '#2d5a27' });
       } finally {
         setUpdatingUserId(null);
       }
@@ -373,12 +373,12 @@ const Users = () => {
       <div className="usr-stats-row" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', borderBottom: '1px solid #E5E7EB' }}>
 
         <div className="usr-stat-box" style={{ display: 'flex', alignItems: 'center', gap: '14px', padding: '18px 20px', background: '#ffffff', borderRight: '1px solid #E5E7EB', minHeight: '80px' }}>
-          <div style={{ width: '44px', height: '44px', background: '#F3F4F6', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.2rem', color: '#2D5A27' }}>
+          <div style={{ width: '44px', height: '44px', background: '#F3F4F6', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.2rem', color: '#2d5a27' }}>
             <FaUsers />
           </div>
           <div style={{ display: 'flex', flexDirection: 'column' }}>
             <span style={{ fontSize: '0.7rem', fontWeight: 600, color: '#6B7280', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '3px' }}>Total Users</span>
-            <span style={{ fontSize: '1.5rem', fontWeight: 800, color: '#2D5A27' }}>{stats.total || 0}</span>
+            <span style={{ fontSize: '1.5rem', fontWeight: 800, color: '#2d5a27' }}>{stats.total || 0}</span>
           </div>
         </div>
 
@@ -388,17 +388,17 @@ const Users = () => {
           </div>
           <div style={{ display: 'flex', flexDirection: 'column' }}>
             <span style={{ fontSize: '0.7rem', fontWeight: 600, color: '#6B7280', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '3px' }}>Administrators</span>
-            <span style={{ fontSize: '1.5rem', fontWeight: 800, color: '#2D5A27' }}>{stats.admins || 0}</span>
+            <span style={{ fontSize: '1.5rem', fontWeight: 800, color: '#2d5a27' }}>{stats.admins || 0}</span>
           </div>
         </div>
 
         <div className="usr-stat-box" style={{ display: 'flex', alignItems: 'center', gap: '14px', padding: '18px 20px', background: '#ffffff', borderRight: '1px solid #E5E7EB', minHeight: '80px' }}>
-          <div style={{ width: '44px', height: '44px', background: '#F3F4F6', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.2rem', color: '#2D5A27' }}>
+          <div style={{ width: '44px', height: '44px', background: '#F3F4F6', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.2rem', color: '#2d5a27' }}>
             <FaUserCheck />
           </div>
           <div style={{ display: 'flex', flexDirection: 'column' }}>
             <span style={{ fontSize: '0.7rem', fontWeight: 600, color: '#6B7280', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '3px' }}>Regular Users</span>
-            <span style={{ fontSize: '1.5rem', fontWeight: 800, color: '#2D5A27' }}>{stats.users || 0}</span>
+            <span style={{ fontSize: '1.5rem', fontWeight: 800, color: '#2d5a27' }}>{stats.users || 0}</span>
           </div>
         </div>
 
@@ -408,7 +408,7 @@ const Users = () => {
           </div>
           <div style={{ display: 'flex', flexDirection: 'column' }}>
             <span style={{ fontSize: '0.7rem', fontWeight: 600, color: '#6B7280', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '3px' }}>Deleted Users</span>
-            <span style={{ fontSize: '1.5rem', fontWeight: 800, color: '#2D5A27' }}>{stats.deleted || 0}</span>
+            <span style={{ fontSize: '1.5rem', fontWeight: 800, color: '#2d5a27' }}>{stats.deleted || 0}</span>
           </div>
           {showDeleted && (
             <span style={{ marginLeft: 'auto', fontSize: '0.65rem', fontWeight: 600, background: '#DC2626', color: 'white', padding: '3px 8px' }}>Viewing</span>

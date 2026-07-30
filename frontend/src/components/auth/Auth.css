@@ -70,7 +70,7 @@
 .auth-side-brand {
     flex: 1;
     position: relative;
-    background: url('https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+    background: url('./preloder2.png') center/cover no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -701,3 +701,64 @@
 .form-container > *:nth-child(4) { animation-delay: 0.2s; }
 .form-container > *:nth-child(5) { animation-delay: 0.25s; }
 .form-container > *:nth-child(6) { animation-delay: 0.3s; }
+/* ===== INPUT GROUP FIX ===== */
+.input-group {
+    display: flex;
+    align-items: center;
+    background: #FAFBFC;
+    border: 1.5px solid #E8EAED;
+    border-radius: 12px;
+    padding: 10px 14px;
+    margin-bottom: 12px;
+    transition: all 0.3s ease;
+    /* ✅ IMPORTANT: relative rakhna hai taake icon absolute ho sake */
+    position: relative;
+}
+
+/* ✅ ICON FIX — Absolute position taake text overlap na ho */
+.input-icon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #9CA3AF;
+    font-size: 0.95rem;
+    z-index: 2;
+    pointer-events: none; /* icon click se input pe focus jaye */
+}
+
+/* ✅ INPUT FIX — Left padding add karo taake text icon ke baad se shuru ho */
+.input-group input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: 0.85rem;
+    font-family: 'Inter', sans-serif;
+    color: #1B2E1A;
+    min-width: 0;
+    /* ✅ Yeh add karo — icon ke liye jagah chhod do */
+    padding-left: 32px;
+    padding-right: 8px;
+    width: 100%;
+}
+
+/* Password toggle button sahi jagah pe rahe */
+.password-toggle {
+    background: none;
+    border: none;
+    color: #9CA3AF;
+    cursor: pointer;
+    font-size: 0.95rem;
+    padding: 4px;
+    margin-left: 4px;
+    transition: color 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+.password-toggle:hover {
+    color: #1B2E1A;
+}

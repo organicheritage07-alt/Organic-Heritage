@@ -23,6 +23,7 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const { isAuthenticated, user } = useSelector((state) => state.auth);
   const lastScrollY = useRef(0);
+  const searchInputRef = useRef(null);
 
   // Scroll behavior: show on scroll up, hide on scroll down
   useEffect(() => {
@@ -52,12 +53,17 @@ const Navbar = () => {
     return () => { document.body.style.overflow = 'auto'; };
   }, [mobileMenuOpen]);
 
+  // Focus search input when opened
+  useEffect(() => {
+    if (searchOpen && searchInputRef.current) {
+      searchInputRef.current.focus();
+    }
+  }, [searchOpen]);
+
   const navLinks = [
     { id: 'home', label: 'Home', href: '/' },
     { id: 'story', label: 'Our Story', href: '/story' },
     { id: 'products', label: 'Products', href: '/products' },
-    { id: 'ingredients', label: 'Ingredients', href: '/ingredients' },
-    
     { id: 'contact', label: 'Contact', href: '/contact' },
   ];
 
@@ -83,6 +89,22 @@ const Navbar = () => {
     setMobileMenuOpen(false);
   };
 
+  // ✅ SEARCH FUNCTIONALITY - Navigate to products with search query
+  const handleSearch = (e) => {
+    if (e) e.preventDefault();
+    if (searchQuery.trim()) {
+      navigate(`/products?search=${encodeURIComponent(searchQuery.trim())}`);
+      setSearchOpen(false);
+      setSearchQuery('');
+    }
+  };
+
+  const handleSearchKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      handleSearch(e);
+    }
+  };
+
   // ✅ USE openCart FROM CONTEXT
   const handleCartClick = () => {
     openCart(); // ✅ This will open the cart drawer
@@ -94,7 +116,7 @@ const Navbar = () => {
       {/* ===== DESKTOP NAVBAR - 3 PREMIUM CAPSULES ===== */}
       <nav className={`navbar-desktop ${isVisible ? 'navbar-visible' : ''} ${isScrolled ? 'navbar-scrolled' : ''}`}>
         <div className="capsules-wrapper">
-          
+
           {/* LEFT CAPSULE - Logo */}
           <div className="capsule-left">
             <a href="/" className="brand-link" onClick={(e) => { e.preventDefault(); navigate('/'); }}>
@@ -132,16 +154,18 @@ const Navbar = () => {
           {/* RIGHT CAPSULE - Actions */}
           <div className="capsule-right">
             <div className="search-capsule">
-              <div className={`search-expand ${searchOpen ? 'open' : ''}`}>
+              <form className={`search-expand ${searchOpen ? 'open' : ''}`} onSubmit={handleSearch}>
                 <input
+                  ref={searchInputRef}
                   type="text"
                   className="search-input"
-                  placeholder="Search..."
+                  placeholder="Search products..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
+                  onKeyDown={handleSearchKeyDown}
                 />
-              </div>
-              <button className="action-btn search-btn" onClick={() => setSearchOpen(!searchOpen)}>
+              </form>
+              <button className="action-btn search-btn" onClick={() => searchQuery.trim() ? handleSearch() : setSearchOpen(!searchOpen)}>
                 {searchOpen ? <FiX /> : <FiSearch />}
               </button>
             </div>
@@ -181,7 +205,8 @@ const Navbar = () => {
               </div>
             )}
 
-            <a href="/shop" className="cta-pill" onClick={(e) => { e.preventDefault(); navigate('/shop'); }}>
+            {/* ✅ SHOP NOW → PRODUCTS PAGE */}
+            <a href="/products" className="cta-pill" onClick={(e) => { e.preventDefault(); navigate('/products'); }}>
               <span className="cta-pill-text">Shop Now</span>
               <span className="cta-pill-arrow">→</span>
             </a>
@@ -224,12 +249,16 @@ const Navbar = () => {
         {/* Mobile Search Bar */}
         <div className={`mobile-search-bar ${searchOpen ? 'open' : ''}`}>
           <FiSearch className="mobile-search-icon" />
-          <input 
-            type="text" 
-            placeholder="Search organic products..." 
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-          />
+          <form onSubmit={handleSearch} style={{ flex: 1, display: 'flex' }}>
+            <input 
+              type="text" 
+              placeholder="Search organic products..." 
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              onKeyDown={handleSearchKeyDown}
+              style={{ flex: 1, border: 'none', outline: 'none', fontFamily: "'DM Sans', sans-serif", fontSize: '0.9rem', color: 'var(--oh-primary)', background: 'transparent' }}
+            />
+          </form>
           <button className="mobile-search-close" onClick={() => setSearchOpen(false)}><FiX /></button>
         </div>
       </div>
@@ -328,7 +357,8 @@ const Navbar = () => {
                     </button>
                   </>
                 )}
-                <a href="/shop" className="mobile-btn accent" onClick={(e) => { e.preventDefault(); navigate('/shop'); setMobileMenuOpen(false); }}>
+                {/* ✅ SHOP COLLECTION → PRODUCTS PAGE */}
+                <a href="/products" className="mobile-btn accent" onClick={(e) => { e.preventDefault(); navigate('/products'); setMobileMenuOpen(false); }}>
                   Shop Collection
                 </a>
               </div>

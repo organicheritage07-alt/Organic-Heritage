@@ -70,10 +70,10 @@ const fallbackTestimonials = [
 
 // Product data for background images
 const backgroundProducts = [
-    { id: 1, name: 'Ashwagandha', image: './ashwaganda.png' },
-    { id: 2, name: 'Haldi', image: './ambahaldii.png' },
-    { id: 3, name: 'Moringa', image: './moringa.png' },
-    { id: 4, name: 'Beetroot', image: './beetroot.png' }
+    { id: 1, name: '', image: './back1.png' },
+    { id: 2, name: '', image: './test3.png' },
+    { id: 3, name: '', image: './test2.png' },
+    { id: 4, name: 'Beetroot', image: './test1.png' }
 ];
 
 function Testimonials() {
@@ -196,7 +196,7 @@ function Testimonials() {
                 title: 'Error',
                 text: 'Please provide a rating and a review (minimum 10 characters)',
                 icon: 'warning',
-                confirmButtonColor: '#2D6A4F'
+                confirmButtonColor: '#2d5a27'
             });
             return;
         }
@@ -224,7 +224,7 @@ function Testimonials() {
                     title: 'Thank You!',
                     text: 'Your review has been submitted successfully.',
                     icon: 'success',
-                    confirmButtonColor: '#2D6A4F',
+                    confirmButtonColor: '#2d5a27',
                     timer: 3000,
                     showConfirmButton: false
                 });
@@ -252,7 +252,7 @@ function Testimonials() {
                 title: 'Error',
                 text: error.response?.data?.message || 'Failed to submit review',
                 icon: 'error',
-                confirmButtonColor: '#2D6A4F'
+                confirmButtonColor: '#2d5a27'
             });
         } finally {
             setSubmitting(false);

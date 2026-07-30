@@ -50,7 +50,7 @@ const Reviews = () => {
             text: 'This review will be visible on the frontend',
             icon: 'question',
             showCancelButton: true,
-            confirmButtonColor: '#2D5A27',
+            confirmButtonColor: '#2d5a27',
             cancelButtonColor: '#6B7280',
             confirmButtonText: 'Yes, Approve',
             cancelButtonText: 'Cancel'
@@ -66,7 +66,7 @@ const Reviews = () => {
                 setSelectedReview(null);
                 setMobileView('list');
             } catch (error) {
-                Swal.fire({ title: 'Error!', text: 'Failed to approve', icon: 'error', confirmButtonColor: '#2D5A27' });
+                Swal.fire({ title: 'Error!', text: 'Failed to approve', icon: 'error', confirmButtonColor: '#2d5a27' });
             }
         }
     };
@@ -94,7 +94,7 @@ const Reviews = () => {
                 setSelectedReview(null);
                 setMobileView('list');
             } catch (error) {
-                Swal.fire({ title: 'Error!', text: 'Failed to reject', icon: 'error', confirmButtonColor: '#2D5A27' });
+                Swal.fire({ title: 'Error!', text: 'Failed to reject', icon: 'error', confirmButtonColor: '#2d5a27' });
             }
         }
     };
@@ -121,7 +121,7 @@ const Reviews = () => {
                 setSelectedReview(null);
                 setMobileView('list');
             } catch (error) {
-                Swal.fire({ title: 'Error!', text: 'Failed to delete', icon: 'error', confirmButtonColor: '#2D5A27' });
+                Swal.fire({ title: 'Error!', text: 'Failed to delete', icon: 'error', confirmButtonColor: '#2d5a27' });
             }
         }
     };
@@ -234,7 +234,7 @@ const Reviews = () => {
             {/* Stats */}
             <div className="rv-stats">
                 <div className={`rv-stat-card ${filter === 'all' ? 'active' : ''}`} onClick={() => setFilter('all')}>
-                    <div className="rv-stat-icon" style={{ color: '#2D5A27' }}>
+                    <div className="rv-stat-icon" style={{ color: '#2d5a27' }}>
                         <FaInbox />
                     </div>
                     <div className="rv-stat-info">

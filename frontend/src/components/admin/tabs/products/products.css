@@ -27,7 +27,7 @@
 }
 
 .breadcrumb-home:hover {
-  color: #2D5A27;
+  color: #2d5a27;
 }
 
 .breadcrumb-separator {
@@ -35,7 +35,7 @@
 }
 
 .breadcrumb-current {
-  color: #2D5A27;
+  color: #2d5a27;
   font-weight: 600;
 }
 
@@ -89,7 +89,7 @@
 }
 
 .prod-stat-box.total:hover {
-  border-color: #2D5A27;
+  border-color: #2d5a27;
   background: #F0F7F0;
 }
 
@@ -126,7 +126,7 @@
   align-items: center;
   justify-content: center;
   font-size: 1.3rem;
-  color: #2D5A27;
+  color: #2d5a27;
   flex-shrink: 0;
 }
 
@@ -229,7 +229,7 @@
 }
 
 .search-wrapper:focus-within {
-  border-color: #2D5A27;
+  border-color: #2d5a27;
   box-shadow: 0 0 0 3px rgba(45, 90, 39, 0.1);
 }
 
@@ -265,7 +265,7 @@
 
 .filter-select:focus {
   outline: none;
-  border-color: #2D5A27;
+  border-color: #2d5a27;
 }
 
 .action-bar-right {
@@ -296,8 +296,8 @@
 }
 
 .btn-refresh:hover {
-  background: #2D5A27;
-  border-color: #2D5A27;
+  background: #2d5a27;
+  border-color: #2d5a27;
   color: white;
 }
 
@@ -332,7 +332,7 @@
 }
 
 .btn-add {
-  background: #2D5A27;
+  background: #2d5a27;
   color: white;
 }
 
@@ -446,7 +446,7 @@
 .form-group select:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: #2D5A27;
+  border-color: #2d5a27;
   box-shadow: 0 0 0 3px rgba(45, 90, 39, 0.1);
 }
 
@@ -471,7 +471,7 @@
 }
 
 .image-upload-area:hover {
-  border-color: #2D5A27;
+  border-color: #2d5a27;
 }
 
 .image-upload-area .image-input {
@@ -546,7 +546,7 @@
 
 .btn-submit {
   padding: 12px 32px;
-  background: #2D5A27;
+  background: #2d5a27;
   color: white;
   border: none;
   border-radius: 8px;
@@ -629,7 +629,7 @@
 
 .bullet-input:focus {
   outline: none;
-  border-color: #2D5A27;
+  border-color: #2d5a27;
   box-shadow: 0 0 0 3px rgba(45, 90, 39, 0.1);
 }
 
@@ -642,7 +642,7 @@
   align-items: center;
   gap: 8px;
   padding: 10px 20px;
-  background: #2D5A27;
+  background: #2d5a27;
   color: white;
   border: none;
   border-radius: 8px;
@@ -701,19 +701,19 @@
 }
 
 .bullet-item:hover {
-  border-color: #2D5A27;
+  border-color: #2d5a27;
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
 .bullet-item .bullet-icon {
   font-size: 1rem;
-  color: #2D5A27;
+  color: #2d5a27;
   font-weight: 700;
   min-width: 20px;
 }
 
 .bullet-item.highlight-bullet .bullet-icon {
-  color: #2D5A27;
+  color: #2d5a27;
 }
 
 .bullet-item.benefit-bullet .bullet-icon {
@@ -768,7 +768,7 @@
 
 .paragraph-textarea:focus {
   outline: none;
-  border-color: #2D5A27;
+  border-color: #2d5a27;
   box-shadow: 0 0 0 3px rgba(45, 90, 39, 0.1);
   background: white;
 }
@@ -831,7 +831,7 @@
   width: 16px;
   height: 16px;
   cursor: pointer;
-  accent-color: #2D5A27;
+  accent-color: #2d5a27;
 }
 
 .product-info {
@@ -869,7 +869,7 @@
   display: inline-block;
   padding: 4px 10px;
   background: #ECFDF5;
-  color: #2D5A27;
+  color: #2d5a27;
   font-size: 0.7rem;
   font-weight: 600;
   border-radius: 20px;
@@ -1148,7 +1148,7 @@ tr.low-stock:hover {
 .modal-tag-list li {
   padding: 4px 10px;
   background: #ECFDF5;
-  color: #2D5A27;
+  color: #2d5a27;
   border-radius: 6px;
   font-size: 0.85rem;
   margin-bottom: 4px;
@@ -1171,7 +1171,7 @@ tr.low-stock:hover {
 .empty-state svg {
   margin-bottom: 16px;
   opacity: 0.3;
-  color: #2D5A27;
+  color: #2d5a27;
 }
 
 .empty-state h3 {
@@ -1196,7 +1196,7 @@ tr.low-stock:hover {
   width: 40px;
   height: 40px;
   border: 3px solid #F3F4F6;
-  border-top-color: #2D5A27;
+  border-top-color: #2d5a27;
   border-radius: 50%;
   animation: spin 1s linear infinite;
   margin: 0 auto 16px;
@@ -1216,12 +1216,12 @@ tr.low-stock:hover {
 }
 
 .image-upload-area.multiple:hover {
-  border-color: #2D5A27;
+  border-color: #2d5a27;
   background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
 }
 
 .image-upload-area.multiple .upload-placeholder {
-  color: #2D5A27;
+  color: #2d5a27;
 }
 
 .additional-images-section {
@@ -1344,7 +1344,7 @@ tr.low-stock:hover {
 .image-count {
   display: inline-block;
   font-size: 0.75rem;
-  color: #2D5A27;
+  color: #2d5a27;
   background: rgba(45, 90, 39, 0.1);
   padding: 2px 8px;
   border-radius: 12px;
@@ -1385,7 +1385,7 @@ tr.low-stock:hover {
 
 .modal-gallery-item:hover {
   transform: scale(1.05);
-  border-color: #2D5A27;
+  border-color: #2d5a27;
 }
 
 .modal-gallery-item img {

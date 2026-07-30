@@ -1,7 +1,6 @@
 /* ========================================
    FEATURED PRODUCTS - SCROLL ANIMATION
    PURE CSS + JS - NO LIBRARY NEEDED
-   UP & DOWN SMOOTH ANIMATION
    ======================================== */
 
 .featured-products-section {
@@ -350,51 +349,6 @@
     padding: 0 5px;
 }
 
-/* Rating */
-.fp-rating {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    margin-bottom: 16px;
-}
-
-.fp-stars {
-    display: flex;
-    gap: 3px;
-}
-
-.star-filled {
-    color: #FBBF24;
-    font-size: 1rem;
-}
-
-.star-half {
-    color: #FBBF24;
-    font-size: 1rem;
-    position: relative;
-}
-
-.star-half::after {
-    content: '☆';
-    position: absolute;
-    left: 0;
-    color: #E5E7EB;
-    overflow: hidden;
-    width: 50%;
-}
-
-.star-empty {
-    color: #E5E7EB;
-    font-size: 1rem;
-}
-
-.fp-reviews {
-    font-size: 0.75rem;
-    color: #9CA3AF;
-    font-weight: 500;
-}
-
 /* ========================================
    PRICE SECTION
    ======================================== */
@@ -449,6 +403,9 @@
     gap: 12px;
 }
 
+/* ========================================
+   ADD TO CART BUTTON - CLEAN SINGLE DEFINITION
+   ======================================== */
 .fp-cart-btn {
     display: inline-flex;
     align-items: center;
@@ -474,16 +431,28 @@
     flex-shrink: 0;
 }
 
-.fp-cart-btn:hover {
+.fp-cart-btn:hover:not(:disabled) {
     background: #2D6A4F;
     transform: translateY(-2px);
     box-shadow: 0 6px 16px rgba(27, 46, 26, 0.2);
 }
 
-.fp-cart-btn:hover svg {
+.fp-cart-btn:hover:not(:disabled) svg {
     transform: translateX(-2px) scale(1.1);
 }
 
+.fp-cart-btn:disabled {
+    opacity: 0.7;
+    cursor: wait;
+}
+
+.fp-cart-btn.adding {
+    background: #4a6b5a;
+}
+
+/* ========================================
+   WISHLIST BUTTON
+   ======================================== */
 .fp-wishlist {
     width: 48px;
     height: 48px;
@@ -778,6 +747,7 @@
     .fp-cart-btn {
         padding: 10px 8px;
         font-size: 0.6rem;
+        gap: 6px;
     }
     .fp-cart-btn svg {
         width: 12px;
@@ -852,72 +822,6 @@
     .fp-container {
         padding: 0 16px;
     }
-}
-
-/* ========================================
-   ADD TO CART BUTTON - WITH CART ICON
-   ======================================== */
-.fp-cart-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    flex: 1;
-    padding: 14px 18px;
-    background: #1B2E1A;
-    color: white;
-    font-size: 0.85rem;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-family: 'Inter', sans-serif;
-    border-radius: 0;
-}
-
-.fp-cart-btn svg {
-    transition: transform 0.3s ease;
-    flex-shrink: 0;
-}
-
-.fp-cart-btn:hover {
-    background: #2D6A4F;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(27, 46, 26, 0.2);
-}
-
-.fp-cart-btn:hover svg {
-    transform: translateX(-2px) scale(1.1);
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .fp-cart-btn {
-        padding: 12px 12px;
-        font-size: 0.75rem;
-        gap: 8px;
-    }
-    .fp-cart-btn svg {
-        width: 16px;
-        height: 16px;
-    }
-}
-
-@media (max-width: 600px) {
-    .fp-cart-btn {
-        padding: 10px 8px;
-        font-size: 0.6rem;
-        gap: 6px;
-    }
-    .fp-cart-btn svg {
-        width: 14px;
-        height: 14px;
-    }
-}
-
-@media (max-width: 450px) {
     .fp-cart-btn {
         padding: 12px 16px;
         font-size: 0.8rem;
@@ -926,50 +830,4 @@
         width: 16px;
         height: 16px;
     }
-}
-
-@keyframes spin {
-    to { transform: rotate(360deg); }
-}/* Add to Cart Button States */
-.fp-cart-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    padding: 10px 18px;
-    background: #1B2E1A;
-    color: #ffffff;
-    border: none;
-    border-radius: 6px;
-    font-weight: 600;
-    font-size: 0.8rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    flex: 1;
-    min-height: 40px;
-}
-
-.fp-cart-btn:hover:not(:disabled) {
-    background: #2D6A4F;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(27, 46, 26, 0.2);
-}
-
-.fp-cart-btn:disabled {
-    opacity: 0.7;
-    cursor: wait;
-}
-
-.fp-cart-btn.adding {
-    background: #4a6b5a;
-}
-
-.fp-cart-btn.added {
-    background: #2D6A4F;
-    cursor: default;
-}
-
-.fp-cart-btn.added:hover {
-    transform: none;
-    box-shadow: none;
 }

@@ -44,7 +44,7 @@ const ContactMessages = () => {
                 title: 'Error!', 
                 text: 'Failed to fetch messages', 
                 icon: 'error',
-                confirmButtonColor: '#2D5A27'
+                confirmButtonColor: '#2d5a27'
             });
         } finally {
             setLoading(false);
@@ -71,7 +71,7 @@ const ContactMessages = () => {
                 title: 'Error!', 
                 text: 'Failed to load message details', 
                 icon: 'error',
-                confirmButtonColor: '#2D5A27'
+                confirmButtonColor: '#2d5a27'
             });
         }
     };
@@ -82,7 +82,7 @@ const ContactMessages = () => {
                 title: 'Error', 
                 text: 'Please enter a reply message', 
                 icon: 'warning',
-                confirmButtonColor: '#2D5A27'
+                confirmButtonColor: '#2d5a27'
             });
             return;
         }
@@ -99,7 +99,7 @@ const ContactMessages = () => {
                     title: 'Success!', 
                     text: 'Reply sent successfully to customer', 
                     icon: 'success',
-                    confirmButtonColor: '#2D5A27',
+                    confirmButtonColor: '#2d5a27',
                     timer: 2500,
                     showConfirmButton: false
                 });
@@ -115,7 +115,7 @@ const ContactMessages = () => {
                 title: 'Error!', 
                 text: error.response?.data?.message || 'Failed to send reply', 
                 icon: 'error',
-                confirmButtonColor: '#2D5A27'
+                confirmButtonColor: '#2d5a27'
             });
         }
     };
@@ -151,7 +151,7 @@ const ContactMessages = () => {
                     title: 'Error!', 
                     text: 'Failed to delete', 
                     icon: 'error',
-                    confirmButtonColor: '#2D5A27'
+                    confirmButtonColor: '#2d5a27'
                 });
             }
         }
@@ -265,7 +265,7 @@ const ContactMessages = () => {
             {/* Stats Cards */}
             <div className="cm-stats">
                 <div className={`cm-stat-card ${filter === 'all' ? 'active' : ''}`} onClick={() => setFilter('all')}>
-                    <div className="cm-stat-icon" style={{ color: '#2D5A27' }}>
+                    <div className="cm-stat-icon" style={{ color: '#2d5a27' }}>
                         <FaInbox />
                     </div>
                     <div className="cm-stat-info">

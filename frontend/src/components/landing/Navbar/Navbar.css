@@ -1,15 +1,15 @@
 /* ============================================
    ORGANIC HERITAGE - PREMIUM 3-CAPSULE NAVBAR
-   UPDATED: Transparent navbar background so hero shows through
+   UPDATED: Logo fixed, no shadows, sharp CTA, white mobile menu, working search
    ============================================ */
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap');
 
 :root {
     --oh-primary: #1A2E17;
     --oh-primary-light: #2D4A26;
-    --oh-gold: #C5A265;
-    --oh-gold-light: #D4B87A;
-    --oh-cream: #F8F5EE;
+    --oh-gold: #2D4A26;
+    --oh-gold-light: #2D4A26;
+    --oh-cream: #ffff;
     --oh-cream-dark: #EDE8DD;
     --oh-white: #FFFFFF;
     --oh-text: #1A2E17;
@@ -54,7 +54,7 @@
 }
 
 /* ========== CAPSULES WRAPPER ========== */
-/* Only the capsules have semi-transparent background */
+/* Only the capsules have semi-transparent background - NO SHADOW */
 .capsules-wrapper {
     display: flex;
     justify-content: space-between;
@@ -66,13 +66,15 @@
     border-radius: 100px;
     padding: 8px 12px 8px 20px;
     border: 1px solid rgba(197, 162, 101, 0.25);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    /* SHADOW REMOVED */
+    box-shadow: none !important;
     transition: all 0.4s ease;
 }
 
 .navbar-desktop.navbar-scrolled .capsules-wrapper {
     background: rgba(255, 255, 255, 0.95) !important;
-    box-shadow: 0 8px 32px rgba(26, 46, 23, 0.12);
+    /* SHADOW REMOVED */
+    box-shadow: none !important;
     border: 1px solid rgba(197, 162, 101, 0.35);
 }
 
@@ -93,8 +95,8 @@
 }
 
 .brand-logo-ring {
-    width: 48px;
-    height: 48px;
+    width: 52px;
+    height: 52px;
     border-radius: 50%;
     background: linear-gradient(135deg, rgba(197, 162, 101, 0.15), rgba(197, 162, 101, 0.05));
     border: 2px solid rgba(197, 162, 101, 0.35);
@@ -120,10 +122,11 @@
     50% { transform: scale(1.08); opacity: 0.2; }
 }
 
+/* ✅ LOGO FIX - Bigger inner container so logo shows fully */
 .brand-logo-inner {
-    width: 38px;
-    height: 38px;
-    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    border-radius:50%;
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -131,11 +134,12 @@
     background: white;
 }
 
+/* ✅ LOGO FIX - Image fills the container properly */
 .brand-logo-img {
-    width: 100%;
-    height: 100%;
+    width: 0;
+    height: 0;
     object-fit: contain;
-    padding: 2px;
+    padding: 0px;
 }
 
 .brand-text {
@@ -276,7 +280,7 @@
 }
 
 .search-expand.open {
-    width: 160px;
+    width: 180px;
 }
 
 .search-input {
@@ -421,7 +425,7 @@
     background: #fef2f2;
 }
 
-/* CTA Pill */
+/* ✅ SHARP CTA PILL - No more rounded pill shape */
 .cta-pill {
     display: inline-flex;
     align-items: center;
@@ -436,7 +440,8 @@
     letter-spacing: 0.1em;
     text-transform: uppercase;
     text-decoration: none;
-    border-radius: 50px;
+    /* ✅ SHARP CORNERS - changed from 50px to 4px */
+    border-radius: 4px;
     border: 1.5px solid transparent;
     transition: all 0.4s var(--transition-luxury);
     cursor: pointer;
@@ -612,7 +617,7 @@
     transform: translateY(0);
 }
 
-/* Only mobile-container has semi-transparent background */
+/* Only mobile-container has semi-transparent background - NO SHADOW */
 .mobile-container {
     display: flex;
     justify-content: space-between;
@@ -622,13 +627,15 @@
     border-radius: 16px;
     padding: 10px 16px;
     border: 1px solid rgba(197, 162, 101, 0.2);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    /* SHADOW REMOVED */
+    box-shadow: none !important;
 }
 
 .navbar-mobile.navbar-scrolled .mobile-container {
     background: rgba(255, 255, 255, 0.95) !important;
     border: 1px solid rgba(197, 162, 101, 0.25);
-    box-shadow: 0 8px 32px rgba(26, 46, 23, 0.1);
+    /* SHADOW REMOVED */
+    box-shadow: none !important;
 }
 
 .mobile-brand-link {
@@ -797,7 +804,7 @@
 }
 
 /* ============================================
-   MOBILE SLIDE MENU (FROM RIGHT)
+   MOBILE SLIDE MENU (FROM RIGHT) - WHITE BACKGROUND
    ============================================ */
 .mobile-menu-overlay {
     position: fixed;
@@ -818,7 +825,8 @@
     width: 85%;
     max-width: 380px;
     height: 100vh;
-    background: linear-gradient(180deg, #F8F5EE 0%, #EDE8DD 50%, #E8E0D0 100%);
+    /* ✅ WHITE BACKGROUND - changed from gradient to white */
+    background: #FFFFFF;
     backdrop-filter: blur(30px);
     z-index: 10000;
     padding: 80px 24px 24px 24px;
@@ -1163,6 +1171,7 @@
     margin-bottom: 24px;
 }
 
+/* ✅ SHARP MOBILE BUTTONS - No more rounded pill shape */
 .mobile-btn {
     display: flex;
     align-items: center;
@@ -1177,7 +1186,8 @@
     cursor: pointer;
     text-decoration: none;
     border: none;
-    border-radius: 50px;
+    /* ✅ SHARP CORNERS - changed from 50px to 4px */
+    border-radius: 4px;
     transition: all 0.4s var(--transition-luxury);
 }
 

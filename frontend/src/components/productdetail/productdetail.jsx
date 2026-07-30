@@ -18,7 +18,8 @@ import './productdetail.css';
 import Testimonials from '../landing/Testimonials/Testimonials';
 
 const ProductDetail = () => {
-    const { id } = useParams();
+    // ✅ UPDATED: id can be either MongoDB _id or slug (backend handles both)
+    const { id: identifier } = useParams();
     const navigate = useNavigate();
     const { addToCart } = useCart();
 
@@ -39,12 +40,13 @@ const ProductDetail = () => {
     const API_URL = 'https://organic-heritage.onrender.com/api/products';
 
     // ===== FETCH PRODUCT =====
+    // ✅ Works with BOTH slug and _id because backend handles both
     useEffect(() => {
         const fetchProduct = async () => {
             try {
                 setLoading(true);
                 setError(null);
-                const response = await axios.get(`${API_URL}/${id}`);
+                const response = await axios.get(`${API_URL}/${identifier}`);
                 if (response.data.success) {
                     const prod = response.data.product;
                     setProduct(prod);
@@ -72,15 +74,15 @@ const ProductDetail = () => {
                 setLoading(false);
             }
         };
-        if (id) fetchProduct();
-    }, [id]);
+        if (identifier) fetchProduct();
+    }, [identifier]);
 
     const fetchRelatedProducts = async (category) => {
         try {
             const response = await axios.get(API_URL);
             if (response.data.success) {
                 const related = response.data.products
-                    .filter(p => p.category === category && p._id !== id)
+                    .filter(p => p.category === category && p._id !== product?._id)
                     .slice(0, 4);
                 setRelatedProducts(related);
             }
@@ -208,6 +210,13 @@ const ProductDetail = () => {
     };
     const usageSteps = parseUsageSteps(howToUse);
 
+    // ✅ HELPER: Navigate using slug (fallback to _id for old products)
+    const goToProduct = (prod) => {
+        const slugOrId = prod.slug || prod._id;
+        navigate(`/product/${slugOrId}`);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
     return (
         <div className="pd-page">
             {/* BREADCRUMB */}
@@ -261,11 +270,14 @@ const ProductDetail = () => {
                                     <span className="pd-gallery-badge">{product.tag?.toUpperCase()}</span>
                                 )}
 
+                                {/* ✅ FIXED: Zoom background — crystal clear with 250% size + image rendering */}
                                 <div 
                                     className={`pd-zoom-bg ${isZooming ? 'active' : ''}`}
                                     style={{
                                         backgroundImage: `url(${images[selectedImage] || product.image})`,
                                         backgroundPosition: `${zoomPosition.x}% ${zoomPosition.y}%`,
+                                        backgroundSize: '250%',
+                                        imageRendering: '-webkit-optimize-contrast',
                                     }}
                                 />
 
@@ -273,6 +285,7 @@ const ProductDetail = () => {
                                     src={images[selectedImage] || product.image} 
                                     alt={product.name}
                                     className={isZooming ? 'hidden' : ''}
+                                    style={{ imageRendering: '-webkit-optimize-contrast' }}
                                     onError={(e) => { e.target.src = product.image; }}
                                 />
 
@@ -598,7 +611,7 @@ const ProductDetail = () => {
                                 <div 
                                     key={p._id} 
                                     className="pd-related-card"
-                                    onClick={() => navigate(`/product/${p._id}`)}
+                                    onClick={() => goToProduct(p)}
                                 >
                                     <div className="pd-related-img">
                                         <img src={p.image} alt={p.name} />

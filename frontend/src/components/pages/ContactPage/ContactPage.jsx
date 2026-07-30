@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
     FaPhone, FaEnvelope, FaMapMarkerAlt, FaInstagram, FaFacebook, 
-    FaTwitter, FaPinterest, FaWhatsapp, FaClock, FaCheckCircle,
-    FaLeaf
+    FaYoutube, FaWhatsapp, FaClock, FaLeaf, FaArrowRight
 } from 'react-icons/fa';
+import { FaTiktok } from 'react-icons/fa6';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import './ContactPage.css';
@@ -17,6 +17,10 @@ function ContactPage() {
     });
     const [isSubmitting, setIsSubmitting] = useState(false);
 
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
@@ -29,7 +33,7 @@ function ContactPage() {
                 title: 'Error',
                 text: 'Please fill in all required fields',
                 icon: 'warning',
-                confirmButtonColor: '#2D6A4F',
+                confirmButtonColor: '#2d5a27',
                 confirmButtonText: 'OK'
             });
             return;
@@ -52,7 +56,7 @@ function ContactPage() {
                     title: 'Thank You! 🌿',
                     text: 'Your message has been sent successfully. We\'ll get back to you within 24 hours.',
                     icon: 'success',
-                    confirmButtonColor: '#2D6A4F',
+                    confirmButtonColor: '#2d5a27',
                     confirmButtonText: 'Great!',
                     timer: 5000,
                     timerProgressBar: true
@@ -62,7 +66,7 @@ function ContactPage() {
                     title: 'Error',
                     text: response.data.message || 'Failed to send message. Please try again.',
                     icon: 'error',
-                    confirmButtonColor: '#2D6A4F'
+                    confirmButtonColor: '#2d5a27'
                 });
             }
         } catch (error) {
@@ -71,7 +75,7 @@ function ContactPage() {
                 title: 'Error',
                 text: error.response?.data?.message || 'Failed to send message. Please try again.',
                 icon: 'error',
-                confirmButtonColor: '#2D6A4F'
+                confirmButtonColor: '#2d5a27'
             });
         } finally {
             setIsSubmitting(false);
@@ -80,214 +84,159 @@ function ContactPage() {
 
     return (
         <div className="contact-page">
-            {/* ============ HERO SECTION ============ */}
-            <section className="contact-hero">
-                <div className="contact-hero-container">
-                    {/* Top Bar */}
-                    <div className="contact-topbar">
-                        <a href="mailto:organicheritage07@gmail.com" className="contact-topbar-email">
-                            organicheritage07@gmail.com
-                        </a>
-                        <div className="contact-topbar-center">
-                            <span className="contact-topbar-logo">
-                                <FaLeaf className="logo-icon" /> Organic Heritage
-                            </span>
-                        </div>
-                        <div className="contact-topbar-links">
-                            <a href="/">Home</a>
-                            <a href="/products">Products</a>
-                            <a href="#contact">Contact</a>
-                        </div>
-                    </div>
-
-                    {/* Hero Content */}
-                    <div className="contact-hero-content">
-                        {/* LEFT */}
-                        <div className="contact-hero-left">
-                            <h1 className="contact-hero-title">Contact Us</h1>
-                            <p className="contact-hero-subtitle">
-                                Have a question or want to learn more<br />
-                                about our products? We'd love to hear from you.
-                            </p>
-                            <div className="contact-hero-social">
-                                <a href="#" className="hero-social-icon" title="Instagram"><FaInstagram /></a>
-                                <a href="#" className="hero-social-icon" title="Facebook"><FaFacebook /></a>
-                                <a href="#" className="hero-social-icon" title="Twitter"><FaTwitter /></a>
-                                <a href="#" className="hero-social-icon" title="Pinterest"><FaPinterest /></a>
-                                <a href="#" className="hero-social-icon" title="WhatsApp"><FaWhatsapp /></a>
-                            </div>
-                        </div>
-
-                        {/* RIGHT - Form Card */}
-                        <div className="contact-hero-right">
-                            <div className="contact-form-card">
-                                <div className="proposal-box">
-                                    <div className="proposal-icon">
-                                        <FaLeaf />
-                                    </div>
-                                    <p className="proposal-text">
-                                        Write us a few words about your inquiry and we'll get back to you within <strong>24 hours</strong>.
-                                    </p>
-                                </div>
-
-                                <form onSubmit={handleSubmit} className="contact-form">
-                                    <div className="form-row">
-                                        <div className="form-group">
-                                            <input
-                                                type="text"
-                                                name="name"
-                                                value={formData.name}
-                                                onChange={handleChange}
-                                                placeholder="Your Name *"
-                                                required
-                                            />
-                                        </div>
-                                        <div className="form-group">
-                                            <input
-                                                type="email"
-                                                name="email"
-                                                value={formData.email}
-                                                onChange={handleChange}
-                                                placeholder="Your Email *"
-                                                required
-                                            />
-                                        </div>
-                                    </div>
-                                    <div className="form-group">
-                                        <input
-                                            type="text"
-                                            name="subject"
-                                            value={formData.subject}
-                                            onChange={handleChange}
-                                            placeholder="Subject"
-                                        />
-                                    </div>
-                                    <div className="form-group">
-                                        <textarea
-                                            name="message"
-                                            value={formData.message}
-                                            onChange={handleChange}
-                                            placeholder="Your Message *"
-                                            rows="4"
-                                            required
-                                        />
-                                    </div>
-
-                                    <button type="submit" className="contact-submit-btn" disabled={isSubmitting}>
-                                        {isSubmitting ? (
-                                            <>
-                                                <span className="spinner-small"></span>
-                                                Sending...
-                                            </>
-                                        ) : (
-                                            'Send Message'
-                                        )}
-                                    </button>
-
-                                    <p className="form-footer-note">
-                                        We'll respond within 24 hours
-                                    </p>
-                                </form>
-                            </div>
-                        </div>
+            {/* ===== BANNER — EXACTLY LIKE STORY PAGE ===== */}
+            <section className="contact-banner" data-section="banner">
+                <div className="contact-banner-bg">
+                    <img 
+                        src="./preloder2.png" 
+                        alt="Contact Organic Heritage" 
+                    />
+                    <div className="contact-banner-overlay" />
+                </div>
+                <div className="contact-banner-content">
+                    <span className="contact-banner-tag"><FaLeaf /> Get in Touch</span>
+                    <h1>Contact Us</h1>
+                    <p>Have a question or want to learn more about our products?<br />We'd love to hear from you.</p>
+                    
+                    <div className="contact-banner-social">
+                        <a href="https://www.instagram.com/organicheritage09?igsh=c3pnZmkwZmxhOGg4" target="_blank" rel="noopener noreferrer" className="banner-social-icon instagram" title="Instagram"><FaInstagram /></a>
+                        <a href="https://www.facebook.com/share/1F7PAiT1d3/" target="_blank" rel="noopener noreferrer" className="banner-social-icon facebook" title="Facebook"><FaFacebook /></a>
+                        <a href="https://www.tiktok.com/@organicheritage?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer" className="banner-social-icon tiktok" title="TikTok"><FaTiktok /></a>
+                        <a href="https://www.youtube.com/channel/UCT3dfUeJv3xzk96N-xGtz8A" target="_blank" rel="noopener noreferrer" className="banner-social-icon youtube" title="YouTube"><FaYoutube /></a>
+                        <a href="https://wa.me/923094085644" target="_blank" rel="noopener noreferrer" className="banner-social-icon whatsapp" title="WhatsApp"><FaWhatsapp /></a>
                     </div>
                 </div>
             </section>
 
-            {/* ============ PROCESS + CONTACT INFO ============ */}
-            <section className="contact-process-section">
-                <div className="contact-process-container">
-                    {/* LEFT - Process Steps */}
-                    <div className="contact-process-left">
-                        <h2 className="process-title">What will<br />be next step?</h2>
-                        <p className="process-subtitle">
-                            You are one step closer<br />to your wellness journey
+            {/* ===== CONTACT SECTION — FORM + INFO SIDE BY SIDE ===== */}
+            <section className="contact-main-section">
+                <div className="contact-main-container">
+                    
+                    {/* LEFT — Contact Info */}
+                    <div className="contact-info-col">
+                        <span className="section-label"><FaLeaf /> Contact Info</span>
+                        <h2>Let's Start a Conversation</h2>
+                        <p className="contact-info-desc">
+                            We're here to help you on your wellness journey. Reach out to us through any of the channels below.
                         </p>
 
-                        <div className="process-steps">
-                            <div className="process-step">
-                                <div className="step-timeline">
-                                    <div className="step-dot"></div>
-                                    <div className="step-line"></div>
-                                </div>
-                                <div className="step-content">
-                                    <h4>01. We'll review your inquiry</h4>
-                                    <p>We carefully review your message and understand your needs</p>
+                        <div className="contact-info-items">
+                            <div className="contact-info-item">
+                                <div className="info-icon-box"><FaPhone /></div>
+                                <div className="info-text">
+                                    <h4>Phone / WhatsApp</h4>
+                                    <p>+92 309 4085644</p>
                                 </div>
                             </div>
-                            <div className="process-step">
-                                <div className="step-timeline">
-                                    <div className="step-dot"></div>
-                                    <div className="step-line"></div>
-                                </div>
-                                <div className="step-content">
-                                    <h4>02. Together we discuss it</h4>
-                                    <p>We'll get in touch to discuss your requirements in detail</p>
+                            <div className="contact-info-item">
+                                <div className="info-icon-box"><FaEnvelope /></div>
+                                <div className="info-text">
+                                    <h4>Email</h4>
+                                    <p>organicheritage09@gmail.com</p>
                                 </div>
                             </div>
-                            <div className="process-step">
-                                <div className="step-timeline">
-                                    <div className="step-dot"></div>
+                            <div className="contact-info-item">
+                                <div className="info-icon-box"><FaMapMarkerAlt /></div>
+                                <div className="info-text">
+                                    <h4>Location</h4>
+                                    <p>Multan, Pakistan</p>
                                 </div>
-                                <div className="step-content">
-                                    <h4>03. Let's start your journey</h4>
-                                    <p>We'll guide you through our products and help you choose the best</p>
+                            </div>
+                            <div className="contact-info-item">
+                                <div className="info-icon-box"><FaClock /></div>
+                                <div className="info-text">
+                                    <h4>Working Hours</h4>
+                                    <p>24/7 Online Business</p>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    {/* RIGHT - Contact Info List */}
-                    <div className="contact-process-right">
-                        <div className="contact-info-list">
-                            <div className="info-item">
-                                <div className="info-item-icon"><FaPhone /></div>
-                                <div className="info-item-content">
-                                    <h4>Phone</h4>
-                                    <p>+92 300 1234567</p>
-                                    <span>Mon-Fri, 9am - 6pm</span>
+                    {/* RIGHT — Form */}
+                    <div className="contact-form-col">
+                        <div className="contact-form-box">
+                            <div className="form-header">
+                                <div className="form-header-icon"><FaLeaf /></div>
+                                <div>
+                                    <h3>Send a Message</h3>
+                                    <p>We'll get back to you within 24 hours</p>
                                 </div>
                             </div>
-                            <div className="info-item">
-                                <div className="info-item-icon"><FaEnvelope /></div>
-                                <div className="info-item-content">
-                                    <h4>Email</h4>
-                                    <p>organicheritage07@gmail.com</p>
-                                    <span>We respond within 24 hours</span>
+
+                            <form onSubmit={handleSubmit} className="contact-form-clean">
+                                <div className="form-row-clean">
+                                    <input
+                                        type="text"
+                                        name="name"
+                                        value={formData.name}
+                                        onChange={handleChange}
+                                        placeholder="Your Name *"
+                                        required
+                                    />
+                                    <input
+                                        type="email"
+                                        name="email"
+                                        value={formData.email}
+                                        onChange={handleChange}
+                                        placeholder="Your Email *"
+                                        required
+                                    />
                                 </div>
-                            </div>
-                            <div className="info-item">
-                                <div className="info-item-icon"><FaMapMarkerAlt /></div>
-                                <div className="info-item-content">
-                                    <h4>Location</h4>
-                                    <p>Lahore, Pakistan</p>
-                                    <span>Visit us by appointment</span>
-                                </div>
-                            </div>
-                            <div className="info-item">
-                                <div className="info-item-icon"><FaClock /></div>
-                                <div className="info-item-content">
-                                    <h4>Working Hours</h4>
-                                    <p>Mon - Fri: 9:00 AM - 6:00 PM</p>
-                                    <span>Saturday: 10:00 AM - 2:00 PM</span>
-                                </div>
-                            </div>
+                                <input
+                                    type="text"
+                                    name="subject"
+                                    value={formData.subject}
+                                    onChange={handleChange}
+                                    placeholder="Subject"
+                                    className="form-full-input"
+                                />
+                                <textarea
+                                    name="message"
+                                    value={formData.message}
+                                    onChange={handleChange}
+                                    placeholder="Your Message *"
+                                    rows="5"
+                                    required
+                                />
+                                <button type="submit" className="form-submit-btn" disabled={isSubmitting}>
+                                    {isSubmitting ? 'Sending...' : <>Send Message <FaArrowRight /></>}
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            {/* ===== PROCESS STEPS ===== */}
+            <section className="contact-process-section">
+                <div className="contact-process-container">
+                    <div className="process-header">
+                        <span className="section-label"><FaLeaf /> Our Process</span>
+                        <h2>What Will Be the Next Step?</h2>
+                    </div>
+
+                    <div className="process-cards">
+                        <div className="process-card">
+                            <div className="process-num">01</div>
+                            <h4>We'll Review Your Inquiry</h4>
+                            <p>We carefully review your message and understand your wellness needs within minutes.</p>
+                        </div>
+                        <div className="process-card">
+                            <div className="process-num">02</div>
+                            <h4>Together We Discuss It</h4>
+                            <p>We'll get in touch via your preferred channel to discuss requirements in detail.</p>
+                        </div>
+                        <div className="process-card">
+                            <div className="process-num">03</div>
+                            <h4>Let's Start Your Journey</h4>
+                            <p>We'll guide you through our products and help you choose the best for your health.</p>
                         </div>
                     </div>
                 </div>
             </section>
 
             <style>{`
-                .spinner-small {
-                    width: 18px;
-                    height: 18px;
-                    border: 2px solid rgba(255,255,255,0.3);
-                    border-top-color: #ffffff;
-                    border-radius: 50%;
-                    animation: spin 0.7s linear infinite;
-                    display: inline-block;
-                }
-                
                 @keyframes spin {
                     to { transform: rotate(360deg); }
                 }

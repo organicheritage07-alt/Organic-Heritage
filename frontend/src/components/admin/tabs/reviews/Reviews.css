@@ -1,6 +1,6 @@
 /* ============================================
    REVIEWS ADMIN - PREMIUM SHARP DESIGN
-   Organic Green #2D5A27 | White Background
+   Organic Green #2d5a27 | White Background
    ============================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
@@ -31,7 +31,7 @@
 .rv-header-icon {
     width: 48px;
     height: 48px;
-    background: #2D5A27;
+    background: #2d5a27;
     color: #ffffff;
     display: flex;
     align-items: center;
@@ -42,7 +42,7 @@
 .rv-header h2 {
     font-size: 1.5rem;
     font-weight: 700;
-    color: #2D5A27;
+    color: #2d5a27;
     margin: 0;
     letter-spacing: -0.5px;
 }
@@ -108,7 +108,7 @@
 
 .rv-stat-card.active {
     background: #f3f4f6;
-    border-bottom: 3px solid #2D5A27;
+    border-bottom: 3px solid #2d5a27;
 }
 
 .rv-stat-icon {
@@ -129,7 +129,7 @@
 .rv-stat-number {
     font-size: 1.6rem;
     font-weight: 800;
-    color: #2D5A27;
+    color: #2d5a27;
     line-height: 1.1;
 }
 
@@ -195,7 +195,7 @@
 }
 
 .rv-search-box:focus-within {
-    border-color: #2D5A27;
+    border-color: #2d5a27;
 }
 
 .rv-search-box svg {
@@ -209,7 +209,7 @@
     font-size: 0.85rem;
     font-family: 'Inter', sans-serif;
     width: 100%;
-    color: #2D5A27;
+    color: #2d5a27;
     background: transparent;
 }
 
@@ -244,12 +244,12 @@
 }
 
 .rv-filter-tab:hover {
-    color: #2D5A27;
+    color: #2d5a27;
 }
 
 .rv-filter-tab.active {
-    color: #2D5A27;
-    border-bottom-color: #2D5A27;
+    color: #2d5a27;
+    border-bottom-color: #2d5a27;
 }
 
 /* Reviews List */
@@ -273,7 +273,7 @@
 
 .rv-review-item.selected {
     background: #f3f4f6;
-    border-left: 3px solid #2D5A27;
+    border-left: 3px solid #2d5a27;
 }
 
 .rv-review-item.pending {
@@ -298,7 +298,7 @@
     width: 44px;
     height: 44px;
     min-width: 44px;
-    background: #2D5A27;
+    background: #2d5a27;
     color: #ffffff;
     display: flex;
     align-items: center;
@@ -329,7 +329,7 @@
 
 .rv-review-user-info strong {
     font-size: 0.9rem;
-    color: #2D5A27;
+    color: #2d5a27;
     font-weight: 600;
     white-space: nowrap;
     overflow: hidden;
@@ -371,7 +371,7 @@
 .rv-review-title {
     font-size: 0.85rem;
     font-weight: 600;
-    color: #2D5A27;
+    color: #2d5a27;
     margin-bottom: 4px;
     white-space: nowrap;
     overflow: hidden;
@@ -518,7 +518,7 @@
 }
 
 .rv-detail-action-btn.approve {
-    background: #2D5A27;
+    background: #2d5a27;
     color: #ffffff;
 }
 
@@ -564,7 +564,7 @@
 .rv-review-card-avatar {
     width: 56px;
     height: 56px;
-    background: #2D5A27;
+    background: #2d5a27;
     color: #ffffff;
     display: flex;
     align-items: center;
@@ -582,7 +582,7 @@
 .rv-review-card-info h3 {
     font-size: 1.1rem;
     font-weight: 700;
-    color: #2D5A27;
+    color: #2d5a27;
     margin: 0 0 6px 0;
 }
 
@@ -648,7 +648,7 @@
 .rv-review-card-title {
     font-size: 1.2rem;
     font-weight: 700;
-    color: #2D5A27;
+    color: #2d5a27;
     padding: 0 4px;
 }
 
@@ -658,7 +658,7 @@
     line-height: 1.8;
     padding: 20px 24px;
     background: #f9fafb;
-    border-left: 3px solid #2D5A27;
+    border-left: 3px solid #2d5a27;
     white-space: pre-wrap;
     word-wrap: break-word;
 }
@@ -684,7 +684,7 @@
 .rv-product-name {
     font-size: 1rem;
     font-weight: 600;
-    color: #2D5A27;
+    color: #2d5a27;
 }
 
 /* Admin Note */
@@ -723,7 +723,7 @@
     width: 36px;
     height: 36px;
     border: 3px solid #e5e5e5;
-    border-top-color: #2D5A27;
+    border-top-color: #2d5a27;
     animation: rvSpin 0.8s linear infinite;
     margin: 0 auto 16px;
 }

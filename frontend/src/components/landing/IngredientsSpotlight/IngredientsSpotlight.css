@@ -34,7 +34,7 @@
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.2em;
-    color: #2D5A27;
+    color: #2d5a27;
     background: rgba(45, 90, 39, 0.06);
     padding: 4px 14px;
     border-radius: 4px;
@@ -51,7 +51,7 @@
 }
 
 .accordion-title-highlight {
-    color: #2D5A27;
+    color: #2d5a27;
 }
 
 .accordion-subtitle {
@@ -221,7 +221,7 @@
     margin-top: 50px;
     width: 40px;
     height: 2px;
-    background: linear-gradient(to right, #2D5A27, transparent);
+    background: linear-gradient(to right, #2d5a27, transparent);
     opacity: 0.15;
     margin-left: auto;
     margin-right: auto;
