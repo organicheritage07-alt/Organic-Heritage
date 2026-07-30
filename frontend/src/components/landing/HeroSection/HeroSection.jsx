@@ -1,18 +1,19 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import './HeroSection.css';
 
 const slides = [
     {
         id: 1,
+        slug: 'ashwagandha-stress-relief-capsules',
         kicker: 'INTRO',
-        title: 'Organic Ashwagandha Stress Relief Capsules',
-
+        title: 'Organic Ashwagandha\nStress Relief Capsules',
         description: 'Ancient adaptogenic herb for modern wellness. Supports stress relief, energy and vitality with 100% organic ingredients.',
         cta: 'Order Now',
         explore: 'Explore',
-        
-        
+        price: 'Rs 1,200',
+        originalPrice: 'Rs 2,400',
         nutrition: [
             { label: 'Fat', value: '0.2g' },
             { label: 'Sodium', value: '5mg' },
@@ -29,13 +30,14 @@ const slides = [
     },
     {
         id: 2,
+        slug: 'shatavari-women-health-capsules',
         kicker: 'FEATURED',
-        title: 'Premium Shatavari Women Health Capsules',
-
+        title: 'Premium Shatavari\nWomen Health Capsules',
         description: 'Premium women wellness formula. Balances hormones, boosts immunity and rejuvenates body and mind naturally.',
         cta: 'Order Now',
         explore: 'Explore',
-        
+        price: 'Rs 1,500',
+        originalPrice: 'Rs 3,000',
         nutrition: [
             { label: 'Fat', value: '0.1g' },
             { label: 'Sodium', value: '10mg' },
@@ -52,13 +54,14 @@ const slides = [
     },
     {
         id: 3,
+        slug: 'moringa-superfood-greens-capsules',
         kicker: 'BESTSELLER',
-        title: 'Organic Moringa Superfood Greens Capsules',
-
+        title: 'Organic Moringa\nSuperfood Greens Capsules',
         description: 'Nutrient-dense superfood with 92 vitamins and minerals. Supports immunity, heart health and natural energy boost.',
         cta: 'Order Now',
         explore: 'Explore',
-        
+        price: 'Rs 900',
+        originalPrice: 'Rs 1,800',
         nutrition: [
             { label: 'Fat', value: '0.3g' },
             { label: 'Sodium', value: '15mg' },
@@ -75,13 +78,14 @@ const slides = [
     },
     {
         id: 4,
+        slug: 'beetroot-blood-booster-capsules',
         kicker: 'NEW ARRIVAL',
-        title: 'Organic Beetroot Blood Booster Capsules',
-
+        title: 'Organic Beetroot\nBlood Booster Capsules',
         description: 'Organic beetroot extract for natural blood purification. Boosts stamina, immunity and overall cardiovascular health.',
         cta: 'Order Now',
         explore: 'Explore',
-        
+        price: 'Rs 1,000',
+        originalPrice: 'Rs 2,000',
         nutrition: [
             { label: 'Fat', value: '0.1g' },
             { label: 'Sodium', value: '20mg' },
@@ -97,37 +101,39 @@ const slides = [
         bgText: 'BEETROOT'
     },
     {
-    id: 5,
-    kicker: 'BESTSELLER',
-    title: 'Organic Beetroot Blood Booster Capsules',
-    description: 'Organic beetroot extract for natural blood purification. Boosts stamina, immunity and overall cardiovascular health.',
-    cta: 'Order Now',
-    explore: 'Explore',
-    price: 'Rs 1,000',
-    originalPrice: 'Rs 2,000',
-    nutrition: [
-        { label: 'Fat', value: '0.1g' },
-        { label: 'Sodium', value: '20mg' },
-        { label: 'Carbs', value: '5.0g' },
-        { label: 'Fiber', value: '1.0g' },
-        { label: 'Sugar', value: '3.0g' },
-        { label: 'Protein', value: '0.8g' },
-        { label: 'Calcium', value: '15mg' },
-        { label: 'Iron', value: '0.8mg' },
-        { label: 'Potassium', value: '320mg' }
-    ],
-    productImage: '/beetroot.png',
-    bgText: 'BEETROOT'
-},
+        id: 5,
+        slug: 'beetroot-premium-capsules',
+        kicker: 'BESTSELLER',
+        title: 'Organic Beetroot\nPremium Blend Capsules',
+        description: 'Organic beetroot extract for natural blood purification. Boosts stamina, immunity and overall cardiovascular health.',
+        cta: 'Order Now',
+        explore: 'Explore',
+        price: 'Rs 1,200',
+        originalPrice: 'Rs 2,400',
+        nutrition: [
+            { label: 'Fat', value: '0.1g' },
+            { label: 'Sodium', value: '20mg' },
+            { label: 'Carbs', value: '5.0g' },
+            { label: 'Fiber', value: '1.0g' },
+            { label: 'Sugar', value: '3.0g' },
+            { label: 'Protein', value: '0.8g' },
+            { label: 'Calcium', value: '15mg' },
+            { label: 'Iron', value: '0.8mg' },
+            { label: 'Potassium', value: '320mg' }
+        ],
+        productImage: '/beetroot.png',
+        bgText: 'BEETROOT'
+    },
     {
         id: 6,
+        slug: 'haldi-turmeric-power-capsules',
         kicker: 'POPULAR',
-        title: 'Organic Haldi Turmeric Power Capsules',
-
+        title: 'Organic Haldi\nTurmeric Power Capsules',
         description: 'Pure turmeric with black pepper for maximum absorption. Anti-inflammatory powerhouse for joint and skin health.',
         cta: 'Order Now',
         explore: 'Explore',
-        
+        price: 'Rs 800',
+        originalPrice: 'Rs 1,600',
         nutrition: [
             { label: 'Fat', value: '0.2g' },
             { label: 'Sodium', value: '3mg' },
@@ -233,6 +239,7 @@ function HeroSection({ visible = true }) {
     const [[activeIndex, direction], setActiveIndex] = useState([0, 0]);
     const current = slides[activeIndex];
     const [isAnimating, setIsAnimating] = useState(false);
+    const navigate = useNavigate();
 
     const paginate = useCallback((newDirection) => {
         if (isAnimating) return;
@@ -249,6 +256,17 @@ function HeroSection({ visible = true }) {
         setActiveIndex([index, dir]);
         setTimeout(() => setIsAnimating(false), 800);
     }, [activeIndex, isAnimating]);
+
+    // ✅ CTA HANDLERS
+    const handleOrderNow = () => {
+        // Navigate to specific product detail page
+        navigate(`/products/${current.slug}`);
+    };
+
+    const handleExplore = () => {
+        // Navigate to all products page
+        navigate('/products');
+    };
 
     // Auto-slide
     useEffect(() => {
@@ -312,13 +330,13 @@ function HeroSection({ visible = true }) {
 
                                 {/* CTA Buttons Row - DESKTOP ONLY */}
                                 <motion.div variants={textItemVariants} className="cta-row-split desktop-cta">
-                                    <button className="cta-btn-split cta-primary-split">
+                                    <button className="cta-btn-split cta-primary-split" onClick={handleOrderNow}>
                                         <span>{current.cta}</span>
                                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                                             <path d="M5 12h14M12 5l7 7-7 7"/>
                                         </svg>
                                     </button>
-                                    <button className="cta-btn-split cta-secondary-split">
+                                    <button className="cta-btn-split cta-secondary-split" onClick={handleExplore}>
                                         <span>{current.explore}</span>
                                     </button>
                                 </motion.div>
@@ -376,13 +394,13 @@ function HeroSection({ visible = true }) {
 
             {/* MOBILE CTA - Appears AFTER product image on mobile */}
             <div className="mobile-cta-row">
-                <button className="cta-btn-split cta-primary-split">
+                <button className="cta-btn-split cta-primary-split" onClick={handleOrderNow}>
                     <span>{current.cta}</span>
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                         <path d="M5 12h14M12 5l7 7-7 7"/>
                     </svg>
                 </button>
-                <button className="cta-btn-split cta-secondary-split">
+                <button className="cta-btn-split cta-secondary-split" onClick={handleExplore}>
                     <span>{current.explore}</span>
                 </button>
             </div>
