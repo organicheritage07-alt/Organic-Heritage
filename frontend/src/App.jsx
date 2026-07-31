@@ -200,8 +200,23 @@ function App() {
                             </div>
                         } />
 
-                        {/* ===== PRODUCT DETAIL ROUTE ===== */}
+                        {/* ===== PRODUCT DETAIL ROUTE — SINGULAR ===== */}
                         <Route path="/product/:id" element={
+                            <div style={{ 
+                                position: 'relative', 
+                                zIndex: 1,
+                                width: '100%',
+                                minHeight: '100vh'
+                            }}>
+                                <Navbar />
+                                <ProductDetail />
+                                <Footer />
+                                <StickyContact />
+                            </div>
+                        } />
+
+                        {/* ✅ PRODUCT DETAIL ROUTE — PLURAL (fix for slug URLs) */}
+                        <Route path="/products/:id" element={
                             <div style={{ 
                                 position: 'relative', 
                                 zIndex: 1,
