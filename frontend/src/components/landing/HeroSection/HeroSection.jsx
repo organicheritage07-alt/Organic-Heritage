@@ -260,7 +260,7 @@ function HeroSection({ visible = true }) {
     // ✅ CTA HANDLERS
     const handleOrderNow = () => {
         // Navigate to specific product detail page
-        navigate(`/products/${current.slug}`);
+        navigate(`/products`);
     };
 
     const handleExplore = () => {
