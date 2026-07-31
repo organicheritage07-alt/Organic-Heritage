@@ -70,7 +70,7 @@
 .auth-side-brand {
     flex: 1;
     position: relative;
-    background: url('./preloder2.png') center/cover no-repeat;
+    background: url('/preloder2.png') center/cover no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
