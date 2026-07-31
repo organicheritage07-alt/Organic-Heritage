@@ -73,7 +73,7 @@ const backgroundProducts = [
     { id: 1, name: '', image: './back1.png' },
     { id: 2, name: '', image: './test3.png' },
     { id: 3, name: '', image: './test2.png' },
-    { id: 4, name: 'Beetroot', image: './test1.png' }
+    { id: 4, name: '', image: './test1.png' }
 ];
 
 function Testimonials() {

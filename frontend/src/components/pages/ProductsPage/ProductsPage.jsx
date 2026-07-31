@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useCart } from '../../../context/CartContext';
 import toast from 'react-hot-toast';
-import Testimonials from '../../landing/Testimonials/Testimonials'; // ✅ IMPORT TESTIMONIALS
+import Testimonials from '../../landing/Testimonials/Testimonials';
 import './ProductsPage.css';
 
 function ProductsPage() {
@@ -164,30 +164,13 @@ function ProductsPage() {
         navigate(`/product/${productId}`);
     };
 
-    const renderStars = (rating) => {
-        const fullStars = Math.floor(rating || 0);
-        const hasHalf = rating % 1 >= 0.5;
-        const stars = [];
-
-        for (let i = 0; i < fullStars; i++) {
-            stars.push(<span key={i} className="star-filled">★</span>);
-        }
-        if (hasHalf) {
-            stars.push(<span key="half" className="star-half">★</span>);
-        }
-        for (let i = stars.length; i < 5; i++) {
-            stars.push(<span key={i} className="star-empty">☆</span>);
-        }
-        return stars;
-    };
-
     const formatPrice = (price) => {
         return `Rs ${Number(price).toLocaleString('en-PK')}`;
     };
 
     if (error) {
         return (
-            <section className="products-page" ref={sectionRef}>
+            <section className="products-page" ref={sectionRef} style={{ margin: '120px 80px' }}>
                 <div className="pp-container" style={{ textAlign: 'center', padding: '80px 0' }}>
                     <p style={{ color: '#DC2626', fontSize: '1.2rem' }}>⚠️ {error}</p>
                     <button 
@@ -203,7 +186,7 @@ function ProductsPage() {
 
     if (loading) {
         return (
-            <section className="products-page" ref={sectionRef}>
+            <section className="products-page" ref={sectionRef} style={{ margin: '120px 80px' }}>
                 <div className="pp-container" style={{ textAlign: 'center', padding: '80px 0' }}>
                     <div className="spinner" style={{ 
                         width: '50px', 
@@ -222,7 +205,7 @@ function ProductsPage() {
 
     return (
         <>
-            <section className="products-page" ref={sectionRef}>
+            <section className="products-page" ref={sectionRef} style={{ margin: '120px 80px' }}>
                 <div className="pp-container">
                     {/* ===== COMPRESSED HEADER ===== */}
                     <div 
@@ -338,13 +321,6 @@ function ProductsPage() {
                                             <h3 className="pp-name">{product.name}</h3>
                                             <p className="pp-subtitle-text">{product.subtitle}</p>
                                             <p className="pp-description">{product.description}</p>
-
-                                            <div className="pp-rating">
-                                                <div className="pp-stars">
-                                                    {renderStars(product.rating || 4.5)}
-                                                </div>
-                                                <span className="pp-reviews">({product.reviews || 0} reviews)</span>
-                                            </div>
 
                                             <div className="pp-price-section">
                                                 <div className="pp-price-row">

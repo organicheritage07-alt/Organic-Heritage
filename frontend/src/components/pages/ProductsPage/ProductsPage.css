@@ -3,11 +3,12 @@
    ======================================== */
 
 .products-page {
+    
     padding: 60px 0 40px;  /* ✅ Reduced padding */
     background: #ffffff;
     position: relative;
     border-radius: 40px;
-    margin: 0 80px;
+    margin: 120px 80px;
     width: calc(100% - 160px);
     overflow: hidden;
 }
@@ -576,7 +577,7 @@
    ======================================== */
 @media (max-width: 1300px) {
     .products-page {
-        margin: 0 60px;
+        margin: 120px 80px;
         width: calc(100% - 120px);
         border-radius: 30px;
     }
