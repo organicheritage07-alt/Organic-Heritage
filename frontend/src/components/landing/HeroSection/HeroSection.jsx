@@ -8,12 +8,11 @@ const slides = [
         id: 1,
         slug: 'ashwagandha-stress-relief-capsules',
         kicker: 'INTRO',
-        title: 'Organic Ashwagandha\nStress Relief Capsules',
+        title: 'Organic Ashwagandha Stress Relief Capsules',
         description: 'Ancient adaptogenic herb for modern wellness. Supports stress relief, energy and vitality with 100% organic ingredients.',
         cta: 'Order Now',
         explore: 'Explore',
-        price: 'Rs 1,200',
-        originalPrice: 'Rs 2,400',
+        
         nutrition: [
             { label: 'Fat', value: '0.2g' },
             { label: 'Sodium', value: '5mg' },
@@ -36,8 +35,7 @@ const slides = [
         description: 'Premium women wellness formula. Balances hormones, boosts immunity and rejuvenates body and mind naturally.',
         cta: 'Order Now',
         explore: 'Explore',
-        price: 'Rs 1,500',
-        originalPrice: 'Rs 3,000',
+        
         nutrition: [
             { label: 'Fat', value: '0.1g' },
             { label: 'Sodium', value: '10mg' },
@@ -60,8 +58,7 @@ const slides = [
         description: 'Nutrient-dense superfood with 92 vitamins and minerals. Supports immunity, heart health and natural energy boost.',
         cta: 'Order Now',
         explore: 'Explore',
-        price: 'Rs 900',
-        originalPrice: 'Rs 1,800',
+        
         nutrition: [
             { label: 'Fat', value: '0.3g' },
             { label: 'Sodium', value: '15mg' },
@@ -84,8 +81,7 @@ const slides = [
         description: 'Organic beetroot extract for natural blood purification. Boosts stamina, immunity and overall cardiovascular health.',
         cta: 'Order Now',
         explore: 'Explore',
-        price: 'Rs 1,000',
-        originalPrice: 'Rs 2,000',
+        
         nutrition: [
             { label: 'Fat', value: '0.1g' },
             { label: 'Sodium', value: '20mg' },
@@ -108,8 +104,7 @@ const slides = [
         description: 'Organic beetroot extract for natural blood purification. Boosts stamina, immunity and overall cardiovascular health.',
         cta: 'Order Now',
         explore: 'Explore',
-        price: 'Rs 1,200',
-        originalPrice: 'Rs 2,400',
+        
         nutrition: [
             { label: 'Fat', value: '0.1g' },
             { label: 'Sodium', value: '20mg' },
@@ -132,8 +127,7 @@ const slides = [
         description: 'Pure turmeric with black pepper for maximum absorption. Anti-inflammatory powerhouse for joint and skin health.',
         cta: 'Order Now',
         explore: 'Explore',
-        price: 'Rs 800',
-        originalPrice: 'Rs 1,600',
+        
         nutrition: [
             { label: 'Fat', value: '0.2g' },
             { label: 'Sodium', value: '3mg' },
