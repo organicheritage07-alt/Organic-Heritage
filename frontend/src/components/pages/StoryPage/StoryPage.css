@@ -764,4 +764,65 @@
     .page-founder-header { flex-direction: column; text-align: center; }
     .page-quote-box { padding: 24px; }
     .page-quote-box p { font-size: 1.1rem; }
+}.founder-signature {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(45, 106, 79, 0.15);
+}
+
+.signature-line {
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, #2D6A4F, transparent);
+    flex-shrink: 0;
+}
+
+.signature-content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.signature-name {
+    font-family: 'Playfair Display', serif;
+}
+
+.signature-svg {
+    max-width: 280px;
+    height: 60px;
+}
+
+/* OR - if using image */
+.signature-image {
+    max-height: 50px;
+    width: auto;
+    display: block;
+}
+
+.signature-content small {
+    font-size: 0.8rem;
+    color: #6B7280;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 0.3px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .founder-signature {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+    
+    .signature-line {
+        width: 40px;
+    }
+    
+    .signature-svg {
+        max-width: 200px;
+        height: 45px;
+    }
 }

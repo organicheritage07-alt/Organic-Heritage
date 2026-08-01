@@ -363,11 +363,7 @@ const Navbar = () => {
                 </a>
               </div>
 
-              <div className="mobile-menu-social">
-                <span>Instagram</span>
-                <span>Facebook</span>
-                <span>Pinterest</span>
-              </div>
+              
             </div>
           </div>
         </>

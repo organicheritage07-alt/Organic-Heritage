@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import './BenefitsSection.css';
 
 function BenefitsSection() {
@@ -7,6 +8,7 @@ function BenefitsSection() {
     const [loading, setLoading] = useState(true);
     const [hoveredId, setHoveredId] = useState(null);
     const [error, setError] = useState(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
         fetchBenefits();
@@ -25,6 +27,11 @@ function BenefitsSection() {
         } finally {
             setLoading(false);
         }
+    };
+
+    // ✅ Direct product page navigation
+    const handleProductClick = () => {
+        navigate('/products');
     };
 
     if (loading) {
@@ -102,7 +109,11 @@ function BenefitsSection() {
                                     </li>
                                 ))}
                             </ul>
-                            <button className="v-btn">
+                            {/* ✅ Direct navigation to products page */}
+                            <button 
+                                className="v-btn"
+                                onClick={handleProductClick}
+                            >
                                 {product.ctaText || `Discover ${product.name}`}
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                                     <path d="M5 12h14M12 5l7 7-7 7"/>

@@ -31,7 +31,7 @@ const Footer = () => {
                 title: 'Error',
                 text: 'Please enter your email address',
                 icon: 'warning',
-                confirmButtonColor: '#2D6A4F'
+                confirmButtonColor: '#2d5a27'
             });
             return;
         }
@@ -42,7 +42,7 @@ const Footer = () => {
                 title: 'Invalid Email',
                 text: 'Please enter a valid email address',
                 icon: 'error',
-                confirmButtonColor: '#2D6A4F'
+                confirmButtonColor: '#2d5a27'
             });
             return;
         }
@@ -63,7 +63,7 @@ const Footer = () => {
                     title: '🎉 Subscribed!',
                     text: 'Thank you! Check your email for 20% off.',
                     icon: 'success',
-                    confirmButtonColor: '#2D6A4F',
+                    confirmButtonColor: '#2d5a27',
                     timer: 3000,
                     showConfirmButton: false
                 });
@@ -76,7 +76,7 @@ const Footer = () => {
                 title: '✅ Subscribed!',
                 text: 'You will receive updates and offers.',
                 icon: 'success',
-                confirmButtonColor: '#2D6A4F',
+                confirmButtonColor: '#2d5a27',
                 timer: 2000,
                 showConfirmButton: false
             });
@@ -167,16 +167,16 @@ const Footer = () => {
 
     // PRODUCT LINKS
     const productLinks = {
-        ashwagandha: '/products/ashwagandha',
-        shatavari: '/products/shatavari',
-        moringa: '/products/moringa',
-        beetroot: '/products/beetroot',
-        haldi: '/products/haldi'
+        ashwagandha: '/products/',
+        shatavari: '/products/',
+        moringa: '/products/',
+        beetroot: '/products/',
+        haldi: '/products'
     };
 
     return (
         <>
-            {/* COMPRESSED NEWSLETTER CARD */}
+            {/* NEWSLETTER CARD */}
             <div 
                 className="footer-newsletter-card-wrapper"
                 data-aos="fade-up"
@@ -252,9 +252,9 @@ const Footer = () => {
                             <ul className="footer-links">
                                 <li><Link to="/story">Story</Link></li>
                                 <li><Link to="/products">Products</Link></li>
-                                <li><Link to="/ingredients">Ingredients</Link></li>
+                                <li><Link to="/products">Ingredients</Link></li>
                                 <li><Link to="/contact">Contact</Link></li>
-                                <li><Link to="/about">About Us</Link></li>
+                                <li><Link to="/story">About Us</Link></li>
                             </ul>
                         </div>
 
@@ -270,7 +270,7 @@ const Footer = () => {
                             </ul>
                         </div>
 
-                        {/* Contact Us */}
+                        {/* Contact Us - WITH LEGAL TERMS */}
                         <div className="footer-col">
                             <h4 className="footer-title">Contact Us</h4>
                             <ul className="footer-contact">
@@ -299,53 +299,36 @@ const Footer = () => {
                                     </a>
                                 </li>
                             </ul>
+                            
+                            {/* ✅ LEGAL TERMS - Inside Contact Column */}
+                            <div className="footer-legal-terms">
+                                <button className="legal-link" onClick={() => openPopup('privacy')}>Privacy Policy</button>
+                                <span className="legal-sep">|</span>
+                                <button className="legal-link" onClick={() => openPopup('terms')}>Terms of Use</button>
+                                <span className="legal-sep">|</span>
+                                <button className="legal-link" onClick={() => openPopup('legal')}>Legal</button>
+                            </div>
                         </div>
 
                         {/* Community */}
-                        <div className="footer-col">
-                            <h4 className="footer-title">Community</h4>
-                            <ul className="footer-links">
-                                <li><Link to="/community">Community</Link></li>
-                                <li><Link to="/testimonials">Testimonial</Link></li>
-                                <li><Link to="/about">About Us</Link></li>
-                                <li><Link to="/services">Services</Link></li>
-                            </ul>
-                        </div>
+                        
                     </div>
-                
 
-                    {/* ✅ TOP SECTION: Copyright + Quick Links + Policies */}
-                    <div className="footer-top-bar">
-                        <div className="footer-copyright">
+                    {/* ✅ BOTTOM ROW: Copyright (Left) | Developer Credit (Right) */}
+                    <div className="footer-bottom-row">
+                        <div className="footer-copyright-left">
                             <p>© 2024 Organic Heritage. All rights reserved.</p>
                         </div>
                         
-                        <div className="footer-quick-links-row">
-                            <Link to="/story">Story</Link>
-                            <Link to="/products">Products</Link>
-                            <Link to="/ingredients">Ingredients</Link>
-                            <Link to="/contact">Contact</Link>
-                            <Link to="/about">About Us</Link>
+                        <div className="footer-dev-credit-right">
+                            <span>
+                                Developed with | by 
+                                <a href="https://www.anaxinvention.com" target="_blank" rel="noopener noreferrer" className="dev-link">
+                                    Anas Iftikhar
+                                </a>
+                                <span className="dev-role">| CEO of Anax Invention</span>
+                            </span>
                         </div>
-
-                        <div className="footer-policies">
-                            <button className="footer-link-btn" onClick={() => openPopup('privacy')}>Privacy Policy</button>
-                            <span className="footer-divider">|</span>
-                            <button className="footer-link-btn" onClick={() => openPopup('terms')}>Terms of Use</button>
-                            <span className="footer-divider">|</span>
-                            <button className="footer-link-btn" onClick={() => openPopup('legal')}>Legal</button>
-                        </div>
-                    </div>
-
-                    {/* ✅ BOTTOM: Developer Credit - Centered */}
-                    <div className="footer-dev-credit">
-                        <p>
-                            Developed with ❤️ by 
-                            <a href="https://www.anaxinvention.com" target="_blank" rel="noopener noreferrer" className="dev-link">
-                                Anas Iftikhar
-                            </a>
-                            <span className="dev-role">| CEO of Anax Invention</span>
-                        </p>
                     </div>
                 </div>
             </footer>

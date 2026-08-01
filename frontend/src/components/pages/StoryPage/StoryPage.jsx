@@ -8,9 +8,15 @@ import {
 import './StoryPage.css';
 
 function StoryPage() {
+    
     const [visibleSections, setVisibleSections] = useState(new Set());
     const [counters, setCounters] = useState({ years: 0, customers: 0, products: 0, farms: 0 });
     const [activePage, setActivePage] = useState(null);
+
+    // ✅ PAGE OPEN HOTE HI TOP PE SCROLL
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -52,9 +58,9 @@ function StoryPage() {
             icon: <FaSeedling />,
             content: (
                 <div className="page-body-content">
-                    <p>Founded in 2018 in Lahore with a vision to bring pure, natural supplements to Pakistan. We partner with 12+ certified organic farms across Punjab and Sindh, bringing the finest Moringa, Ashwagandha, and Shatavari to every Pakistani family.</p>
+                    <p>Founded in 2018 in Multan with a vision to bring pure, natural supplements to Pakistan. We partner with 12+ certified organic farms across Punjab and Sindh, bringing the finest Moringa, Ashwagandha, and Shatavari to every Pakistani family.</p>
                     <p>In 2018, Dr. Ahmed Khan stood in the fields of rural Punjab watching farmers struggle to sell their organic produce at fair prices. That moment changed everything. He realized Pakistan had the world's finest organic herbs — but no one was bringing them to the people who needed them most.</p>
-                    <p>With just three products and a borrowed facility in Lahore, <strong>Organic Heritage</strong> was born. Today, we partner with <strong>12+ certified organic farms</strong>, operate a <strong>state-of-the-art testing laboratory</strong>, and serve <strong>50,000+ customers</strong> across Pakistan and beyond.</p>
+                    <p>With just three products and a borrowed facility in Lahore, <strong>Organic Heritage</strong> was born. Today, we partner with <strong>12+ certified organic farms</strong>, operate a <strong>state-of-the-art testing laboratory</strong>, and serve <strong>5,000+ customers</strong> across Pakistan and beyond.</p>
                     <p>Every morning, our founder walks through the facility and personally inspects the batches. Why? Because this isn't just business — it's a promise to every Pakistani family that the supplements they give their loved ones are 100% pure, lab-tested, and made with the same care he'd give his own children.</p>
                 </div>
             )
@@ -94,15 +100,15 @@ function StoryPage() {
             )
         },
         founder: {
-            title: "Dr. Affan's Words",
+            title: "Muhammad Ammar",
             icon: <FaUserTie />,
             content: (
                 <div className="page-body-content">
                     <div className="page-founder-header">
                         <img src="ceo.png" />
                         <div>
-                            <h3>Dr. Ahmed Khan</h3>
-                            <span>Founder & CEO | Ph.D. Herbal Medicine</span>
+                            <h3>Muhammad Ammar</h3>
+                            <span>Founder & CEO | Master in Organic Product</span>
                         </div>
                     </div>
                     <div className="page-quote-box">
@@ -116,7 +122,7 @@ function StoryPage() {
                     <div className="page-signature">
                         <div className="page-sig-line" />
                         <span>Dr. Ahmed Khan</span>
-                        <small>Ph.D. Herbal Medicine | 15+ Years Experience</small>
+                        <small>Ph.D. Herbal Medicine | 6+ Years Experience</small>
                     </div>
                 </div>
             )
@@ -128,7 +134,7 @@ function StoryPage() {
             id: 'story',
             icon: <FaSeedling />,
             title: 'Our Story',
-            desc: 'Founded in 2018 in Lahore with a vision to bring pure, natural supplements to Pakistan. We partner with 12+ certified organic farms across Punjab and Sindh.'
+            desc: 'Founded in 2018 in Multan with a vision to bring pure, natural supplements to Pakistan. We partner with 12+ certified organic farms across Punjab and Sindh.'
         },
         {
             id: 'mission',
@@ -187,7 +193,7 @@ function StoryPage() {
                             <div className="founder-img-card">
                                 <img src="./ceo.png" />
                                 <div className="founder-img-info">
-                                    <h4>Dr. Ahmed Khan</h4>
+                                    <h4>Dr. Muhammad Ammar</h4>
                                     <span>Founder & CEO</span>
                                 </div>
                             </div>
@@ -206,18 +212,18 @@ function StoryPage() {
                             <h2>From a Small Dream to Pakistan's Wellness Revolution</h2>
                             <div className="founder-story">
                                 <p>In 2018, I stood in the fields of rural Punjab watching farmers struggle to sell their organic produce at fair prices. That moment changed everything. I realized Pakistan had the world's finest organic herbs — Moringa, Ashwagandha, Shatavari — but no one was bringing them to the people who needed them most.</p>
-                                <p>With just three products and a borrowed facility in Lahore, <strong>Organic Heritage</strong> was born. Today, we partner with <strong>12+ certified organic farms</strong>, operate a <strong>state-of-the-art testing laboratory</strong>, and serve <strong>50,000+ customers</strong> across Pakistan and beyond.</p>
+                                <p>With just three products and a borrowed facility in Multan, <strong>Organic Heritage</strong> was born. Today, we partner with <strong>12+ certified organic farms</strong>, operate a <strong>state-of-the-art testing laboratory</strong>, and serve <strong>5,000+ customers</strong> across Pakistan and beyond.</p>
                                 <p>Every morning, I walk through our facility and personally inspect the batches. Why? Because this isn't just business — it's a promise to every Pakistani family that the supplements they give their loved ones are 100% pure, lab-tested, and made with the same care I'd give my own children.</p>
                             </div>
                             <div className="founder-quote">
                                 <FaQuoteLeft />
                                 <p>"We don't just sell supplements. We deliver the pure essence of nature, carefully preserved for your wellness."</p>
-                                <cite>— Dr. Ahmed Khan, Founder & CEO</cite>
+                                <cite>—Muhammad Ammar, Founder & CEO</cite>
                             </div>
                             <div className="founder-signature">
-                                <div className="signature-line" />
-                                <span>Dr. Ahmed Khan</span>
-                                <small>Ph.D. Herbal Medicine | 15+ Years Experience</small>
+                                
+                                <span>M.Ammar</span>
+                                <small>Master In Agriculture | 6+ Years Experience</small>
                             </div>
                         </div>
                     </div>

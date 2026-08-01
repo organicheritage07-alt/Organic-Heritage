@@ -13,8 +13,9 @@
     background: #ffffff;
     padding: 35px 40px;
     text-align: center;
-    box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.12);
+    box-shadow: 20px 20px 40px 15px rgba(0, 0, 0, 0.12);
     border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 0;  /* ✅ Perfect border radius all sides */
 }
 
 .card-title {
@@ -26,7 +27,7 @@
 }
 
 .card-title .highlight {
-    color: #2D6A4F;
+    color: #2d5a27;
 }
 
 .card-offer {
@@ -51,6 +52,7 @@
     background: white;
     outline: none;
     font-family: 'Inter', sans-serif;
+    border-radius: 10px;  /* ✅ Input rounded */
 }
 
 .card-input:focus {
@@ -68,6 +70,7 @@
     transition: all 0.3s ease;
     font-family: 'Inter', sans-serif;
     white-space: nowrap;
+    border-radius: 10px;  /* ✅ Button rounded */
 }
 
 .card-btn:hover {
@@ -109,7 +112,7 @@
     left: 30px;
     right: 30px;
     bottom: 30px;
-    background: rgba(26, 42, 31, 0.88);
+    background: rgba(26, 42, 31, 0.78);  /* ✅ Reduced opacity — image zyada visible */
     pointer-events: none;
     z-index: 1;
     border-radius: 30px;
@@ -182,6 +185,7 @@
     transition: all 0.3s ease;
     color: #e8f0e5;
     text-decoration: none;
+    border-radius: 8px;
 }
 
 .social-icon:hover {
@@ -219,7 +223,7 @@
 }
 
 .footer-links a:hover {
-    color: #2D6A4F;
+    color: #2d5a27;
     transform: translateX(4px);
 }
 
@@ -250,112 +254,93 @@
 }
 
 .contact-link:hover {
-    color: #2D6A4F;
+    color: #2d5a27;
     transform: translateX(4px);
 }
 
 /* ========================================
-   TOP BAR - Copyright + Quick Links + Policies
+   LEGAL TERMS - Inside Contact Column
    ======================================== */
-.footer-top-bar {
+.footer-legal-terms {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 14px;
+    padding-top: 14px;
     border-top: 1px solid rgba(255, 255, 255, 0.08);
-    padding-top: 20px;
-    padding-bottom: 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-}
-
-.footer-copyright p {
-    font-size: 0.8rem;
-    color: #9bb5a0;
-    font-family: 'Inter', sans-serif;
-    margin: 0;
-}
-
-/* Quick Links Row */
-.footer-quick-links-row {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
     flex-wrap: wrap;
 }
 
-.footer-quick-links-row a {
-    color: #9bb5a0;
-    text-decoration: none;
-    font-size: 0.8rem;
-    font-family: 'Inter', sans-serif;
-    transition: color 0.3s ease;
-}
-
-.footer-quick-links-row a:hover {
-    color: #2D6A4F;
-}
-
-/* Policies */
-.footer-policies {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    flex-wrap: wrap;
-}
-
-.footer-link-btn {
+.legal-link {
     background: none;
     border: none;
     color: #9bb5a0;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     cursor: pointer;
     transition: color 0.3s ease;
     font-family: 'Inter', sans-serif;
     padding: 0;
 }
 
-.footer-link-btn:hover {
-    color: #2D6A4F;
+.legal-link:hover {
+    color: #2d5a27;
 }
 
-.footer-divider {
+.legal-sep {
     color: #4a6b50;
-    font-size: 0.7rem;
+    font-size: 0.6rem;
 }
 
 /* ========================================
-   DEVELOPER CREDIT - CENTERED
+   BOTTOM ROW - Copyright Left | Developer Credit Right
    ======================================== */
-.footer-dev-credit {
-    text-align: center;
-    padding-top: 12px;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-    margin-top: 4px;
+.footer-bottom-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 18px;
+    padding-bottom: 8px;
+    flex-wrap: wrap;
+    gap: 12px;
 }
 
-.footer-dev-credit p {
-    font-size: 0.8rem;
-    color: #9bb5a0;
+/* Copyright - Left Side */
+.footer-copyright-left p {
+    font-size: 0.95rem;        /* ✅ Bigger — pehle 0.8rem tha */
+    color: #c0d4c5;            /* ✅ Zyada bright — pehle #9bb5a0 tha */
     font-family: 'Inter', sans-serif;
     margin: 0;
+    font-weight: 500;  
+    margin-bottom: 15px;        /* ✅ Medium weight */
 }
 
-.dev-link {
-    color: #2D6A4F;
+/* Developer Credit - Right Side */
+.footer-dev-credit-right {
+    font-size: 0.95rem;        /* ✅ Bigger */
+    color: #ffffff;            /* ✅ Brighter */
+    font-family: 'Inter', sans-serif;
+    text-align: right;
+    font-weight: 500;
+    margin-bottom: 15px;          /* ✅ Medium weight */
+}
+
+.footer-dev-credit-right .dev-link {
+    color: #ffffff;
     text-decoration: none;
     font-weight: 700;
     transition: all 0.3s ease;
+    margin-left: 4px;
 }
 
-.dev-link:hover {
-    color: #40916C;
+.footer-dev-credit-right .dev-link:hover {
+    color: #f0f3f1;
     text-shadow: 0 0 20px rgba(45, 106, 79, 0.3);
 }
 
-.dev-role {
-    color: #6b8f73;
-    font-size: 0.75rem;
+.footer-dev-credit-right .dev-role {
+    color: #fcfcfc;            /* ✅ Thora bright */
+    font-size: 0.85rem;        /* ✅ Bigger — pehle 0.75rem */
     margin-left: 4px;
 }
 
@@ -392,6 +377,8 @@
     flex-direction: column;
     box-shadow: 0 40px 70px rgba(0, 0, 0, 0.3);
     animation: popupSlideUp 0.25s ease;
+    border-radius: 16px;  /* ✅ Popup rounded */
+    overflow: hidden;
 }
 
 @keyframes popupSlideUp {
@@ -437,7 +424,7 @@
 }
 
 .popup-body h4 {
-    color: #2D6A4F;
+    color: #2d5a27;
     font-size: 0.9rem;
     margin: 12px 0 4px 0;
     font-family: 'Inter', sans-serif;
@@ -473,6 +460,7 @@
     cursor: pointer;
     transition: all 0.3s ease;
     font-family: 'Inter', sans-serif;
+    border-radius: 8px;
 }
 
 .popup-close-btn:hover {
@@ -499,6 +487,7 @@
     z-index: 100;
     box-shadow: 0 4px 15px rgba(45, 106, 79, 0.4);
     animation: fadeInUp 0.3s ease;
+    border-radius: 10px;
 }
 
 .back-to-top:hover {
@@ -530,7 +519,7 @@
         left: 15px;
         right: 15px;
         bottom: 15px;
-        border-radius: 15px;
+        border-radius: 20px;
     }
     
     .footer-container {
@@ -542,16 +531,19 @@
         gap: 20px;
     }
     
-    .footer-description {
-        text-align: left;
+    .footer-bottom-row {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 10px;
     }
     
-    .footer-quick-links-row {
-        gap: 12px;
+    .footer-dev-credit-right {
+        text-align: center;
     }
     
-    .footer-quick-links-row a {
-        font-size: 0.75rem;
+    .footer-legal-terms {
+        justify-content: center;
     }
     
     .card-form {
@@ -570,6 +562,7 @@
     
     .footer-newsletter-card {
         padding: 25px 20px;
+        border-radius: 16px;
     }
     
     .card-title {
@@ -580,10 +573,10 @@
 @media (max-width: 550px) {
     .footer-premium::before,
     .footer-premium::after {
-        left: 8px;
-        right: 8px;
-        bottom: 8px;
-        border-radius: 10px;
+        left: 10px;
+        right: 10px;
+        bottom: 10px;
+        border-radius: 16px;
     }
     
     .footer-container {
@@ -616,8 +609,13 @@
         justify-content: center;
     }
     
+    .footer-legal-terms {
+        justify-content: center;
+    }
+    
     .footer-newsletter-card {
         padding: 20px 15px;
+        border-radius: 14px;
     }
     
     .card-title {
@@ -638,39 +636,22 @@
         font-size: 0.85rem;
     }
     
-    .footer-top-bar {
-        gap: 8px;
-        padding-top: 15px;
+    .footer-copyright-left p {
+        font-size: 0.85rem;
     }
     
-    .footer-quick-links-row {
-        gap: 10px;
-        flex-wrap: wrap;
+    .footer-dev-credit-right {
+        font-size: 0.85rem;
     }
     
-    .footer-quick-links-row a {
-        font-size: 0.7rem;
-    }
-    
-    .footer-policies {
-        gap: 4px;
-    }
-    
-    .footer-link-btn {
-        font-size: 0.7rem;
-    }
-    
-    .footer-divider {
-        font-size: 0.6rem;
-    }
-    
-    .footer-dev-credit p {
-        font-size: 0.7rem;
-    }
-    
-    .dev-role {
+    .footer-dev-credit-right .dev-role {
         display: block;
         margin-left: 0;
         margin-top: 2px;
+        font-size: 0.78rem;
+    }
+    
+    .legal-link {
+        font-size: 0.7rem;
     }
 }

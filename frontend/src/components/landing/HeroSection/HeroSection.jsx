@@ -6,9 +6,9 @@ import './HeroSection.css';
 const slides = [
     {
         id: 1,
-        slug: 'ashwagandha-stress-relief-capsules',
+        slug: 'ashwagandha-stress-relief-Powder',
         kicker: 'INTRO',
-        title: 'Organic Ashwagandha Stress Relief Capsules',
+        title: 'Organic Ashwagandha\nStress Relief Powder',
         description: 'Ancient adaptogenic herb for modern wellness. Supports stress relief, energy and vitality with 100% organic ingredients.',
         cta: 'Order Now',
         explore: 'Explore',
@@ -29,9 +29,9 @@ const slides = [
     },
     {
         id: 2,
-        slug: 'shatavari-women-health-capsules',
+        slug: 'shatavari-women-health-Powder',
         kicker: 'FEATURED',
-        title: 'Premium Shatavari\nWomen Health Capsules',
+        title: 'Premium Shatavari\nWomen Health Powder',
         description: 'Premium women wellness formula. Balances hormones, boosts immunity and rejuvenates body and mind naturally.',
         cta: 'Order Now',
         explore: 'Explore',
@@ -52,9 +52,9 @@ const slides = [
     },
     {
         id: 3,
-        slug: 'moringa-superfood-greens-capsules',
+        slug: 'moringa-superfood-greens-powder',
         kicker: 'BESTSELLER',
-        title: 'Organic Moringa\nSuperfood Greens Capsules',
+        title: 'Organic Moringa\nSuperfood Greens Powder',
         description: 'Nutrient-dense superfood with 92 vitamins and minerals. Supports immunity, heart health and natural energy boost.',
         cta: 'Order Now',
         explore: 'Explore',
@@ -75,9 +75,9 @@ const slides = [
     },
     {
         id: 4,
-        slug: 'beetroot-blood-booster-capsules',
+        slug: 'beetroot-blood-booster-Powder',
         kicker: 'NEW ARRIVAL',
-        title: 'Organic Beetroot\nBlood Booster Capsules',
+        title: 'Organic BeetrootBlood\nBooster Powder',
         description: 'Organic beetroot extract for natural blood purification. Boosts stamina, immunity and overall cardiovascular health.',
         cta: 'Order Now',
         explore: 'Explore',
@@ -98,32 +98,32 @@ const slides = [
     },
     {
         id: 5,
-        slug: 'beetroot-premium-capsules',
-        kicker: 'BESTSELLER',
-        title: 'Organic Beetroot\nPremium Blend Capsules',
-        description: 'Organic beetroot extract for natural blood purification. Boosts stamina, immunity and overall cardiovascular health.',
-        cta: 'Order Now',
-        explore: 'Explore',
-        
-        nutrition: [
-            { label: 'Fat', value: '0.1g' },
-            { label: 'Sodium', value: '20mg' },
-            { label: 'Carbs', value: '5.0g' },
-            { label: 'Fiber', value: '1.0g' },
-            { label: 'Sugar', value: '3.0g' },
-            { label: 'Protein', value: '0.8g' },
-            { label: 'Calcium', value: '15mg' },
-            { label: 'Iron', value: '0.8mg' },
-            { label: 'Potassium', value: '320mg' }
-        ],
-        productImage: '/beetroot.png',
-        bgText: 'BEETROOT'
+    slug: '-premium-pumpkin-seeds',
+    kicker: 'POPULAR',
+    title: 'Premium Organic Pumpkin Seeds ',
+    description: 'Pure pumpkin seeds extract packed with essential minerals. Supports prostate health, promotes better sleep and boosts overall wellness naturally.',
+    cta: 'Order Now',
+    explore: 'Explore',
+    
+    nutrition: [
+        { label: 'Fat', value: '0.2g' },
+        { label: 'Sodium', value: '3mg' },
+        { label: 'Carbs', value: '1.5g' },
+        { label: 'Fiber', value: '0.8g' },
+        { label: 'Sugar', value: '0.1g' },
+        { label: 'Protein', value: '0.3g' },
+        { label: 'Calcium', value: '10mg' },
+        { label: 'Iron', value: '2.5mg' },
+        { label: 'Potassium', value: '170mg' }
+    ],
+    productImage: '/Pumkin.png',
+    bgText: 'PUMPKIN SEEDS'
     },
     {
         id: 6,
-        slug: 'haldi-turmeric-power-capsules',
+        slug: 'haldi-turmeric-power-powder',
         kicker: 'POPULAR',
-        title: 'Organic Haldi\nTurmeric Power Capsules',
+        title: 'Organic Haldi\nTurmeric Power Powder',
         description: 'Pure turmeric with black pepper for maximum absorption. Anti-inflammatory powerhouse for joint and skin health.',
         cta: 'Order Now',
         explore: 'Explore',

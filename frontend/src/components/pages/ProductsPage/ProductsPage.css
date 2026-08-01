@@ -3,8 +3,7 @@
    ======================================== */
 
 .products-page {
-    
-    padding: 60px 0 40px;  /* ✅ Reduced padding */
+    padding: 60px 0 40px;
     background: #ffffff;
     position: relative;
     border-radius: 40px;
@@ -115,27 +114,27 @@
    ======================================== */
 .pp-header {
     text-align: center;
-    margin-bottom: 30px;  /* ✅ Reduced from 50px */
+    margin-bottom: 30px;
 }
 
 .pp-tag {
     display: inline-block;
-    font-size: 0.75rem;  /* ✅ Smaller */
+    font-size: 0.75rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 4px;
     color: #2D6A4F;
     background: rgba(45, 106, 79, 0.08);
-    padding: 6px 20px;  /* ✅ Smaller padding */
-    margin-bottom: 12px;  /* ✅ Reduced */
+    padding: 6px 20px;
+    margin-bottom: 12px;
     border: 1px solid rgba(45, 106, 79, 0.15);
 }
 
 .pp-title {
-    font-size: clamp(2rem, 4vw, 2.8rem);  /* ✅ Slightly smaller */
+    font-size: clamp(2rem, 4vw, 2.8rem);
     font-weight: 700;
     color: #1B2E1A;
-    margin-bottom: 10px;  /* ✅ Reduced */
+    margin-bottom: 10px;
     font-family: 'Playfair Display', serif;
     letter-spacing: -0.02em;
 }
@@ -157,7 +156,7 @@
 }
 
 .pp-subtitle {
-    font-size: 1rem;  /* ✅ Smaller */
+    font-size: 1rem;
     color: #6B7280;
     max-width: 600px;
     margin: 0 auto;
@@ -168,16 +167,16 @@
    SEARCH & FILTER SECTION
    ======================================== */
 .pp-filter-section {
-    margin-bottom: 20px;  /* ✅ Reduced */
+    margin-bottom: 20px;
     display: flex;
     flex-direction: column;
-    gap: 14px;  /* ✅ Reduced */
+    gap: 14px;
 }
 
 .pp-search-wrapper {
     display: flex;
     align-items: center;
-    max-width: 450px;  /* ✅ Slightly smaller */
+    max-width: 450px;
     margin: 0 auto;
     width: 100%;
     position: relative;
@@ -185,7 +184,7 @@
 
 .pp-search-input {
     width: 100%;
-    padding: 10px 18px;  /* ✅ Smaller padding */
+    padding: 10px 18px;
     border: 2px solid #E5E7EB;
     border-radius: 8px;
     font-size: 0.95rem;
@@ -221,16 +220,16 @@
 .pp-filter-buttons {
     display: flex;
     justify-content: center;
-    gap: 10px;  /* ✅ Reduced */
+    gap: 10px;
     flex-wrap: wrap;
 }
 
 .pp-filter-btn {
-    padding: 8px 24px;  /* ✅ Smaller padding */
+    padding: 8px 24px;
     background: white;
     border: 2px solid #E5E7EB;
     color: #6B7280;
-    font-size: 0.85rem;  /* ✅ Smaller */
+    font-size: 0.85rem;
     font-weight: 600;
     letter-spacing: 0.5px;
     text-transform: uppercase;
@@ -256,8 +255,8 @@
    ======================================== */
 .pp-products-count {
     text-align: center;
-    margin-bottom: 20px;  /* ✅ Reduced */
-    font-size: 0.85rem;  /* ✅ Smaller */
+    margin-bottom: 20px;
+    font-size: 0.85rem;
     color: #6B7280;
     font-weight: 500;
 }
@@ -534,13 +533,13 @@
     flex-shrink: 0;
 }
 
-.pp-cart-btn:hover {
+.pp-cart-btn:hover:not(:disabled) {
     background: #2D6A4F;
     transform: translateY(-2px);
     box-shadow: 0 6px 16px rgba(27, 46, 26, 0.2);
 }
 
-.pp-cart-btn:hover svg {
+.pp-cart-btn:hover:not(:disabled) svg {
     transform: translateX(-2px) scale(1.1);
 }
 
@@ -570,6 +569,42 @@
     background: #FEF2F2;
     border-color: #DC2626;
     color: #DC2626;
+}
+
+/* ========================================
+   ADD TO CART BUTTON STATES
+   ======================================== */
+.pp-cart-btn:disabled {
+    opacity: 0.7;
+    cursor: wait;
+}
+
+.pp-cart-btn.adding {
+    background: #4a6b5a;
+}
+
+.pp-cart-btn.added {
+    background: #2D6A4F;
+    cursor: default;
+}
+
+.pp-cart-btn.added:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+.pp-btn-spinner {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
 }
 
 /* ========================================
@@ -635,9 +670,6 @@
     .products-page::before,
     .products-page::after {
         border-radius: 25px 0 0 25px;
-    }
-    .products-page::before,
-    .products-page::after {
         width: 40%;
         opacity: 0.15;
     }
@@ -676,9 +708,6 @@
     .products-page::before,
     .products-page::after {
         border-radius: 20px 0 0 20px;
-    }
-    .products-page::before,
-    .products-page::after {
         width: 35%;
         height: 100%;
         opacity: 0.2;
@@ -766,9 +795,6 @@
     .products-page::before,
     .products-page::after {
         border-radius: 15px 0 0 15px;
-    }
-    .products-page::before,
-    .products-page::after {
         width: 40%;
         height: 100%;
         opacity: 0.25;
@@ -843,12 +869,9 @@
     .products-page::before,
     .products-page::after {
         border-radius: 12px 0 0 12px;
-    }
-    .products-page::before,
-    .products-page::after {
         width: 45%;
         height: 100%;
-        opacity: 0.3;
+        opacity: 0.08;
     }
 
     .pp-grid {
@@ -881,56 +904,4 @@
     .pp-container {
         padding: 0 16px;
     }
-}
-
-/* ========================================
-   ADD TO CART BUTTON STATES
-   ======================================== */
-.pp-cart-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    flex: 1;
-    padding: 14px 18px;
-    background: #1B2E1A;
-    color: white;
-    font-size: 0.85rem;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    border: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-family: 'Inter', sans-serif;
-    border-radius: 0;
-}
-
-.pp-cart-btn:hover:not(:disabled) {
-    background: #2D6A4F;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(27, 46, 26, 0.2);
-}
-
-.pp-cart-btn:disabled {
-    opacity: 0.7;
-    cursor: wait;
-}
-
-.pp-cart-btn.adding {
-    background: #4a6b5a;
-}
-
-.pp-cart-btn.added {
-    background: #2D6A4F;
-    cursor: default;
-}
-
-.pp-cart-btn.added:hover {
-    transform: none;
-    box-shadow: none;
-}
-
-@keyframes spin {
-    to { transform: rotate(360deg); }
 }

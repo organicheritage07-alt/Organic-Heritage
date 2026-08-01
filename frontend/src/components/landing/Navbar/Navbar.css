@@ -95,11 +95,11 @@
 }
 
 .brand-logo-ring {
-    width: 52px;
-    height: 52px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     background: linear-gradient(135deg, rgba(197, 162, 101, 0.15), rgba(197, 162, 101, 0.05));
-    border: 2px solid rgba(197, 162, 101, 0.35);
+    border: 2px solid #2d5a27;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -113,7 +113,7 @@
     position: absolute;
     inset: -4px;
     border-radius: 50%;
-    border: 1px solid rgba(197, 162, 101, 0.2);
+    border: 1px solid #2d5a27;
     animation: ringPulse 3s ease-in-out infinite;
 }
 
@@ -154,7 +154,7 @@
     font-weight: 300;
     font-style: italic;
     letter-spacing: 0.18em;
-    color: var(--oh-text-muted);
+    color:#2d5a27;
 }
 
 .brand-heritage {

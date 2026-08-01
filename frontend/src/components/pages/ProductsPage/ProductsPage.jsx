@@ -27,6 +27,11 @@ function ProductsPage() {
 
     const API_URL = 'https://organic-heritage.onrender.com/api/products';
 
+    // ✅ PAGE OPEN HOTE HI TOP PAR SCROLL
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -170,7 +175,7 @@ function ProductsPage() {
 
     if (error) {
         return (
-            <section className="products-page" ref={sectionRef} style={{ margin: '120px 80px' }}>
+            <section className="products-page" ref={sectionRef}>
                 <div className="pp-container" style={{ textAlign: 'center', padding: '80px 0' }}>
                     <p style={{ color: '#DC2626', fontSize: '1.2rem' }}>⚠️ {error}</p>
                     <button 
@@ -186,7 +191,7 @@ function ProductsPage() {
 
     if (loading) {
         return (
-            <section className="products-page" ref={sectionRef} style={{ margin: '120px 80px' }}>
+            <section className="products-page" ref={sectionRef}>
                 <div className="pp-container" style={{ textAlign: 'center', padding: '80px 0' }}>
                     <div className="spinner" style={{ 
                         width: '50px', 
@@ -205,7 +210,7 @@ function ProductsPage() {
 
     return (
         <>
-            <section className="products-page" ref={sectionRef} style={{ margin: '120px 80px' }}>
+            <section className="products-page" ref={sectionRef}>
                 <div className="pp-container">
                     {/* ===== COMPRESSED HEADER ===== */}
                     <div 

@@ -22,7 +22,7 @@
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 3px;
-    color: #2D6A4F;
+    color: #2d5a27;
     background: rgba(45, 106, 79, 0.08);
     padding: 8px 24px;
     border: 1px solid rgba(45, 106, 79, 0.12);
@@ -38,7 +38,7 @@
 }
 
 .benefits-title .title-highlight {
-    color: #2D6A4F;
+    color: #2d5a27;
     position: relative;
 }
 
@@ -621,7 +621,7 @@
 }
 
 /* ========================================
-   MOBILE - Same side-by-side layout as desktop
+   MOBILE - 2 CARDS PER ROW, BIGGER PRODUCT IMAGE
    ======================================== */
 @media (max-width: 600px) {
     .benefits-section {
@@ -629,46 +629,46 @@
     }
 
     .video-cards-row {
-        gap: 20px 15px;
+        gap: 25px 20px;        /* ✅ Bigger gap for 2-column layout */
         padding: 30px 5px;
         position: relative;
         flex-wrap: wrap;
     }
 
     .v-card {
-        width: 100px;
-        height: 240px;
+        width: 160px;          /* ✅ Bigger card — only 2 fit per row */
+        height: 270px;         /* ✅ Taller for bigger image */
     }
 
     .v-circle {
-        width: 85px;
-        height: 85px;
-        margin-top: 12px;
+        width: 125px;          /* ✅ Bigger circle */
+        height: 125px;
+        margin-top: 15px;
     }
 
     .v-circle-img {
-        width: 115px;
-        height: 115px;
+        width: 150px;          /* ✅ Bigger product image — clearly visible */
+        height: 150px;
     }
 
     .v-card-bg {
-        width: 85px;
-        height: 85px;
-        top: 12px;
+        width: 125px;          /* ✅ Matches circle */
+        height: 125px;
+        top: 15px;
     }
 
     .v-card-glow {
-        width: 105px;
-        height: 105px;
-        top: 12px;
+        width: 145px;          /* ✅ Matches circle + glow */
+        height: 145px;
+        top: 15px;
     }
 
     .v-product-label {
-        margin-top: 28px;
+        margin-top: 35px;      /* ✅ Adjusted spacing */
     }
 
     .v-label-name {
-        font-size: 0.85rem;
+        font-size: 0.95rem;    /* ✅ Slightly bigger text */
     }
 
     /* ========================================
@@ -793,33 +793,41 @@
     }
 }
 
+/* ========================================
+   SMALLER MOBILE - Still 2 per row, slightly smaller
+   ======================================== */
 @media (max-width: 400px) {
     .v-card {
-        width: 90px;
-        height: 230px;
+        width: 145px;          /* ✅ Slightly smaller for 400px screens */
+        height: 255px;
     }
 
     .v-circle {
-        width: 75px;
-        height: 75px;
+        width: 115px;
+        height: 115px;
     }
 
     .v-circle-img {
-        width: 100px;
-        height: 100px;
+        width: 140px;          /* ✅ Still visible */
+        height: 140px;
     }
 
     .v-card-bg {
-        width: 75px;
-        height: 75px;
+        width: 115px;
+        height: 115px;
+    }
+
+    .v-card-glow {
+        width: 135px;
+        height: 135px;
     }
 
     .v-product-label {
-        margin-top: 24px;
+        margin-top: 30px;
     }
 
     .v-label-name {
-        font-size: 0.78rem;
+        font-size: 0.88rem;
     }
 
     .v-card.is-hovered .v-card-bg {
@@ -827,14 +835,14 @@
     }
 
     .v-card.is-hovered .v-product-animated {
-        width: 130px;
-        max-height: 170px;
-        transform: translate(35%, -45%) scale(1) rotate(-10deg);
+        width: 140px;
+        max-height: 180px;
+        transform: translate(38%, -45%) scale(1) rotate(-10deg);
     }
 
     .v-card.is-hovered .v-content {
         min-height: 260px;
-        padding: 20px 16px 20px 16px;
+        padding: 22px 18px 22px 18px;
     }
 
     .v-content h3 {
@@ -842,33 +850,66 @@
     }
 
     .v-desc {
-        font-size: 0.72rem;
+        font-size: 0.74rem;
     }
 
     .v-benefits-list {
         gap: 6px;
-        grid-template-columns: 1fr;  /* Single column */
+        grid-template-columns: 1fr;
     }
 
     .v-benefits-list li {
-        font-size: 0.65rem;
+        font-size: 0.68rem;
     }
 
     .v-btn {
         padding: 9px 16px;
-        font-size: 0.72rem;
+        font-size: 0.74rem;
     }
 }
 
 @media (max-width: 360px) {
+    .v-card {
+        width: 130px;          /* ✅ Smallest size, still 2 per row on 360px */
+        height: 240px;
+    }
+
+    .v-circle {
+        width: 100px;
+        height: 100px;
+    }
+
+    .v-circle-img {
+        width: 125px;
+        height: 125px;
+    }
+
+    .v-card-bg {
+        width: 100px;
+        height: 100px;
+    }
+
+    .v-card-glow {
+        width: 120px;
+        height: 120px;
+    }
+
+    .v-product-label {
+        margin-top: 26px;
+    }
+
+    .v-label-name {
+        font-size: 0.8rem;
+    }
+
     .v-card.is-hovered .v-card-bg {
         min-height: 240px;
     }
 
     .v-card.is-hovered .v-product-animated {
-        width: 110px;
-        max-height: 150px;
-        transform: translate(30%, -45%) scale(1) rotate(-10deg);
+        width: 120px;
+        max-height: 160px;
+        transform: translate(35%, -45%) scale(1) rotate(-10deg);
     }
 
     .v-card.is-hovered .v-content {
@@ -886,11 +927,11 @@
     }
 
     .v-benefits-list li {
-        font-size: 0.62rem;
+        font-size: 0.65rem;
     }
 
     .v-btn {
         padding: 8px 14px;
-        font-size: 0.68rem;
+        font-size: 0.7rem;
     }
 }
