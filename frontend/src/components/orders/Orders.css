@@ -1,5 +1,5 @@
 /* ============================================
-   ORDERS PAGE - ORGANIC HERITAGE
+   ORDERS PAGE - ORGANIC HERITAGE (SHARP)
    ============================================ */
 
 /* --- MAIN WRAPPER --- */
@@ -16,7 +16,7 @@
 
 .oh-orders-container {
     background: #ffffff !important;
-    border-radius: 24px !important;
+    border-radius: 0 !important;
     padding: 36px 40px !important;
     box-shadow: 0 4px 30px rgba(0,0,0,0.06) !important;
     border: 1.5px solid #f0f0f0 !important;
@@ -56,7 +56,7 @@
     padding: 10px 22px !important;
     background: #ffffff !important;
     border: 2px solid #2d5a27 !important;
-    border-radius: 12px !important;
+    border-radius: 0 !important;
     font-weight: 600 !important;
     font-size: 0.85rem !important;
     cursor: pointer !important;
@@ -85,7 +85,7 @@
 .oh-stat-card {
     background: #ffffff !important;
     padding: 18px 14px !important;
-    border-radius: 18px !important;
+    border-radius: 0 !important;
     text-align: center !important;
     border: 2px solid #e8f5e9 !important;
     transition: all 0.3s ease !important;
@@ -133,7 +133,7 @@
     display: flex !important;
     align-items: center !important;
     border: 2px solid #e5e7eb !important;
-    border-radius: 14px !important;
+    border-radius: 0 !important;
     padding: 0 16px !important;
     background: #ffffff !important;
     min-width: 200px !important;
@@ -169,7 +169,7 @@
 .oh-filter-select {
     padding: 12px 20px !important;
     border: 2px solid #e5e7eb !important;
-    border-radius: 14px !important;
+    border-radius: 0 !important;
     font-size: 0.9rem !important;
     font-family: 'DM Sans', sans-serif !important;
     background: #ffffff !important;
@@ -190,7 +190,7 @@
     text-align: center !important;
     padding: 80px 20px !important;
     background: #ffffff !important;
-    border-radius: 20px !important;
+    border-radius: 0 !important;
     border: 2px dashed #e8f5e9 !important;
 }
 
@@ -219,7 +219,7 @@
     background: #2d5a27 !important;
     color: #ffffff !important;
     text-decoration: none !important;
-    border-radius: 50px !important;
+    border-radius: 0 !important;
     font-weight: 700 !important;
     font-size: 0.9rem !important;
     transition: all 0.3s ease !important;
@@ -242,7 +242,7 @@
 
 .oh-order-card {
     border: 2px solid #f0f0f0 !important;
-    border-radius: 20px !important;
+    border-radius: 0 !important;
     padding: 28px 32px !important;
     background: #ffffff !important;
     transition: all 0.35s ease !important;
@@ -303,7 +303,7 @@
     align-items: center !important;
     gap: 6px !important;
     padding: 6px 16px !important;
-    border-radius: 50px !important;
+    border-radius: 0 !important;
     font-size: 0.75rem !important;
     font-weight: 700 !important;
     text-transform: uppercase !important;
@@ -353,7 +353,7 @@
     gap: 10px !important;
     background: #f8faf8 !important;
     padding: 8px 14px !important;
-    border-radius: 12px !important;
+    border-radius: 0 !important;
     border: 1.5px solid #e8f5e9 !important;
     transition: all 0.2s ease !important;
 }
@@ -367,7 +367,7 @@
     width: 38px !important;
     height: 38px !important;
     object-fit: contain !important;
-    border-radius: 8px !important;
+    border-radius: 0 !important;
     background: #ffffff !important;
     padding: 2px !important;
 }
@@ -384,7 +384,7 @@
     font-weight: 600 !important;
     background: #ffffff !important;
     padding: 2px 8px !important;
-    border-radius: 6px !important;
+    border-radius: 0 !important;
 }
 
 .oh-more-items {
@@ -393,7 +393,7 @@
     font-weight: 600 !important;
     padding: 8px 14px !important;
     background: #f3f4f6 !important;
-    border-radius: 12px !important;
+    border-radius: 0 !important;
 }
 
 /* --- CARD FOOTER --- */
@@ -435,7 +435,7 @@
     background: #fee2e2 !important;
     color: #dc2626 !important;
     border: none !important;
-    border-radius: 10px !important;
+    border-radius: 0 !important;
     font-weight: 600 !important;
     font-size: 0.8rem !important;
     cursor: pointer !important;
@@ -456,7 +456,7 @@
     background: #2d5a27 !important;
     color: #ffffff !important;
     text-decoration: none !important;
-    border-radius: 10px !important;
+    border-radius: 0 !important;
     font-weight: 600 !important;
     font-size: 0.8rem !important;
     transition: all 0.25s ease !important;
@@ -502,7 +502,7 @@
     padding: 80px 20px !important;
     background: #ffffff !important;
     margin-top: 100px !important;
-    border-radius: 20px !important;
+    border-radius: 0 !important;
 }
 
 .oh-orders-error h2 {
@@ -524,7 +524,7 @@
     background: #2d5a27 !important;
     color: #ffffff !important;
     border: none !important;
-    border-radius: 12px !important;
+    border-radius: 0 !important;
     font-weight: 600 !important;
     cursor: pointer !important;
     transition: all 0.25s ease !important;
@@ -551,7 +551,7 @@
     
     .oh-orders-container {
         padding: 24px 18px !important;
-        border-radius: 18px !important;
+        border-radius: 0 !important;
     }
     
     .oh-orders-header {
@@ -576,7 +576,7 @@
     
     .oh-order-card {
         padding: 20px !important;
-        border-radius: 16px !important;
+        border-radius: 0 !important;
     }
     
     .oh-order-card-header {
@@ -602,6 +602,7 @@
     .oh-btn-view-order {
         flex: 1 !important;
         justify-content: center !important;
+        border-radius: 0 !important;
     }
 }
 
