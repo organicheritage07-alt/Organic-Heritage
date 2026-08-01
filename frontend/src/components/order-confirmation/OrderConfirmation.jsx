@@ -5,7 +5,7 @@ import {
     FaCheckCircle, FaPrint, FaHome, FaBox, FaUser,
     FaMapMarkerAlt, FaPhone, FaEnvelope, FaGift,
     FaClock, FaTruck, FaTag, FaLeaf, FaCalendarAlt,
-    FaArrowLeft, FaDownload
+    FaArrowLeft, FaDownload, FaRegCheckCircle
 } from 'react-icons/fa';
 import './OrderConfirmation.css';
 
@@ -15,6 +15,10 @@ const OrderConfirmation = () => {
     const [order, setOrder] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     useEffect(() => {
         const fetchOrder = async () => {
@@ -69,30 +73,30 @@ const OrderConfirmation = () => {
 
     const getStatusColor = (status) => {
         const colors = {
-            'pending': '#F59E0B',
-            'processing': '#3B82F6',
-            'shipped': '#8B5CF6',
-            'delivered': '#10B981',
-            'cancelled': '#EF4444'
+            'pending': '#d97706',
+            'processing': '#2563eb',
+            'shipped': '#7c3aed',
+            'delivered': '#059669',
+            'cancelled': '#dc2626'
         };
-        return colors[status] || '#6B7280';
+        return colors[status] || '#6b7280';
     };
 
     const getStatusBg = (status) => {
         const bg = {
-            'pending': '#FEF3C7',
-            'processing': '#DBEAFE',
-            'shipped': '#EDE9FE',
-            'delivered': '#D1FAE5',
-            'cancelled': '#FEE2E2'
+            'pending': '#fef3c7',
+            'processing': '#dbeafe',
+            'shipped': '#ede9fe',
+            'delivered': '#d1fae5',
+            'cancelled': '#fee2e2'
         };
-        return bg[status] || '#F3F4F6';
+        return bg[status] || '#f3f4f6';
     };
 
     if (loading) {
         return (
-            <div className="confirmation-loading">
-                <div className="spinner"></div>
+            <div className="oh-confirm-loading">
+                <div className="oh-confirm-spinner"></div>
                 <p>Loading your order details...</p>
             </div>
         );
@@ -100,11 +104,11 @@ const OrderConfirmation = () => {
 
     if (error || !order) {
         return (
-            <div className="confirmation-error">
-                <div className="error-icon">📋</div>
+            <div className="oh-confirm-error">
+                <div className="oh-error-icon">📋</div>
                 <h2>Order Not Found</h2>
                 <p>{error || 'We could not find your order.'}</p>
-                <Link to="/" className="btn-home">
+                <Link to="/" className="oh-btn-home">
                     <FaHome /> Go Home
                 </Link>
             </div>
@@ -112,19 +116,19 @@ const OrderConfirmation = () => {
     }
 
     return (
-        <div className="confirmation-page">
+        <div className="oh-confirm-page">
             {/* Top Bar */}
-            <div className="confirmation-top-bar">
-                <div className="confirmation-top-bar-inner">
-                    <Link to="/" className="confirmation-logo">
+            <div className="oh-confirm-top-bar">
+                <div className="oh-confirm-top-bar-inner">
+                    <Link to="/" className="oh-confirm-logo">
                         <FaLeaf />
                         <span>Organic Heritage</span>
                     </Link>
-                    <div className="confirmation-top-actions">
-                        <button onClick={handlePrint} className="top-action-btn">
+                    <div className="oh-confirm-top-actions">
+                        <button onClick={handlePrint} className="oh-top-action-btn">
                             <FaPrint /> Print
                         </button>
-                        <Link to="/orders" className="top-action-btn">
+                        <Link to="/orders" className="oh-top-action-btn">
                             <FaBox /> My Orders
                         </Link>
                     </div>
@@ -132,10 +136,10 @@ const OrderConfirmation = () => {
             </div>
 
             {/* Header */}
-            <div className="confirmation-header">
-                <div className="confirmation-header-inner">
-                    <div className="confirmation-header-left">
-                        <div className="confirmation-icon-circle">
+            <div className="oh-confirm-header">
+                <div className="oh-confirm-header-inner">
+                    <div className="oh-confirm-header-left">
+                        <div className="oh-confirm-icon-circle">
                             <FaCheckCircle />
                         </div>
                         <div>
@@ -143,11 +147,11 @@ const OrderConfirmation = () => {
                             <p>Thank you for your purchase. Your order has been placed successfully.</p>
                         </div>
                     </div>
-                    <div className="confirmation-header-right">
-                        <span className="order-status-badge" style={{
+                    <div className="oh-confirm-header-right">
+                        <span className="oh-order-status-badge" style={{
                             background: getStatusBg(order.status),
                             color: getStatusColor(order.status),
-                            border: `1px solid ${getStatusColor(order.status)}`
+                            border: `2px solid ${getStatusColor(order.status)}`
                         }}>
                             {getStatusIcon(order.status)} {order.status.toUpperCase()}
                         </span>
@@ -155,58 +159,66 @@ const OrderConfirmation = () => {
                 </div>
             </div>
 
-            <div className="confirmation-container">
+            <div className="oh-confirm-container">
                 {/* Order Info Cards */}
-                <div className="confirmation-order-cards">
-                    <div className="order-card">
-                        <span className="card-label">Order Number</span>
-                        <span className="card-value">{order.orderNumber}</span>
+                <div className="oh-confirm-order-cards">
+                    <div className="oh-info-card">
+                        <span className="oh-card-label">Order Number</span>
+                        <span className="oh-card-value">{order.orderNumber}</span>
                     </div>
-                    <div className="order-card">
-                        <span className="card-label">Order Date</span>
-                        <span className="card-value">{new Date(order.createdAt).toLocaleDateString()}</span>
+                    <div className="oh-info-card">
+                        <span className="oh-card-label">Order Date</span>
+                        <span className="oh-card-value">{new Date(order.createdAt).toLocaleDateString()}</span>
                     </div>
-                    <div className="order-card">
-                        <span className="card-label">Payment Method</span>
-                        <span className="card-value">{order.paymentMethod === 'cod' ? 'Cash on Delivery' : 'Card Payment'}</span>
+                    <div className="oh-info-card">
+                        <span className="oh-card-label">Payment Method</span>
+                        <span className="oh-card-value">{order.paymentMethod === 'cod' ? 'Cash on Delivery' : 'Card Payment'}</span>
                     </div>
-                    <div className="order-card highlight">
-                        <span className="card-label">Total Amount</span>
-                        <span className="card-value total">{formatPrice(order.total)}</span>
+                    <div className="oh-info-card oh-highlight">
+                        <span className="oh-card-label">Total Amount</span>
+                        <span className="oh-card-value oh-total">{formatPrice(order.total)}</span>
                     </div>
                 </div>
 
-                {/* Tracking Timeline */}
-                <div className="order-tracking">
+                {/* Tracking Timeline - PROFESSIONAL ICONS */}
+                <div className="oh-order-tracking">
                     <h3>Order Status</h3>
-                    <div className="tracking-timeline">
-                        <div className={`tracking-step ${order.status === 'pending' || order.status === 'processing' || order.status === 'shipped' || order.status === 'delivered' ? 'active' : ''}`}>
-                            <div className="tracking-icon">✅</div>
-                            <div className="tracking-content">
+                    <div className="oh-tracking-timeline">
+                        <div className={`oh-tracking-step ${order.status === 'pending' || order.status === 'processing' || order.status === 'shipped' || order.status === 'delivered' ? 'oh-active' : ''}`}>
+                            <div className="oh-tracking-icon-wrap">
+                                <FaRegCheckCircle />
+                            </div>
+                            <div className="oh-tracking-content">
                                 <strong>Order Placed</strong>
                                 <span>{new Date(order.createdAt).toLocaleDateString()}</span>
                             </div>
                         </div>
-                        <div className={`tracking-line ${order.status === 'processing' || order.status === 'shipped' || order.status === 'delivered' ? 'active' : ''}`}></div>
-                        <div className={`tracking-step ${order.status === 'processing' || order.status === 'shipped' || order.status === 'delivered' ? 'active' : ''}`}>
-                            <div className="tracking-icon">📦</div>
-                            <div className="tracking-content">
+                        <div className={`oh-tracking-line ${order.status === 'processing' || order.status === 'shipped' || order.status === 'delivered' ? 'oh-active' : ''}`}></div>
+                        <div className={`oh-tracking-step ${order.status === 'processing' || order.status === 'shipped' || order.status === 'delivered' ? 'oh-active' : ''}`}>
+                            <div className="oh-tracking-icon-wrap">
+                                <FaBox />
+                            </div>
+                            <div className="oh-tracking-content">
                                 <strong>Processing</strong>
                                 <span>Order is being prepared</span>
                             </div>
                         </div>
-                        <div className={`tracking-line ${order.status === 'shipped' || order.status === 'delivered' ? 'active' : ''}`}></div>
-                        <div className={`tracking-step ${order.status === 'shipped' || order.status === 'delivered' ? 'active' : ''}`}>
-                            <div className="tracking-icon">🚚</div>
-                            <div className="tracking-content">
+                        <div className={`oh-tracking-line ${order.status === 'shipped' || order.status === 'delivered' ? 'oh-active' : ''}`}></div>
+                        <div className={`oh-tracking-step ${order.status === 'shipped' || order.status === 'delivered' ? 'oh-active' : ''}`}>
+                            <div className="oh-tracking-icon-wrap">
+                                <FaTruck />
+                            </div>
+                            <div className="oh-tracking-content">
                                 <strong>Shipped</strong>
                                 <span>On the way to you</span>
                             </div>
                         </div>
-                        <div className={`tracking-line ${order.status === 'delivered' ? 'active' : ''}`}></div>
-                        <div className={`tracking-step ${order.status === 'delivered' ? 'active' : ''}`}>
-                            <div className="tracking-icon">✅</div>
-                            <div className="tracking-content">
+                        <div className={`oh-tracking-line ${order.status === 'delivered' ? 'oh-active' : ''}`}></div>
+                        <div className={`oh-tracking-step ${order.status === 'delivered' ? 'oh-active' : ''}`}>
+                            <div className="oh-tracking-icon-wrap">
+                                <FaCheckCircle />
+                            </div>
+                            <div className="oh-tracking-content">
                                 <strong>Delivered</strong>
                                 <span>Order delivered successfully</span>
                             </div>
@@ -215,10 +227,10 @@ const OrderConfirmation = () => {
                 </div>
 
                 {/* Order Items */}
-                <div className="confirmation-items-section">
+                <div className="oh-confirm-items-section">
                     <h3>Order Items</h3>
-                    <div className="items-table-wrapper">
-                        <table className="items-table">
+                    <div className="oh-items-table-wrapper">
+                        <table className="oh-items-table">
                             <thead>
                                 <tr>
                                     <th>Product</th>
@@ -231,35 +243,35 @@ const OrderConfirmation = () => {
                                 {order.items.map((item, index) => (
                                     <tr key={index}>
                                         <td>
-                                            <div className="item-cell">
+                                            <div className="oh-item-cell">
                                                 <img src={item.image || '/placeholder.png'} alt={item.name} />
                                                 <span>{item.name}</span>
                                             </div>
                                         </td>
                                         <td>{item.quantity}</td>
                                         <td>{formatPrice(item.price)}</td>
-                                        <td className="item-total">{formatPrice(item.price * item.quantity)}</td>
+                                        <td className="oh-item-total">{formatPrice(item.price * item.quantity)}</td>
                                     </tr>
                                 ))}
                             </tbody>
                             <tfoot>
                                 <tr>
-                                    <td colSpan="3" className="totals-label">Subtotal</td>
-                                    <td className="totals-value">{formatPrice(order.subtotal)}</td>
+                                    <td colSpan="3" className="oh-totals-label">Subtotal</td>
+                                    <td className="oh-totals-value">{formatPrice(order.subtotal)}</td>
                                 </tr>
                                 {order.discount > 0 && (
                                     <tr>
-                                        <td colSpan="3" className="totals-label discount">Discount</td>
-                                        <td className="totals-value discount">-{formatPrice(order.discount)}</td>
+                                        <td colSpan="3" className="oh-totals-label oh-discount">Discount</td>
+                                        <td className="oh-totals-value oh-discount">-{formatPrice(order.discount)}</td>
                                     </tr>
                                 )}
                                 <tr>
-                                    <td colSpan="3" className="totals-label">Shipping</td>
-                                    <td className="totals-value">{order.shipping === 0 ? 'FREE' : formatPrice(order.shipping)}</td>
+                                    <td colSpan="3" className="oh-totals-label">Shipping</td>
+                                    <td className="oh-totals-value">{order.shipping === 0 ? 'FREE' : formatPrice(order.shipping)}</td>
                                 </tr>
-                                <tr className="grand-total">
-                                    <td colSpan="3" className="totals-label">Total</td>
-                                    <td className="totals-value grand">{formatPrice(order.total)}</td>
+                                <tr className="oh-grand-total">
+                                    <td colSpan="3" className="oh-totals-label">Total</td>
+                                    <td className="oh-totals-value oh-grand">{formatPrice(order.total)}</td>
                                 </tr>
                             </tfoot>
                         </table>
@@ -267,10 +279,10 @@ const OrderConfirmation = () => {
                 </div>
 
                 {/* Shipping Address */}
-                <div className="confirmation-shipping">
+                <div className="oh-confirm-shipping">
                     <h3><FaMapMarkerAlt /> Shipping Address</h3>
-                    <div className="shipping-details">
-                        <p className="shipping-name">{order.shippingAddress.name}</p>
+                    <div className="oh-shipping-details">
+                        <p className="oh-shipping-name">{order.shippingAddress.name}</p>
                         <p>{order.shippingAddress.address}</p>
                         <p>{order.shippingAddress.city}{order.shippingAddress.zipCode ? `, ${order.shippingAddress.zipCode}` : ''}</p>
                         <p><FaPhone /> {order.shippingAddress.phone}</p>
@@ -279,21 +291,21 @@ const OrderConfirmation = () => {
 
                 {/* Notes */}
                 {order.notes && (
-                    <div className="confirmation-notes">
-                        <h3>📝 Order Notes</h3>
+                    <div className="oh-confirm-notes">
+                        <h3>Order Notes</h3>
                         <p>{order.notes}</p>
                     </div>
                 )}
 
                 {/* Action Buttons */}
-                <div className="confirmation-actions">
-                    <Link to="/" className="btn-secondary">
+                <div className="oh-confirm-actions">
+                    <Link to="/" className="oh-btn-secondary">
                         <FaHome /> Continue Shopping
                     </Link>
-                    <Link to="/orders" className="btn-primary">
+                    <Link to="/orders" className="oh-btn-primary">
                         <FaBox /> My Orders
                     </Link>
-                    <button onClick={handlePrint} className="btn-print">
+                    <button onClick={handlePrint} className="oh-btn-print">
                         <FaPrint /> Print Receipt
                     </button>
                 </div>
