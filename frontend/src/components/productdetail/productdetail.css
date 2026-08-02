@@ -1570,3 +1570,124 @@
     padding: 20px 0;
     font-family: var(--font-sans);
 }
+
+/* ============================================
+   TESTIMONIALS - SELF CONTAINED (pd- prefixed)
+   ============================================ */
+
+.pd-testimonials-section {
+    padding: 64px 0;
+    background: var(--color-bg-light);
+    border-top: 1px solid var(--color-border);
+}
+
+.pd-testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+.pd-testimonial-card {
+    background: #ffffff;
+    border: 1px solid var(--color-border-light);
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    transition: all 0.35s ease;
+    position: relative;
+}
+
+.pd-testimonial-card:hover {
+    border-color: var(--color-border);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06);
+}
+
+.pd-tm-quote {
+    color: var(--color-green);
+    font-size: 1.2rem;
+    opacity: 0.3;
+}
+
+.pd-tm-stars {
+    display: flex;
+    gap: 3px;
+    font-size: 0.8rem;
+}
+
+.pd-tm-stars svg {
+    color: #ddd;
+}
+
+.pd-tm-stars svg.filled {
+    color: var(--color-accent);
+}
+
+.pd-tm-text {
+    font-size: 0.88rem;
+    color: #555;
+    line-height: 1.7;
+    margin: 0;
+    flex: 1;
+    font-family: var(--font-sans);
+}
+
+.pd-tm-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-top: 14px;
+    border-top: 1px solid var(--color-border-light);
+}
+
+.pd-tm-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    flex-shrink: 0;
+    font-family: var(--font-sans);
+}
+
+.pd-tm-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.pd-tm-info strong {
+    font-size: 0.85rem;
+    color: var(--color-text);
+    font-weight: 600;
+    font-family: var(--font-sans);
+}
+
+.pd-tm-info span {
+    font-size: 0.72rem;
+    color: #aaa;
+    font-family: var(--font-sans);
+}
+
+/* ===== RESPONSIVE: TESTIMONIALS ===== */
+@media (max-width: 1024px) {
+    .pd-testimonials-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .pd-testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .pd-testimonial-card {
+        padding: 22px 20px;
+    }
+}

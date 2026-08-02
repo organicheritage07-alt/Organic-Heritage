@@ -11,14 +11,12 @@ import {
     FaChevronLeft, FaChevronRight as FaChevronRightNav,
     FaTint, FaSun, FaClock, FaCheckDouble, FaStar as FaStarIcon,
     FaBullseye, FaUsers, FaHandHoldingMedical, FaClipboardList,
-    FaRegCheckCircle, FaRegLightbulb, FaRegHeart
-, FaBox} from 'react-icons/fa';
+    FaRegCheckCircle, FaRegLightbulb, FaRegHeart, FaBox,
+    FaQuoteLeft
+} from 'react-icons/fa';
 import './productdetail.css';
 
-import Testimonials from '../landing/Testimonials/Testimonials';
-
 const ProductDetail = () => {
-    // ✅ UPDATED: id can be either MongoDB _id or slug (backend handles both)
     const { id: identifier } = useParams();
     const navigate = useNavigate();
     const { addToCart } = useCart();
@@ -39,8 +37,12 @@ const ProductDetail = () => {
 
     const API_URL = 'https://organic-heritage.onrender.com/api/products';
 
+    // ===== SCROLL TO TOP ON PAGE LOAD =====
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [identifier]);
+
     // ===== FETCH PRODUCT =====
-    // ✅ Works with BOTH slug and _id because backend handles both
     useEffect(() => {
         const fetchProduct = async () => {
             try {
@@ -51,7 +53,6 @@ const ProductDetail = () => {
                     const prod = response.data.product;
                     setProduct(prod);
 
-                    // Build images array
                     const imgs = [];
                     if (prod.image) imgs.push(prod.image);
                     if (prod.images && Array.isArray(prod.images) && prod.images.length > 0) {
@@ -168,6 +169,42 @@ const ProductDetail = () => {
         return stars;
     };
 
+    // ===== TESTIMONIALS DATA =====
+    const testimonials = [
+        {
+            name: "Ayesha Khan",
+            location: "Lahore, Pakistan",
+            rating: 5,
+            text: "Absolutely love the quality! My hair feels so much healthier after just two weeks of using this organic oil. The natural fragrance is divine.",
+            initials: "AK",
+            color: "#2d5a27"
+        },
+        {
+            name: "Muhammad Ali",
+            location: "Karachi, Pakistan",
+            rating: 5,
+            text: "Best organic product I have ever purchased. The results are visible within days. Highly recommended for anyone looking for pure, chemical-free skincare.",
+            initials: "MA",
+            color: "#C4973A"
+        },
+        {
+            name: "Fatima Zahra",
+            location: "Islamabad, Pakistan",
+            rating: 4,
+            text: "Great packaging and fast delivery. The product is 100% genuine and organic. Will definitely be ordering again for my entire family.",
+            initials: "FZ",
+            color: "#1d3d1a"
+        },
+        {
+            name: "Omar Farooq",
+            location: "Faisalabad, Pakistan",
+            rating: 5,
+            text: "Finally found a brand that delivers on its promises. Pure, organic, and effective. My skin has never looked better. Thank you Organic Heritage!",
+            initials: "OF",
+            color: "#059669"
+        }
+    ];
+
     // ===== LOADING & ERROR STATES =====
     if (loading) {
         return (
@@ -188,18 +225,15 @@ const ProductDetail = () => {
         );
     }
 
-    // ===== CALCULATED VALUES =====
     const discount = product.originalPrice > product.price 
         ? Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100) 
         : 0;
 
-    // ===== ADMIN DATA =====
     const highlights = product.highlights || [];
     const healthBenefits = product.healthBenefits || [];
     const howToUse = product.howToUse || '';
     const isBestseller = product.tag === 'Bestseller' || product.tag === 'Popular' || product.tag === 'Hot';
 
-    // Parse howToUse into steps
     const parseUsageSteps = (text) => {
         if (!text) return [];
         const byNewline = text.split('\n').filter(s => s.trim().length > 3);
@@ -210,7 +244,6 @@ const ProductDetail = () => {
     };
     const usageSteps = parseUsageSteps(howToUse);
 
-    // ✅ HELPER: Navigate using slug (fallback to _id for old products)
     const goToProduct = (prod) => {
         const slugOrId = prod.slug || prod._id;
         navigate(`/product/${slugOrId}`);
@@ -270,7 +303,6 @@ const ProductDetail = () => {
                                     <span className="pd-gallery-badge">{product.tag?.toUpperCase()}</span>
                                 )}
 
-                                {/* ✅ FIXED: Zoom background — crystal clear with 250% size + image rendering */}
                                 <div 
                                     className={`pd-zoom-bg ${isZooming ? 'active' : ''}`}
                                     style={{
@@ -647,13 +679,38 @@ const ProductDetail = () => {
                 )}
             </div>
 
-            {/* ===== TESTIMONIALS ===== */}
-            <section className="pd-testimonials-wrap">
-                <div className="pd-section-header">
-                    <h2>Customer Reviews</h2>
-                    <div className="pd-header-line"></div>
+            {/* ===== TESTIMONIALS - SELF CONTAINED ===== */}
+            <section className="pd-testimonials-section">
+                <div className="pd-container">
+                    <div className="pd-section-header">
+                        <h2>Customer Reviews</h2>
+                        <div className="pd-header-line"></div>
+                    </div>
+                    <div className="pd-testimonials-grid">
+                        {testimonials.map((t, idx) => (
+                            <div key={idx} className="pd-testimonial-card">
+                                <div className="pd-tm-quote">
+                                    <FaQuoteLeft />
+                                </div>
+                                <div className="pd-tm-stars">
+                                    {Array.from({ length: 5 }).map((_, i) => (
+                                        <FaStar key={i} className={i < t.rating ? 'filled' : ''} />
+                                    ))}
+                                </div>
+                                <p className="pd-tm-text">{t.text}</p>
+                                <div className="pd-tm-author">
+                                    <div className="pd-tm-avatar" style={{ backgroundColor: t.color }}>
+                                        {t.initials}
+                                    </div>
+                                    <div className="pd-tm-info">
+                                        <strong>{t.name}</strong>
+                                        <span>{t.location}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
                 </div>
-                <Testimonials />
             </section>
 
             {/* ===== LIGHTBOX ===== */}
