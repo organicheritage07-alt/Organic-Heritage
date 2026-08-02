@@ -189,7 +189,7 @@ const AdminDashboard = () => {
             <button className="admin-hamburger" onClick={toggleSidebar}>
               {mobileSidebarOpen ? <FaChevronLeft size={18} /> : <FaChevronRight size={18} />}
             </button>
-            <img src="/logo.png" alt="Organic Heritage" className="admin-topbar-logo" />
+            
           </div>
           <div className="admin-topbar-center">
             <h1>Organic Heritage Admin</h1>
