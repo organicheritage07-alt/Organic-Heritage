@@ -262,7 +262,9 @@ const OrderConfirmation = () => {
                         <span>Organic Heritage</span>
                     </Link>
                     <div className="oh-confirm-top-actions">
-                        
+                        <button onClick={handleDownloadPDF} className="oh-btn-pdf">
+                        <FaFilePdf /> Download PDF
+                    </button>
                         <Link to="/orders" className="oh-top-action-btn">
                             <FaBox /> My Orders
                         </Link>
