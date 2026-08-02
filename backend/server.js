@@ -56,6 +56,8 @@ app.use(passport.session());
 const allowedOrigins = [
     'https://organic-heritage-gqe7-xi.vercel.app',
     'https://organic-heritage-gqe7-lgxl3t1ji-organicheritage07-alts-projects.vercel.app',
+    'https://theorganicheritage.com',
+    'https://www.theorganicheritage.com',
     'http://localhost:3000',
     'http://localhost:5173'
 ];

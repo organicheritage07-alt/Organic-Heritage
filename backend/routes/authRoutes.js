@@ -11,8 +11,7 @@ const otpStore = new Map();
 
 // ✅ Production URLs from environment variables
 const BACKEND_URL = process.env.BACKEND_URL || 'https://organic-heritage.onrender.com';
-const FRONTEND_URL = process.env.FRONTEND_URL || 'https://organic-heritage-gqe7-xi.vercel.app';
-
+const FRONTEND_URL = process.env.FRONTEND_URL || 'https://theorganicheritage.com';
 const generateToken = (id, role) => {
     return jwt.sign({ id, role }, process.env.JWT_SECRET, { expiresIn: '7d' });
 };
