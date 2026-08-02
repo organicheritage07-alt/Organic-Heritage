@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
+import { jsPDF } from 'jspdf';
+import 'jspdf-autotable';
 import { 
     FaCheckCircle, FaPrint, FaHome, FaBox, FaUser,
     FaMapMarkerAlt, FaPhone, FaEnvelope, FaGift,
     FaClock, FaTruck, FaTag, FaLeaf, FaCalendarAlt,
-    FaArrowLeft, FaDownload, FaRegCheckCircle
+    FaArrowLeft, FaDownload, FaRegCheckCircle, FaFilePdf
 } from 'react-icons/fa';
 import './OrderConfirmation.css';
 
@@ -58,6 +60,141 @@ const OrderConfirmation = () => {
 
     const handlePrint = () => {
         window.print();
+    };
+
+    // ✅ PDF DOWNLOAD FUNCTION
+    const handleDownloadPDF = () => {
+        if (!order) return;
+
+        const doc = new jsPDF();
+        const pageWidth = doc.internal.pageSize.getWidth();
+
+        // Header
+        doc.setFillColor(45, 90, 39);
+        doc.rect(0, 0, pageWidth, 40, 'F');
+        
+        doc.setTextColor(255, 255, 255);
+        doc.setFontSize(22);
+        doc.setFont('helvetica', 'bold');
+        doc.text('ORGANIC HERITAGE', pageWidth / 2, 20, { align: 'center' });
+        
+        doc.setFontSize(10);
+        doc.setFont('helvetica', 'normal');
+        doc.text('Pure Wellness, Born from Nature', pageWidth / 2, 28, { align: 'center' });
+
+        // Order Info
+        doc.setTextColor(45, 90, 39);
+        doc.setFontSize(16);
+        doc.setFont('helvetica', 'bold');
+        doc.text('ORDER RECEIPT', 14, 55);
+
+        doc.setTextColor(80, 80, 80);
+        doc.setFontSize(10);
+        doc.setFont('helvetica', 'normal');
+        doc.text(`Order Number: ${order.orderNumber}`, 14, 65);
+        doc.text(`Date: ${new Date(order.createdAt).toLocaleDateString()}`, 14, 71);
+        doc.text(`Payment: ${order.paymentMethod === 'cod' ? 'Cash on Delivery' : 'Card Payment'}`, 14, 77);
+        doc.text(`Status: ${order.status.toUpperCase()}`, 14, 83);
+
+        // Shipping Address
+        doc.setTextColor(45, 90, 39);
+        doc.setFontSize(12);
+        doc.setFont('helvetica', 'bold');
+        doc.text('SHIPPING ADDRESS', 14, 95);
+
+        doc.setTextColor(80, 80, 80);
+        doc.setFontSize(10);
+        doc.setFont('helvetica', 'normal');
+        doc.text(order.shippingAddress.name, 14, 102);
+        doc.text(order.shippingAddress.address, 14, 108);
+        doc.text(`${order.shippingAddress.city}${order.shippingAddress.zipCode ? `, ${order.shippingAddress.zipCode}` : ''}`, 14, 114);
+        doc.text(`Phone: ${order.shippingAddress.phone}`, 14, 120);
+
+        // Items Table
+        const tableData = order.items.map(item => [
+            item.name,
+            item.quantity.toString(),
+            formatPrice(item.price),
+            formatPrice(item.price * item.quantity)
+        ]);
+
+        doc.autoTable({
+            startY: 130,
+            head: [['Product', 'Qty', 'Price', 'Total']],
+            body: tableData,
+            headStyles: {
+                fillColor: [45, 90, 39],
+                textColor: [255, 255, 255],
+                fontStyle: 'bold',
+                fontSize: 10
+            },
+            bodyStyles: {
+                fontSize: 9,
+                textColor: [60, 60, 60]
+            },
+            alternateRowStyles: {
+                fillColor: [248, 250, 248]
+            },
+            columnStyles: {
+                0: { cellWidth: 80 },
+                1: { cellWidth: 20, halign: 'center' },
+                2: { cellWidth: 35, halign: 'right' },
+                3: { cellWidth: 35, halign: 'right' }
+            },
+            styles: {
+                lineColor: [200, 200, 200],
+                lineWidth: 0.5
+            }
+        });
+
+        // Totals
+        const finalY = doc.lastAutoTable.finalY + 10;
+        
+        doc.setFontSize(10);
+        doc.setTextColor(80, 80, 80);
+        doc.text('Subtotal:', 120, finalY);
+        doc.text(formatPrice(order.subtotal), 185, finalY, { align: 'right' });
+
+        if (order.discount > 0) {
+            doc.setTextColor(45, 90, 39);
+            doc.text('Discount:', 120, finalY + 7);
+            doc.text(`-${formatPrice(order.discount)}`, 185, finalY + 7, { align: 'right' });
+            doc.setTextColor(80, 80, 80);
+            doc.text('Shipping:', 120, finalY + 14);
+            doc.text(order.shipping === 0 ? 'FREE' : formatPrice(order.shipping), 185, finalY + 14, { align: 'right' });
+            
+            doc.setDrawColor(45, 90, 39);
+            doc.setLineWidth(0.5);
+            doc.line(120, finalY + 18, 185, finalY + 18);
+            
+            doc.setTextColor(45, 90, 39);
+            doc.setFontSize(13);
+            doc.setFont('helvetica', 'bold');
+            doc.text('TOTAL:', 120, finalY + 26);
+            doc.text(formatPrice(order.total), 185, finalY + 26, { align: 'right' });
+        } else {
+            doc.text('Shipping:', 120, finalY + 7);
+            doc.text(order.shipping === 0 ? 'FREE' : formatPrice(order.shipping), 185, finalY + 7, { align: 'right' });
+            
+            doc.setDrawColor(45, 90, 39);
+            doc.setLineWidth(0.5);
+            doc.line(120, finalY + 11, 185, finalY + 11);
+            
+            doc.setTextColor(45, 90, 39);
+            doc.setFontSize(13);
+            doc.setFont('helvetica', 'bold');
+            doc.text('TOTAL:', 120, finalY + 19);
+            doc.text(formatPrice(order.total), 185, finalY + 19, { align: 'right' });
+        }
+
+        // Footer
+        doc.setTextColor(120, 120, 120);
+        doc.setFontSize(9);
+        doc.setFont('helvetica', 'normal');
+        doc.text('Thank you for shopping with Organic Heritage!', pageWidth / 2, 280, { align: 'center' });
+        doc.text('For queries: support@organicheritage.pk', pageWidth / 2, 286, { align: 'center' });
+
+        doc.save(`Order-${order.orderNumber}.pdf`);
     };
 
     const getStatusIcon = (status) => {
@@ -180,7 +317,7 @@ const OrderConfirmation = () => {
                     </div>
                 </div>
 
-                {/* Tracking Timeline - PROFESSIONAL ICONS */}
+                {/* Tracking Timeline */}
                 <div className="oh-order-tracking">
                     <h3>Order Status</h3>
                     <div className="oh-tracking-timeline">
@@ -278,14 +415,29 @@ const OrderConfirmation = () => {
                     </div>
                 </div>
 
-                {/* Shipping Address */}
+                {/* Shipping Address - PREMIUM CARD */}
                 <div className="oh-confirm-shipping">
-                    <h3><FaMapMarkerAlt /> Shipping Address</h3>
-                    <div className="oh-shipping-details">
-                        <p className="oh-shipping-name">{order.shippingAddress.name}</p>
-                        <p>{order.shippingAddress.address}</p>
-                        <p>{order.shippingAddress.city}{order.shippingAddress.zipCode ? `, ${order.shippingAddress.zipCode}` : ''}</p>
-                        <p><FaPhone /> {order.shippingAddress.phone}</p>
+                    <div className="oh-shipping-card">
+                        <div className="oh-shipping-accent"></div>
+                        <div className="oh-shipping-body">
+                            <div className="oh-shipping-header">
+                                <div className="oh-shipping-icon-box">
+                                    <FaMapMarkerAlt />
+                                </div>
+                                <h3>Shipping Address</h3>
+                            </div>
+                            <div className="oh-shipping-details">
+                                <p className="oh-shipping-name">{order.shippingAddress.name}</p>
+                                <div className="oh-shipping-address-block">
+                                    <p>{order.shippingAddress.address}</p>
+                                    <p>{order.shippingAddress.city}{order.shippingAddress.zipCode ? `, ${order.shippingAddress.zipCode}` : ''}</p>
+                                </div>
+                                <div className="oh-shipping-phone">
+                                    <FaPhone />
+                                    <span>{order.shippingAddress.phone}</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -305,8 +457,8 @@ const OrderConfirmation = () => {
                     <Link to="/orders" className="oh-btn-primary">
                         <FaBox /> My Orders
                     </Link>
-                    <button onClick={handlePrint} className="oh-btn-print">
-                        <FaPrint /> Print Receipt
+                    <button onClick={handleDownloadPDF} className="oh-btn-pdf">
+                        <FaFilePdf /> Download PDF
                     </button>
                 </div>
             </div>

@@ -1,6 +1,6 @@
 /* ============================================
    ORDER CONFIRMATION - ORGANIC HERITAGE
-   SHARP CORNERS | WHITE BG | #2d5a27 BRAND
+   #2d5a27 ONLY | SHARP CORNERS | PREMIUM
    ============================================ */
 
 .oh-confirm-page {
@@ -12,9 +12,9 @@
 
 /* ===== TOP BAR ===== */
 .oh-confirm-top-bar {
-    background: #1B2E1A;
+    background: #2d5a27;
     padding: 14px 24px;
-    border-bottom: 2px solid #2d5a27;
+    border-bottom: 3px solid #1B2E1A;
     margin-top: 100px;
 }
 
@@ -52,9 +52,9 @@
     align-items: center;
     gap: 6px;
     padding: 8px 18px;
-    background: rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.12);
     color: #ffffff;
-    border: 1.5px solid rgba(255,255,255,0.2);
+    border: 1.5px solid rgba(255,255,255,0.25);
     font-size: 0.75rem;
     font-weight: 600;
     cursor: pointer;
@@ -67,15 +67,15 @@
 }
 
 .oh-top-action-btn:hover {
-    background: #2d5a27;
-    border-color: #2d5a27;
+    background: #ffffff;
+    color: #2d5a27;
     transform: translateY(-2px);
 }
 
 /* ===== HEADER ===== */
 .oh-confirm-header {
     background: #ffffff;
-    border-bottom: 1.5px solid #e8f5e9;
+    border-bottom: 2px solid #e8f5e9;
     padding: 28px 24px;
 }
 
@@ -102,14 +102,14 @@
     align-items: center;
     justify-content: center;
     font-size: 1.8rem;
-    color: #065F46;
-    border: 2px solid #10b981;
+    color: #2d5a27;
+    border: 2px solid #2d5a27;
 }
 
 .oh-confirm-header-left h1 {
     font-size: 1.6rem;
     font-weight: 700;
-    color: #1B2E1A;
+    color: #1a1a1a;
     margin: 0 0 4px 0;
     font-family: 'Playfair Display', serif;
 }
@@ -154,10 +154,10 @@
 .oh-info-card {
     background: #ffffff;
     border: 2px solid #e8f5e9;
-    padding: 18px 20px;
+    padding: 20px 22px;
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 8px;
     border-radius: 0;
     transition: all 0.3s ease;
 }
@@ -169,8 +169,8 @@
 }
 
 .oh-info-card.oh-highlight {
-    background: #1B2E1A;
-    border-color: #1B2E1A;
+    background: #2d5a27;
+    border-color: #2d5a27;
 }
 
 .oh-info-card.oh-highlight .oh-card-label {
@@ -190,17 +190,17 @@
 }
 
 .oh-card-value {
-    font-size: 1.05rem;
+    font-size: 1.1rem;
     font-weight: 700;
-    color: #1B2E1A;
+    color: #1a1a1a;
 }
 
 .oh-card-value.oh-total {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     color: #ffffff;
 }
 
-/* ===== TRACKING - PROFESSIONAL ICONS ===== */
+/* ===== TRACKING ===== */
 .oh-order-tracking {
     background: #ffffff;
     border: 2px solid #e8f5e9;
@@ -212,7 +212,7 @@
 .oh-order-tracking h3 {
     font-size: 0.9rem;
     font-weight: 700;
-    color: #1B2E1A;
+    color: #1a1a1a;
     margin: 0 0 24px 0;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -239,15 +239,15 @@
 }
 
 .oh-tracking-icon-wrap {
-    width: 44px;
-    height: 44px;
+    width: 48px;
+    height: 48px;
     border-radius: 0;
     background: #f3f4f6;
     border: 2px solid #e5e7eb;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     color: #9ca3af;
     transition: all 0.3s;
     flex-shrink: 0;
@@ -263,17 +263,17 @@
 .oh-tracking-content {
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    gap: 3px;
 }
 
 .oh-tracking-content strong {
-    font-size: 0.8rem;
-    color: #1B2E1A;
+    font-size: 0.85rem;
+    color: #1a1a1a;
     font-weight: 700;
 }
 
 .oh-tracking-content span {
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     color: #6b7280;
 }
 
@@ -281,7 +281,7 @@
     flex: 1;
     height: 2px;
     background: #e5e7eb;
-    margin: 0 8px;
+    margin: 0 10px;
     transition: all 0.3s;
 }
 
@@ -301,7 +301,7 @@
 .oh-confirm-items-section h3 {
     font-size: 1.1rem;
     font-weight: 700;
-    color: #1B2E1A;
+    color: #1a1a1a;
     margin: 0 0 20px 0;
 }
 
@@ -329,7 +329,7 @@
 }
 
 .oh-items-table td {
-    padding: 14px 14px;
+    padding: 16px 14px;
     font-size: 0.9rem;
     color: #374151;
     border-bottom: 1px solid #f3f4f6;
@@ -342,22 +342,30 @@
 .oh-item-cell {
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 16px;
 }
 
+/* ✅ BARA PRODUCT IMAGE */
 .oh-item-cell img {
-    width: 48px;
-    height: 48px;
+    width: 60px;
+    height: 60px;
     object-fit: contain;
     background: #ffffff;
-    border: 1.5px solid #e8f5e9;
+    border: 2px solid #e8f5e9;
     border-radius: 0;
-    padding: 4px;
+    padding: 6px;
+    transition: all 0.3s ease;
+}
+
+.oh-item-cell img:hover {
+    border-color: #2d5a27;
+    transform: scale(1.05);
 }
 
 .oh-item-cell span {
     font-weight: 600;
-    color: #1B2E1A;
+    color: #1a1a1a;
+    font-size: 0.95rem;
 }
 
 .oh-item-total {
@@ -383,7 +391,7 @@
 
 .oh-totals-value {
     font-weight: 700;
-    color: #1B2E1A;
+    color: #1a1a1a;
     text-align: right;
 }
 
@@ -398,74 +406,143 @@
 }
 
 .oh-grand-total td {
-    border-top: 2px solid #1B2E1A;
+    border-top: 2px solid #2d5a27;
     padding-top: 16px;
 }
 
-/* ===== SHIPPING ===== */
+/* ===== SHIPPING ADDRESS - PREMIUM CARD ===== */
 .oh-confirm-shipping {
+    margin-bottom: 24px;
+}
+
+.oh-shipping-card {
+    display: flex;
     background: #ffffff;
     border: 2px solid #e8f5e9;
-    padding: 28px 28px;
-    margin-bottom: 24px;
+    border-radius: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.oh-shipping-card:hover {
+    border-color: #2d5a27;
+    box-shadow: 0 8px 32px rgba(45, 90, 39, 0.1);
+}
+
+.oh-shipping-accent {
+    width: 5px;
+    background: #2d5a27;
+    flex-shrink: 0;
+}
+
+.oh-shipping-body {
+    padding: 28px 32px;
+    flex: 1;
+}
+
+.oh-shipping-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 20px;
+}
+
+.oh-shipping-icon-box {
+    width: 44px;
+    height: 44px;
+    background: #2d5a27;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
     border-radius: 0;
 }
 
-.oh-confirm-shipping h3 {
-    font-size: 1rem;
+.oh-shipping-header h3 {
+    font-size: 1.1rem;
     font-weight: 700;
-    color: #1B2E1A;
-    margin: 0 0 14px 0;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    color: #1a1a1a;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .oh-shipping-details {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 10px;
+    padding-left: 58px;
 }
 
 .oh-shipping-name {
     font-weight: 700;
-    font-size: 1.05rem;
-    color: #1B2E1A;
-}
-
-.oh-shipping-details p {
-    font-size: 0.9rem;
-    color: #4b5563;
+    font-size: 1.15rem;
+    color: #1a1a1a;
     margin: 0;
 }
 
-.oh-shipping-details p svg {
+.oh-shipping-address-block {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.oh-shipping-address-block p {
+    font-size: 0.95rem;
+    color: #4b5563;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.oh-shipping-phone {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 8px;
+    padding: 10px 18px;
+    background: #f8faf8;
+    border: 1.5px solid #e8f5e9;
+    border-radius: 0;
+    width: fit-content;
+}
+
+.oh-shipping-phone svg {
     color: #2d5a27;
-    margin-right: 8px;
+    font-size: 0.9rem;
+}
+
+.oh-shipping-phone span {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #2d5a27;
+    letter-spacing: 0.5px;
 }
 
 /* ===== NOTES ===== */
 .oh-confirm-notes {
     background: #ffffff;
     border: 2px solid #e8f5e9;
-    padding: 28px 28px;
+    padding: 28px 32px;
     margin-bottom: 24px;
     border-radius: 0;
-    border-left: 4px solid #f59e0b;
+    border-left: 5px solid #f59e0b;
 }
 
 .oh-confirm-notes h3 {
     font-size: 0.9rem;
     font-weight: 700;
-    color: #1B2E1A;
+    color: #1a1a1a;
     margin: 0 0 10px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .oh-confirm-notes p {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     color: #4b5563;
     margin: 0;
-    line-height: 1.6;
+    line-height: 1.7;
 }
 
 /* ===== ACTIONS ===== */
@@ -478,7 +555,8 @@
 
 .oh-btn-primary,
 .oh-btn-secondary,
-.oh-btn-print {
+.oh-btn-print,
+.oh-btn-pdf {
     display: inline-flex;
     align-items: center;
     gap: 10px;
@@ -508,7 +586,7 @@
 
 .oh-btn-secondary {
     background: #f8faf8;
-    color: #1B2E1A;
+    color: #1a1a1a;
     border: 2px solid #e8f5e9;
 }
 
@@ -520,7 +598,7 @@
 
 .oh-btn-print {
     background: #ffffff;
-    color: #1B2E1A;
+    color: #1a1a1a;
     border: 2px solid #e8f5e9;
 }
 
@@ -528,6 +606,20 @@
     background: #f8faf8;
     border-color: #2d5a27;
     transform: translateY(-2px);
+}
+
+/* ✅ PDF BUTTON */
+.oh-btn-pdf {
+    background: #dc2626;
+    color: #ffffff;
+    border: 2px solid #dc2626;
+}
+
+.oh-btn-pdf:hover {
+    background: #b91c1c;
+    border-color: #b91c1c;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(220, 38, 38, 0.25);
 }
 
 /* ===== LOADING & ERROR ===== */
@@ -573,7 +665,7 @@
 
 .oh-confirm-error h2 {
     font-size: 1.8rem;
-    color: #1B2E1A;
+    color: #1a1a1a;
     margin-bottom: 12px;
     font-family: 'Playfair Display', serif;
 }
@@ -637,7 +729,7 @@
     
     .oh-tracking-timeline {
         flex-wrap: wrap;
-        gap: 12px;
+        gap: 16px;
         justify-content: flex-start;
     }
     
@@ -655,9 +747,15 @@
     
     .oh-btn-primary,
     .oh-btn-secondary,
-    .oh-btn-print {
+    .oh-btn-print,
+    .oh-btn-pdf {
         justify-content: center;
         width: 100%;
+    }
+    
+    .oh-shipping-details {
+        padding-left: 0;
+        margin-top: 16px;
     }
 }
 
@@ -672,19 +770,19 @@
     }
     
     .oh-info-card {
-        padding: 14px 16px;
+        padding: 16px 18px;
     }
     
     .oh-order-tracking {
-        padding: 18px 16px;
+        padding: 20px 16px;
     }
     
     .oh-confirm-items-section {
-        padding: 18px 16px;
+        padding: 20px 16px;
     }
     
-    .oh-confirm-shipping {
-        padding: 18px 16px;
+    .oh-shipping-body {
+        padding: 20px 18px;
     }
     
     .oh-tracking-step {
@@ -692,13 +790,13 @@
     }
     
     .oh-tracking-icon-wrap {
-        width: 36px;
-        height: 36px;
-        font-size: 0.9rem;
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
     }
     
     .oh-tracking-content strong {
-        font-size: 0.75rem;
+        font-size: 0.8rem;
     }
     
     .oh-items-table td,
@@ -708,8 +806,8 @@
     }
     
     .oh-item-cell img {
-        width: 36px;
-        height: 36px;
+        width: 48px;
+        height: 48px;
     }
     
     .oh-confirm-header-left h1 {
@@ -720,6 +818,12 @@
         width: 48px;
         height: 48px;
         font-size: 1.4rem;
+    }
+    
+    .oh-shipping-icon-box {
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
     }
 }
 
@@ -746,12 +850,12 @@
     .oh-info-card,
     .oh-order-tracking,
     .oh-confirm-items-section,
-    .oh-confirm-shipping {
+    .oh-shipping-card {
         border: 1px solid #e5e5e5;
         box-shadow: none;
     }
     
     .oh-confirm-header {
-        border-bottom: 2px solid #1B2E1A;
+        border-bottom: 2px solid #2d5a27;
     }
 }
