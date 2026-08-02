@@ -8,12 +8,12 @@ import {
 import './StoryPage.css';
 
 function StoryPage() {
-    
+
     const [visibleSections, setVisibleSections] = useState(new Set());
     const [counters, setCounters] = useState({ years: 0, customers: 0, products: 0, farms: 0 });
     const [activePage, setActivePage] = useState(null);
 
-    // ✅ PAGE OPEN HOTE HI TOP PE SCROLL
+    // PAGE OPEN HOTE HI TOP PE SCROLL
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
@@ -35,7 +35,7 @@ function StoryPage() {
     }, []);
 
     const animateCounters = () => {
-        const targets = { years: 7, customers: 50, products: 25, farms: 12 };
+        const targets = { years: 6, customers: 5, products: 15, farms: 2 };
         const duration = 2000, steps = 60;
         let step = 0;
         const interval = setInterval(() => {
@@ -59,7 +59,7 @@ function StoryPage() {
             content: (
                 <div className="page-body-content">
                     <p>Founded in 2018 in Multan with a vision to bring pure, natural supplements to Pakistan. We partner with 12+ certified organic farms across Punjab and Sindh, bringing the finest Moringa, Ashwagandha, and Shatavari to every Pakistani family.</p>
-                    <p>In 2018, Dr. Ahmed Khan stood in the fields of rural Punjab watching farmers struggle to sell their organic produce at fair prices. That moment changed everything. He realized Pakistan had the world's finest organic herbs — but no one was bringing them to the people who needed them most.</p>
+                    <p>In 2018, Muhammad Ammar stood in the fields of rural Punjab watching farmers struggle to sell their organic produce at fair prices. That moment changed everything. He realized Pakistan had the world's finest organic herbs — but no one was bringing them to the people who needed them most.</p>
                     <p>With just three products and a borrowed facility in Lahore, <strong>Organic Heritage</strong> was born. Today, we partner with <strong>12+ certified organic farms</strong>, operate a <strong>state-of-the-art testing laboratory</strong>, and serve <strong>5,000+ customers</strong> across Pakistan and beyond.</p>
                     <p>Every morning, our founder walks through the facility and personally inspects the batches. Why? Because this isn't just business — it's a promise to every Pakistani family that the supplements they give their loved ones are 100% pure, lab-tested, and made with the same care he'd give his own children.</p>
                 </div>
@@ -105,7 +105,7 @@ function StoryPage() {
             content: (
                 <div className="page-body-content">
                     <div className="page-founder-header">
-                        <img src="ceo.png" />
+                        <img src="ceo.png" alt="Muhammad Ammar - Founder & CEO" />
                         <div>
                             <h3>Muhammad Ammar</h3>
                             <span>Founder & CEO | Master in Organic Product</span>
@@ -121,8 +121,8 @@ function StoryPage() {
                     <p>This is not just a business. This is a movement. And you're part of it.</p>
                     <div className="page-signature">
                         <div className="page-sig-line" />
-                        <span>Dr. Ahmed Khan</span>
-                        <small>Ph.D. Herbal Medicine | 6+ Years Experience</small>
+                        <span>Muhammad Ammar</span>
+                        <small>Master in Agriculture | 6+ Years Experience</small>
                     </div>
                 </div>
             )
@@ -151,7 +151,7 @@ function StoryPage() {
         {
             id: 'founder',
             icon: <FaUserTie />,
-            title: 'Dr. Affan\'s Words',
+            title: 'Muhammad Ammar\'s Words',
             desc: '"We don\'t just sell supplements. We deliver the pure essence of nature, carefully preserved for your wellness." Read the full message from our founder.'
         }
     ];
@@ -161,7 +161,7 @@ function StoryPage() {
             {/* ===== BANNER ===== */}
             <section className="story-banner" data-section="banner">
                 <div className="banner-bg">
-                    <img src="./preloder2.png" />
+                    <img src="./preloder2.png" alt="Organic Heritage Banner" />
                     <div className="banner-overlay" />
                 </div>
                 <div className={`banner-content ${visibleSections.has('banner') ? 'visible' : ''}`}>
@@ -183,22 +183,22 @@ function StoryPage() {
                 </div>
             </section>
 
-            {/* ===== FOUNDER SECTION — 2 IMAGES SIDE BY SIDE ON LEFT ===== */}
+            {/* ===== FOUNDER SECTION ===== */}
             <section className="story-founder" data-section="founder">
                 <div className="story-founder-container">
                     <div className={`founder-grid ${visibleSections.has('founder') ? 'visible' : ''}`}>
-                        
+
                         {/* LEFT: 2 IMAGES SIDE BY SIDE */}
                         <div className="founder-images-col">
                             <div className="founder-img-card">
-                                <img src="./ceo.png" />
+                                <img src="./ceo.png" alt="Muhammad Ammar" />
                                 <div className="founder-img-info">
-                                    <h4>Dr. Muhammad Ammar</h4>
+                                    <h4>Muhammad Ammar</h4>
                                     <span>Founder & CEO</span>
                                 </div>
                             </div>
                             <div className="founder-img-card">
-                                <img src="./OPM.png" />
+                                <img src="./OPM.png" alt="Muhammad Hassan" />
                                 <div className="founder-img-info">
                                     <h4>Muhammad Hassan</h4>
                                     <span>Operations Manager</span>
@@ -218,11 +218,10 @@ function StoryPage() {
                             <div className="founder-quote">
                                 <FaQuoteLeft />
                                 <p>"We don't just sell supplements. We deliver the pure essence of nature, carefully preserved for your wellness."</p>
-                                <cite>—Muhammad Ammar, Founder & CEO</cite>
+                                <cite>— Muhammad Ammar, Founder & CEO</cite>
                             </div>
                             <div className="founder-signature">
-                                
-                                <span>M.Ammar</span>
+                                <span>Muhammad Ammar</span>
                                 <small>Master In Agriculture | 6+ Years Experience</small>
                             </div>
                         </div>
@@ -230,14 +229,14 @@ function StoryPage() {
                 </div>
             </section>
 
-            {/* ===== 4 CARDS — #2d5a27 BG, LIME CARDS, SHARP CORNERS ===== */}
+            {/* ===== 4 CARDS ===== */}
             <section className="story-cards-section" data-section="cards">
                 <div className="cards-wave-top">
                     <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
                         <path d="M0,60 C360,120 720,0 1080,60 C1260,90 1380,80 1440,60 L1440,0 L0,0 Z" fill="#ffffff"/>
                     </svg>
                 </div>
-                
+
                 <div className="story-cards-container">
                     <div className={`cards-grid ${visibleSections.has('cards') ? 'visible' : ''}`}>
                         {cards.map((card, index) => (
