@@ -369,52 +369,40 @@ const Users = () => {
         <p className="page-subtitle">Manage all registered users, their roles and permissions</p>
       </div>
 
-      {/* ===== STATS CARDS - UNIQUE CLASS NAMES ===== */}
-      <div className="usr-stats-row" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', borderBottom: '1px solid #E5E7EB' }}>
-
-        <div className="usr-stat-box" style={{ display: 'flex', alignItems: 'center', gap: '14px', padding: '18px 20px', background: '#ffffff', borderRight: '1px solid #E5E7EB', minHeight: '80px' }}>
-          <div style={{ width: '44px', height: '44px', background: '#F3F4F6', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.2rem', color: '#2d5a27' }}>
-            <FaUsers />
-          </div>
-          <div style={{ display: 'flex', flexDirection: 'column' }}>
-            <span style={{ fontSize: '0.7rem', fontWeight: 600, color: '#6B7280', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '3px' }}>Total Users</span>
-            <span style={{ fontSize: '1.5rem', fontWeight: 800, color: '#2d5a27' }}>{stats.total || 0}</span>
+      {/* ===== STATS CARDS ===== */}
+      <div className="usr-stats-row">
+        <div className="usr-stat-box">
+          <div className="usr-stat-icon"><FaUsers /></div>
+          <div className="usr-stat-info">
+            <span className="usr-stat-label">Total Users</span>
+            <span className="usr-stat-value">{stats.total || 0}</span>
           </div>
         </div>
 
-        <div className="usr-stat-box" style={{ display: 'flex', alignItems: 'center', gap: '14px', padding: '18px 20px', background: '#ffffff', borderRight: '1px solid #E5E7EB', minHeight: '80px' }}>
-          <div style={{ width: '44px', height: '44px', background: '#F3F4F6', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.2rem', color: '#C4973A' }}>
-            <FaUserShield />
-          </div>
-          <div style={{ display: 'flex', flexDirection: 'column' }}>
-            <span style={{ fontSize: '0.7rem', fontWeight: 600, color: '#6B7280', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '3px' }}>Administrators</span>
-            <span style={{ fontSize: '1.5rem', fontWeight: 800, color: '#2d5a27' }}>{stats.admins || 0}</span>
+        <div className="usr-stat-box">
+          <div className="usr-stat-icon gold"><FaUserShield /></div>
+          <div className="usr-stat-info">
+            <span className="usr-stat-label">Administrators</span>
+            <span className="usr-stat-value">{stats.admins || 0}</span>
           </div>
         </div>
 
-        <div className="usr-stat-box" style={{ display: 'flex', alignItems: 'center', gap: '14px', padding: '18px 20px', background: '#ffffff', borderRight: '1px solid #E5E7EB', minHeight: '80px' }}>
-          <div style={{ width: '44px', height: '44px', background: '#F3F4F6', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.2rem', color: '#2d5a27' }}>
-            <FaUserCheck />
-          </div>
-          <div style={{ display: 'flex', flexDirection: 'column' }}>
-            <span style={{ fontSize: '0.7rem', fontWeight: 600, color: '#6B7280', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '3px' }}>Regular Users</span>
-            <span style={{ fontSize: '1.5rem', fontWeight: 800, color: '#2d5a27' }}>{stats.users || 0}</span>
+        <div className="usr-stat-box">
+          <div className="usr-stat-icon"><FaUserCheck /></div>
+          <div className="usr-stat-info">
+            <span className="usr-stat-label">Regular Users</span>
+            <span className="usr-stat-value">{stats.users || 0}</span>
           </div>
         </div>
 
-        <div className="usr-stat-box" onClick={() => setShowDeleted(!showDeleted)} style={{ display: 'flex', alignItems: 'center', gap: '14px', padding: '18px 20px', background: '#ffffff', minHeight: '80px', cursor: 'pointer' }}>
-          <div style={{ width: '44px', height: '44px', background: '#F3F4F6', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.2rem', color: '#DC2626' }}>
-            <FaTrash />
+        <div className="usr-stat-box deleted" onClick={() => setShowDeleted(!showDeleted)}>
+          <div className="usr-stat-icon red"><FaTrash /></div>
+          <div className="usr-stat-info">
+            <span className="usr-stat-label">Deleted Users</span>
+            <span className="usr-stat-value">{stats.deleted || 0}</span>
           </div>
-          <div style={{ display: 'flex', flexDirection: 'column' }}>
-            <span style={{ fontSize: '0.7rem', fontWeight: 600, color: '#6B7280', textTransform: 'uppercase', letterSpacing: '0.5px', marginBottom: '3px' }}>Deleted Users</span>
-            <span style={{ fontSize: '1.5rem', fontWeight: 800, color: '#2d5a27' }}>{stats.deleted || 0}</span>
-          </div>
-          {showDeleted && (
-            <span style={{ marginLeft: 'auto', fontSize: '0.65rem', fontWeight: 600, background: '#DC2626', color: 'white', padding: '3px 8px' }}>Viewing</span>
-          )}
+          {showDeleted && <span className="usr-viewing-badge">Viewing</span>}
         </div>
-
       </div>
 
       {/* ===== ACTION BAR ===== */}
@@ -436,14 +424,14 @@ const Users = () => {
             <FaSyncAlt /> Refresh
           </button>
           <button className="btn-pdf" onClick={exportToPDF}>
-            <FaFilePdf /> PDF Report
+            <FaFilePdf /> PDF
           </button>
           <button className="btn-excel" onClick={exportToExcel}>
-            <FaFileExcel /> Excel Report
+            <FaFileExcel /> Excel
           </button>
           {showDeleted && (
             <button className="btn-back" onClick={() => setShowDeleted(false)}>
-              <FaArrowLeft /> Active Users
+              <FaArrowLeft /> Active
             </button>
           )}
         </div>
@@ -456,89 +444,91 @@ const Users = () => {
           <p>Loading users...</p>
         </div>
       ) : (
-        <div className="table-wrapper">
-          <table className="users-table">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>User</th>
-                <th>Email Address</th>
-                <th>Role</th>
-                <th>Joined Date</th>
-                {showDeleted && <th>Deleted Date</th>}
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              {filteredUsers.length === 0 ? (
+        <div className="table-outer-wrapper">
+          <div className="table-wrapper">
+            <table className="users-table">
+              <thead>
                 <tr>
-                  <td colSpan={showDeleted ? 7 : 6} className="empty-state">
-                    <FaLeaf size={48} />
-                    <h3>No users found</h3>
-                    <p>Try adjusting your search or refresh the page</p>
-                  </td>
+                  <th>#</th>
+                  <th>User</th>
+                  <th>Email</th>
+                  <th>Role</th>
+                  <th>Joined</th>
+                  {showDeleted && <th>Deleted</th>}
+                  <th>Actions</th>
                 </tr>
-              ) : (
-                filteredUsers.map((u, index) => (
-                  <tr key={u._id}>
-                    <td>{index + 1}</td>
-                    <td>
-                      <div className="user-info" onClick={() => viewUserDetails(u)}>
-                        <div className="user-avatar">
-                          {u.name?.charAt(0) || u.email?.charAt(0) || 'U'}
-                        </div>
-                        <div className="user-details">
-                          <span className="user-name">{u.name || 'N/A'}</span>
-                          <span className="user-id">ID: {u._id.slice(-8)}</span>
-                        </div>
-                      </div>
-                    </td>
-                    <td className="user-email">{u.email}</td>
-                    <td>
-                      {!showDeleted ? (
-                        <select 
-                          className={`role-badge-select ${u.role}`}
-                          value={u.role}
-                          onChange={(e) => handleRoleChange(u._id, e.target.value, u.name)}
-                          disabled={updatingUserId === u._id}
-                        >
-                          <option value="user">User</option>
-                          <option value="admin">Admin</option>
-                        </select>
-                      ) : (
-                        <span className={`role-badge ${u.role}`}>{u.role}</span>
-                      )}
-                    </td>
-                    <td>{new Date(u.createdAt).toLocaleDateString()}</td>
-                    {showDeleted && (
-                      <td>{u.deletedAt ? new Date(u.deletedAt).toLocaleDateString() : 'N/A'}</td>
-                    )}
-                    <td>
-                      <div className="action-buttons">
-                        <button className="action-btn view" onClick={() => viewUserDetails(u)} title="View Details">
-                          <FaEye />
-                        </button>
-                        {!showDeleted ? (
-                          <button className="action-btn delete" onClick={() => handleSoftDelete(u._id, u.name)} title="Move to Trash">
-                            <FaTrash />
-                          </button>
-                        ) : (
-                          <>
-                            <button className="action-btn restore" onClick={() => handleRestoreUser(u._id, u.name)} title="Restore User">
-                              <FaTrashRestore />
-                            </button>
-                            <button className="action-btn permanent" onClick={() => handlePermanentDelete(u._id, u.name)} title="Permanently Delete">
-                              <FaTimes />
-                            </button>
-                          </>
-                        )}
-                      </div>
+              </thead>
+              <tbody>
+                {filteredUsers.length === 0 ? (
+                  <tr>
+                    <td colSpan={showDeleted ? 7 : 6} className="empty-state">
+                      <FaLeaf size={48} />
+                      <h3>No users found</h3>
+                      <p>Try adjusting your search or refresh the page</p>
                     </td>
                   </tr>
-                ))
-              )}
-            </tbody>
-          </table>
+                ) : (
+                  filteredUsers.map((u, index) => (
+                    <tr key={u._id}>
+                      <td data-label="#">{index + 1}</td>
+                      <td data-label="User">
+                        <div className="user-info" onClick={() => viewUserDetails(u)}>
+                          <div className="user-avatar">
+                            {u.name?.charAt(0) || u.email?.charAt(0) || 'U'}
+                          </div>
+                          <div className="user-details">
+                            <span className="user-name">{u.name || 'N/A'}</span>
+                            <span className="user-id">ID: {u._id.slice(-8)}</span>
+                          </div>
+                        </div>
+                      </td>
+                      <td data-label="Email" className="user-email">{u.email}</td>
+                      <td data-label="Role">
+                        {!showDeleted ? (
+                          <select 
+                            className={`role-badge-select ${u.role}`}
+                            value={u.role}
+                            onChange={(e) => handleRoleChange(u._id, e.target.value, u.name)}
+                            disabled={updatingUserId === u._id}
+                          >
+                            <option value="user">User</option>
+                            <option value="admin">Admin</option>
+                          </select>
+                        ) : (
+                          <span className={`role-badge ${u.role}`}>{u.role}</span>
+                        )}
+                      </td>
+                      <td data-label="Joined">{new Date(u.createdAt).toLocaleDateString()}</td>
+                      {showDeleted && (
+                        <td data-label="Deleted">{u.deletedAt ? new Date(u.deletedAt).toLocaleDateString() : 'N/A'}</td>
+                      )}
+                      <td data-label="Actions">
+                        <div className="action-buttons">
+                          <button className="action-btn view" onClick={() => viewUserDetails(u)} title="View Details">
+                            <FaEye />
+                          </button>
+                          {!showDeleted ? (
+                            <button className="action-btn delete" onClick={() => handleSoftDelete(u._id, u.name)} title="Move to Trash">
+                              <FaTrash />
+                            </button>
+                          ) : (
+                            <>
+                              <button className="action-btn restore" onClick={() => handleRestoreUser(u._id, u.name)} title="Restore User">
+                                <FaTrashRestore />
+                              </button>
+                              <button className="action-btn permanent" onClick={() => handlePermanentDelete(u._id, u.name)} title="Permanently Delete">
+                                <FaTimes />
+                              </button>
+                            </>
+                          )}
+                        </div>
+                      </td>
+                    </tr>
+                  ))
+                )}
+              </tbody>
+            </table>
+          </div>
         </div>
       )}
 
