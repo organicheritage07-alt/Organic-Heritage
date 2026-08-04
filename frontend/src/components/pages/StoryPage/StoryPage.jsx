@@ -58,7 +58,7 @@ function StoryPage() {
             icon: <FaSeedling />,
             content: (
                 <div className="page-body-content">
-                    <p>Founded in 2018 in Multan with a vision to bring pure, natural supplements to Pakistan. We partner with 12+ certified organic farms across Punjab and Sindh, bringing the finest Moringa, Ashwagandha, and Shatavari to every Pakistani family.</p>
+                    <p>Founded in 2018 in Multan with a vision to bring pure, natural supplements to Pakistan. </p>
                     <p>In 2018, Muhammad Ammar stood in the fields of rural Punjab watching farmers struggle to sell their organic produce at fair prices. That moment changed everything. He realized Pakistan had the world's finest organic herbs — but no one was bringing them to the people who needed them most.</p>
                     <p>With just three products and a borrowed facility in Lahore, <strong>Organic Heritage</strong> was born. Today, we partner with <strong>12+ certified organic farms</strong>, operate a <strong>state-of-the-art testing laboratory</strong>, and serve <strong>5,000+ customers</strong> across Pakistan and beyond.</p>
                     <p>Every morning, our founder walks through the facility and personally inspects the batches. Why? Because this isn't just business — it's a promise to every Pakistani family that the supplements they give their loved ones are 100% pure, lab-tested, and made with the same care he'd give his own children.</p>
@@ -87,7 +87,7 @@ function StoryPage() {
             content: (
                 <div className="page-body-content">
                     <p>To become Pakistan's most trusted organic supplement brand, recognized globally for purity, quality, and sustainable practices. We envision a healthier Pakistan where wellness is never a luxury.</p>
-                    <p>At the heart of our journey lies a shared passion for health, wellness, and transformation. As healthcare professionals and life partners, Dr. Affan and Dr. Nazish have witnessed firsthand the power of nature in healing.</p>
+                    <p>At the heart of our journey lies a shared passion for health, wellness, and transformation. As healthcare professionals and life partners. </p>
                     <p>Our vision extends beyond borders. We aim to:</p>
                     <div className="page-points">
                         <div className="page-point"><FaGlobe /> Export Pakistani organic wellness to every corner of the globe</div>
@@ -116,7 +116,7 @@ function StoryPage() {
                         <p>"We don't just sell supplements. We deliver the pure essence of nature, carefully preserved for your wellness."</p>
                     </div>
                     <p>For many years, I struggled and conducted extensive research with a single goal: to spread health awareness across Pakistan. I saw families spending fortunes on imported supplements that were either fake or unnecessarily expensive.</p>
-                    <p>I knew Pakistan had the answer. Our soil, our climate, our farmers — they produce some of the finest organic herbs in the world. Moringa from Punjab, Ashwagandha from Sindh, Shatavari from the northern valleys. Why were we importing what we could grow better ourselves?</p>
+                    <p>I knew Pakistan had the answer. Our soil, our climate, our farmers — they produce some of the finest organic herbs in the world. </p>
                     <p>That question led to Organic Heritage. Today, as I walk through our facility every morning, I don't see a factory — I see a promise. A promise to every mother who gives our Moringa to her child. A promise to every father who trusts our Ashwagandha for his energy. A promise that what they hold in their hands is 100% pure, lab-tested, and made with the same care I'd give my own family.</p>
                     <p>This is not just a business. This is a movement. And you're part of it.</p>
                     <div className="page-signature">
@@ -200,8 +200,8 @@ function StoryPage() {
                             <div className="founder-img-card">
                                 <img src="./OPM.png" alt="Muhammad Hassan" />
                                 <div className="founder-img-info">
-                                    <h4>Muhammad Hassan</h4>
-                                    <span>Operations Manager</span>
+                                    <h4>Shafaqat Ali</h4>
+                                    <span>Managging Director</span>
                                 </div>
                             </div>
                         </div>
@@ -221,7 +221,7 @@ function StoryPage() {
                                 <cite>— Muhammad Ammar, Founder & CEO</cite>
                             </div>
                             <div className="founder-signature">
-                                <span>Muhammad Ammar</span>
+                                <span>Shafaqat Ali | Managing Director</span>
                                 <small>Master In Agriculture | 6+ Years Experience</small>
                             </div>
                         </div>

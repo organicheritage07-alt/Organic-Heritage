@@ -1,7 +1,7 @@
 // FAQ.jsx - Luxury Minimal Accordion with Left Form
 import React, { useState, useRef } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
-import { FaPlus, FaMinus, FaInstagram, FaFacebook,FaWhatsapp,FaYoutube,FaTiktok } from 'react-icons/fa';
+import { FaPlus, FaMinus, FaInstagram, FaFacebook,FaWhatsapp,FaYoutube,FaTiktok, FaStaylinked } from 'react-icons/fa';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import './FAQ.css';
@@ -234,6 +234,8 @@ const FAQ = () => {
                                 <a href="https://wa.me/923094085644" className="faq-social-icon"><FaWhatsapp /></a>
                                 <a href="https://www.youtube.com/channel/UCT3dfUeJv3xzk96N-xGtz8A" className="faq-social-icon"><FaYoutube /></a>
                                 <a href="https://www.tiktok.com/@organicheritage?is_from_webapp=1&sender_device=pc" className="faq-social-icon"><FaTiktok /></a>
+                                                                <a href="https://www.linkedin.com/in/organic-heritage-966a1b413/" className="faq-social-icon"><FaStaylinked /></a>
+
                             </div>
                         </div>
                     </div>
