@@ -287,7 +287,7 @@
 }
 
 .legal-sep {
-    color: #4a6b50;
+    color: #fefffe;
     font-size: 0.6rem;
 }
 
@@ -476,7 +476,7 @@
     right: 25px;
     width: 44px;
     height: 44px;
-    background: #2D6A4F;
+    background: #2d5a27;
     border: none;
     color: white;
     cursor: pointer;
@@ -491,7 +491,7 @@
 }
 
 .back-to-top:hover {
-    background: #40916C;
+    background: #1f4534;
     transform: translateY(-3px);
 }
 

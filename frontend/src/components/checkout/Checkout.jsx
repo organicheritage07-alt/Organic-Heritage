@@ -326,7 +326,7 @@ const Checkout = () => {
                         <span><FaCheckCircle /> 100% Organic Products</span>
                     </div>
                     <div className="checkout-top-bar-right">
-                        <FaPhoneAlt /> +92 300 1234567
+                        <FaPhoneAlt /> 0309 4085644
                     </div>
                 </div>
             </div>

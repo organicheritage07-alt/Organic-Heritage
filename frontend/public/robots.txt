@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Allow: /products
+Allow: /story
+Allow: /contact
+Allow: /cart
+
+Sitemap: https://theorganicheritage.com/sitemap.xml
