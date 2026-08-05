@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="google-site-verification" content="lzwPPIyj_McofT4m-vbld2NrPZm9XPIyeLhij_9looY" />
+  <meta name="google-site-verification" content="lzwPPIyj_McofT4m-vbld2NrPZm9XPIyeLhij_9looY" />
+
   <!-- ============================================
        PRIMARY SEO — Google Search Results
        ============================================ -->
@@ -55,16 +56,37 @@
        STRUCTURED DATA — JSON-LD (Rich Snippets)
        ============================================ -->
 
-  <!-- 1. Organization Schema -->
+  <!-- 1. Organization Schema (PRIMARY — Strengthened to avoid confusion) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Organization",
+    "@type": ["Organization", "OnlineStore"],
+    "@id": "https://theorganicheritage.com/#organization",
     "name": "Organic Heritage",
     "alternateName": "The Organic Heritage",
     "url": "https://theorganicheritage.com",
-    "logo": "https://theorganicheritage.com/logo.png",
-    "description": "Pakistan's most trusted organic supplement brand offering 100% pure, lab-tested Moringa, Ashwagandha, Shatavari and more organic wellness products.",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://theorganicheritage.com/logo.png",
+      "width": 512,
+      "height": 512
+    },
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://theorganicheritage.com/logo.png",
+      "width": 512,
+      "height": 512
+    },
+    "description": "Pakistan's leading online organic supplement brand offering 100% pure, lab-tested Moringa, Ashwagandha, Shatavari and premium wellness products with nationwide delivery.",
+    "slogan": "Nature's Best, Delivered to You",
+    "knowsAbout": [
+      "Organic Supplements",
+      "Herbal Wellness",
+      "Natural Health Products",
+      "Ayurvedic Medicine",
+      "Organic Moringa",
+      "Ashwagandha Supplements"
+    ],
     "sameAs": [
       "https://www.instagram.com/organicheritage09",
       "https://www.facebook.com/share/1F7PAiT1d3/",
@@ -74,66 +96,67 @@
     ],
     "contactPoint": {
       "@type": "ContactPoint",
+      "email": "organicheritage07@gmail.com",
       "telephone": "+92-309-4085644",
       "contactType": "customer service",
       "areaServed": "PK",
-      "availableLanguage": ["English", "Urdu"]
+      "availableLanguage": ["English", "Urdu"],
+      "contactOption": "TollFree"
     },
     "address": {
       "@type": "PostalAddress",
       "addressCountry": "PK",
       "addressLocality": "Multan",
       "addressRegion": "Punjab"
+    },
+    "foundingLocation": {
+      "@type": "Place",
+      "name": "Multan, Pakistan"
     }
   }
   </script>
 
-  <!-- 2. Website Schema (Sitelinks Searchbox) -->
+  <!-- 2. WebSite Schema (Sitelinks Searchbox) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
+    "@id": "https://theorganicheritage.com/#website",
     "name": "Organic Heritage",
     "url": "https://theorganicheritage.com",
+    "publisher": {
+      "@id": "https://theorganicheritage.com/#organization"
+    },
     "potentialAction": {
       "@type": "SearchAction",
-      "target": "https://theorganicheritage.com/products?q={search_term_string}",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://theorganicheritage.com/products?q={search_term_string}"
+      },
       "query-input": "required name=search_term_string"
     }
   }
   </script>
 
-  <!-- 3. LocalBusiness Schema -->
+  <!-- 3. WebPage Schema (Homepage) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "HealthAndBeautyBusiness",
-    "name": "Organic Heritage",
-    "image": "https://theorganicheritage.com/logo.png",
-    "@id": "https://theorganicheritage.com",
-    "url": "https://theorganicheritage.com",
-    "telephone": "+92-309-4085644",
-    "priceRange": "$$",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Multan",
-      "addressRegion": "Punjab",
-      "addressCountry": "PK"
+    "@type": "WebPage",
+    "@id": "https://theorganicheritage.com/#webpage",
+    "url": "https://theorganicheritage.com/",
+    "name": "Organic Heritage | Pakistan's #1 Pure Organic Supplement Brand",
+    "description": "Pakistan's most trusted organic supplement brand. 100% pure, lab-tested Moringa, Ashwagandha, Shatavari & more. Free delivery nationwide.",
+    "isPartOf": {
+      "@id": "https://theorganicheritage.com/#website"
     },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 30.1575,
-      "longitude": 71.5249
+    "about": {
+      "@id": "https://theorganicheritage.com/#organization"
     },
-    "openingHoursSpecification": {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-      "opens": "09:00",
-      "closes": "21:00"
-    },
-    "paymentAccepted": "Cash, Bank Transfer, JazzCash, EasyPaisa",
-    "currenciesAccepted": "PKR",
-    "areaServed": "Pakistan"
+    "primaryImageOfPage": {
+      "@type": "ImageObject",
+      "url": "https://theorganicheritage.com/logo.png"
+    }
   }
   </script>
 
@@ -171,6 +194,7 @@
   }
   </script>
 
+  <base target="_blank">
 <base target="_blank">
 </head>
 <body>
