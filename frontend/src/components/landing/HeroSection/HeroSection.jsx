@@ -10,7 +10,7 @@ const slides = [
         kicker: 'INTRO',
         title: 'Organic Ashwagandha\nStress Relief Powder',
         description: 'Ancient adaptogenic herb for modern wellness. Supports stress relief, energy and vitality with 100% organic ingredients.',
-        cta: 'Order Now',
+        cta: 'Veiw All Products',
         explore: 'Explore',
         
         nutrition: [

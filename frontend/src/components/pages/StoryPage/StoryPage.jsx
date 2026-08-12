@@ -108,7 +108,7 @@ function StoryPage() {
                         <img src="ceo.png" alt="Muhammad Ammar - Founder & CEO" />
                         <div>
                             <h3>Muhammad Ammar</h3>
-                            <span>Founder & CEO | Master in Organic Product</span>
+                            <span>Founder & CEO | Master in Agriculture</span>
                         </div>
                     </div>
                     <div className="page-quote-box">
@@ -119,11 +119,7 @@ function StoryPage() {
                     <p>I knew Pakistan had the answer. Our soil, our climate, our farmers — they produce some of the finest organic herbs in the world. </p>
                     <p>That question led to Organic Heritage. Today, as I walk through our facility every morning, I don't see a factory — I see a promise. A promise to every mother who gives our Moringa to her child. A promise to every father who trusts our Ashwagandha for his energy. A promise that what they hold in their hands is 100% pure, lab-tested, and made with the same care I'd give my own family.</p>
                     <p>This is not just a business. This is a movement. And you're part of it.</p>
-                    <div className="page-signature">
-                        <div className="page-sig-line" />
-                        <span>Muhammad Ammar</span>
-                        <small>Master in Agriculture | 6+ Years Experience</small>
-                    </div>
+                    
                 </div>
             )
         }
@@ -194,14 +190,14 @@ function StoryPage() {
                                 <img src="./ceo.png" alt="Muhammad Ammar" />
                                 <div className="founder-img-info">
                                     <h4>Muhammad Ammar</h4>
-                                    <span>Founder & CEO</span>
+                                    <span>Founder & CEO | Mater in Agriculture</span>
                                 </div>
                             </div>
                             <div className="founder-img-card">
                                 <img src="./OPM.png" alt="Muhammad Hassan" />
                                 <div className="founder-img-info">
                                     <h4>Shafaqat Ali</h4>
-                                    <span>Managging Director</span>
+                                    <span>Managing Director | Master in Botany</span>
                                 </div>
                             </div>
                         </div>
@@ -222,7 +218,7 @@ function StoryPage() {
                             </div>
                             <div className="founder-signature">
                                 <span>Shafaqat Ali | Managing Director</span>
-                                <small>Master In Agriculture | 6+ Years Experience</small>
+                                <small>Master In Botany | 6+ Years Experience</small>
                             </div>
                         </div>
                     </div>

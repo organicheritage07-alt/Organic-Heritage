@@ -113,7 +113,7 @@ const OurStory = () => {
                     <div className={`story-text-block ${isVisible ? 'fade-right' : ''}`}>
                         <div className="story-text-inner">
                             <p className="story-lead">
-                                Organic Heritage was born from a simple yet profound belief — that the 
+                                Organic Heritage was born from a simple yet profound belief  that the 
                                 healing power of nature should be accessible to everyone. What began as 
                                 a small family passion in the foothills of Punjab has blossomed into 
                                 Pakistan's most trusted organic wellness brand.
@@ -121,7 +121,7 @@ const OurStory = () => {
 
                             <p className="story-body">
                                 We journey across the fertile valleys of Pakistan, from the organic 
-                                farms of Swat to the herb-rich soils of Gilgit, handpicking each 
+                                farms of Swat to the herb rich soils of Gilgit, handpicking each 
                                 ingredient at the peak of its potency. Our direct partnerships with 
                                 over 50 certified organic farmers ensure fair wages, sustainable 
                                 practices, and ingredients that carry the essence of pure Pakistani soil.
@@ -129,7 +129,7 @@ const OurStory = () => {
 
                             <p className="story-body">
                                 Every capsule, every powder, every seed is a testament to our 
-                                unwavering commitment — no shortcuts, no compromises, only nature's 
+                                unwavering commitment no shortcuts, no compromises, only nature's 
                                 finest delivered to your doorstep.
                             </p>
 
@@ -206,7 +206,7 @@ const OurStory = () => {
                 <div className={`story-cta ${isVisible ? 'show' : ''}`}>
                     <div className="cta-content">
                         <p className="cta-quote">"Nature does not hurry, yet everything is accomplished."</p>
-                        <span className="cta-author">— Lao Tzu</span>
+                        <span className="cta-author"></span>
                     </div>
                     <button className="cta-button">
                         <span>Explore Our Journey</span>
