@@ -175,7 +175,7 @@ const ProductDetail = () => {
             name: "Ayesha Khan",
             location: "Lahore, Pakistan",
             rating: 5,
-            text: "Absolutely love the quality! My hair feels so much healthier after just two weeks of using this organic oil. The natural fragrance is divine.",
+            text: "Absolutely love the quality! My morning smoothies have never been better since I switched to these organic chia seeds just two weeks ago. The freshness and natural texture are simply divine.",
             initials: "AK",
             color: "#2d5a27"
         },
