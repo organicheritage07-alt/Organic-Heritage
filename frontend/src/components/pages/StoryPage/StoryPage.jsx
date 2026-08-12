@@ -108,7 +108,7 @@ function StoryPage() {
                         <img src="ceo.png" alt="Muhammad Ammar - Founder & CEO" />
                         <div>
                             <h3>Muhammad Ammar</h3>
-                            <span>Founder & CEO | Master in Agriculture</span>
+                            <span>Founder & CEO | Master's in Agriculture</span>
                         </div>
                     </div>
                     <div className="page-quote-box">
@@ -190,14 +190,16 @@ function StoryPage() {
                                 <img src="./ceo.png" alt="Muhammad Ammar" />
                                 <div className="founder-img-info">
                                     <h4>Muhammad Ammar</h4>
-                                    <span>Founder & CEO | Mater in Agriculture</span>
+                                    <span>Founder & CEO
+Masters in Agriculture | 6+ Years Experience</span>
                                 </div>
                             </div>
                             <div className="founder-img-card">
                                 <img src="./OPM.png" alt="Muhammad Hassan" />
                                 <div className="founder-img-info">
                                     <h4>Shafaqat Ali</h4>
-                                    <span>Managing Director | Master in Botany</span>
+                                    <span>Managing Director
+Masters in Botany | 15+ Years Experience</span>
                                 </div>
                             </div>
                         </div>
@@ -207,18 +209,18 @@ function StoryPage() {
                             <span className="section-label"><FaLeaf /> Our Founder</span>
                             <h2>From a Small Dream to Pakistan's Wellness Revolution</h2>
                             <div className="founder-story">
-                                <p>In 2018, I stood in the fields of rural Punjab watching farmers struggle to sell their organic produce at fair prices. That moment changed everything. I realized Pakistan had the world's finest organic herbs — Moringa, Ashwagandha, Shatavari — but no one was bringing them to the people who needed them most.</p>
-                                <p>With just three products and a borrowed facility in Multan, <strong>Organic Heritage</strong> was born. Today, we partner with <strong>12+ certified organic farms</strong>, operate a <strong>state-of-the-art testing laboratory</strong>, and serve <strong>5,000+ customers</strong> across Pakistan and beyond.</p>
-                                <p>Every morning, I walk through our facility and personally inspect the batches. Why? Because this isn't just business — it's a promise to every Pakistani family that the supplements they give their loved ones are 100% pure, lab-tested, and made with the same care I'd give my own children.</p>
+                                <p>In 2018, I stood in the fields of rural Punjab watching farmers struggle to sell their organic produce at fair prices. That moment changed everything. I realized Pakistan had the world's finest organic herbs Moringa, Ashwagandha, Shatavari but no one was bringing them to the people who needed them most.</p>
+                                <p>With just three products and a borrowed facility in Multan, <strong>Organic Heritage</strong> was born. Today, we partner with <strong>12+ certified organic farms</strong>, operate a <strong>state of the art testing laboratory</strong>, and serve <strong>5,000+ customers</strong> across Pakistan and beyond.</p>
+                                <p>Every morning, I walk through our facility and personally inspect the batches. Why? Because this isn't just business it's a promise to every Pakistani family that the supplements they give their loved ones are 100% pure, lab tested, and made with the same care I'd give my own children.</p>
                             </div>
                             <div className="founder-quote">
                                 <FaQuoteLeft />
                                 <p>"We don't just sell supplements. We deliver the pure essence of nature, carefully preserved for your wellness."</p>
-                                <cite>— Muhammad Ammar, Founder & CEO</cite>
+                                <cite>Muhammad Ammar, Founder & CEO</cite>
                             </div>
                             <div className="founder-signature">
                                 <span>Shafaqat Ali | Managing Director</span>
-                                <small>Master In Botany | 6+ Years Experience</small>
+                                <small>Master In Botany | 15+ Years Experience</small>
                             </div>
                         </div>
                     </div>
