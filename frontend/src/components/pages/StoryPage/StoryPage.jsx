@@ -61,7 +61,7 @@ function StoryPage() {
                     <p>Founded in 2018 in Multan with a vision to bring pure, natural supplements to Pakistan. </p>
                     <p>In 2018, Muhammad Ammar stood in the fields of rural Punjab watching farmers struggle to sell their organic produce at fair prices. That moment changed everything. He realized Pakistan had the world's finest organic herbs — but no one was bringing them to the people who needed them most.</p>
                     <p>With just three products and a borrowed facility in Lahore, <strong>Organic Heritage</strong> was born. Today, we partner with <strong>12+ certified organic farms</strong>, operate a <strong>state-of-the-art testing laboratory</strong>, and serve <strong>5,000+ customers</strong> across Pakistan and beyond.</p>
-                    <p>Every morning, our founder walks through the facility and personally inspects the batches. Why? Because this isn't just business — it's a promise to every Pakistani family that the supplements they give their loved ones are 100% pure, lab-tested, and made with the same care he'd give his own children.</p>
+                    <p>Every morning, our founder walks through the facility and personally inspects the batches. Why? Because this isn't just business it's a promise to every Pakistani family that the supplements they give their loved ones are 100% pure, lab-tested, and made with the same care he'd give his own children.</p>
                 </div>
             )
         },
@@ -70,11 +70,11 @@ function StoryPage() {
             icon: <FaBullseye />,
             content: (
                 <div className="page-body-content">
-                    <p>To make premium organic wellness accessible to every Pakistani family. By working directly with farmers and controlling every step from seed to shelf, we ensure 100% pure, lab-tested products at fair prices.</p>
+                    <p>To make premium organic wellness accessible to every Pakistani family. By working directly with farmers and controlling every step from seed to shelf, we ensure 100% pure, lab tested products at fair prices.</p>
                     <p>In Pakistan, quality supplements were either imported and overpriced, or locally made with questionable ingredients. We changed that equation. By working directly with farmers and controlling every step from seed to shelf, we make premium organic wellness accessible to every Pakistani family.</p>
                     <div className="page-points">
-                        <div className="page-point"><FaLeaf /> 100% Organic — Zero pesticides, fully traceable to source farms</div>
-                        <div className="page-point"><FaFlask /> Lab Tested — Every batch verified for purity and potency</div>
+                        <div className="page-point"><FaLeaf /> 100% Organic Zero pesticides, fully traceable to source farms</div>
+                        <div className="page-point"><FaFlask /> Lab Tested Every batch verified for purity and potency</div>
                         <div className="page-point"><FaHeart /> Made with Love — Crafted with genuine care for your family</div>
                     </div>
                     <p>We believe wellness shouldn't be a luxury. It should be a right that every family in Pakistan can afford without compromising on quality or purity.</p>
@@ -95,7 +95,7 @@ function StoryPage() {
                         <div className="page-point"><FaStar /> Build Pakistan's largest organic supplement research facility</div>
                         <div className="page-point"><FaSeedling /> Make 100% natural wellness the standard, not the exception</div>
                     </div>
-                    <p>We dream of a Pakistan where every family has access to pure, organic nutrition — because health is the greatest wealth.</p>
+                    <p>We dream of a Pakistan where every family has access to pure, organic nutrition  because health is the greatest wealth.</p>
                 </div>
             )
         },
@@ -116,8 +116,8 @@ function StoryPage() {
                         <p>"We don't just sell supplements. We deliver the pure essence of nature, carefully preserved for your wellness."</p>
                     </div>
                     <p>For many years, I struggled and conducted extensive research with a single goal: to spread health awareness across Pakistan. I saw families spending fortunes on imported supplements that were either fake or unnecessarily expensive.</p>
-                    <p>I knew Pakistan had the answer. Our soil, our climate, our farmers — they produce some of the finest organic herbs in the world. </p>
-                    <p>That question led to Organic Heritage. Today, as I walk through our facility every morning, I don't see a factory — I see a promise. A promise to every mother who gives our Moringa to her child. A promise to every father who trusts our Ashwagandha for his energy. A promise that what they hold in their hands is 100% pure, lab-tested, and made with the same care I'd give my own family.</p>
+                    <p>I knew Pakistan had the answer. Our soil, our climate, our farmers they produce some of the finest organic herbs in the world. </p>
+                    <p>That question led to Organic Heritage. Today, as I walk through our facility every morning, I don't see a factory I see a promise. A promise to every mother who gives our Moringa to her child. A promise to every father who trusts our Ashwagandha for his energy. A promise that what they hold in their hands is 100% pure, lab tested, and made with the same care I'd give my own family.</p>
                     <p>This is not just a business. This is a movement. And you're part of it.</p>
                     
                 </div>
@@ -191,7 +191,7 @@ function StoryPage() {
                                 <div className="founder-img-info">
                                     <h4>Muhammad Ammar</h4>
                                     <span>Founder & CEO
-Masters in Agriculture | 6+ Years Experience</span>
+Master's in Agriculture | 6+ Years Experience</span>
                                 </div>
                             </div>
                             <div className="founder-img-card">
@@ -199,7 +199,7 @@ Masters in Agriculture | 6+ Years Experience</span>
                                 <div className="founder-img-info">
                                     <h4>Shafaqat Ali</h4>
                                     <span>Managing Director
-Masters in Botany | 15+ Years Experience</span>
+Master's in Botany | 15+ Years Experience</span>
                                 </div>
                             </div>
                         </div>
