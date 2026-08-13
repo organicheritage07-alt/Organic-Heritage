@@ -190,7 +190,7 @@ function StoryPage() {
                                 <img src="./ceo.png" alt="Muhammad Ammar" />
                                 <div className="founder-img-info">
                                     <h4>Muhammad Ammar</h4>
-                                    <span>Founder & CEO
+                                    <span>Founder & CEO |
 Master's in Agriculture | 6+ Years Experience</span>
                                 </div>
                             </div>
@@ -198,7 +198,7 @@ Master's in Agriculture | 6+ Years Experience</span>
                                 <img src="./OPM.png" alt="Muhammad Hassan" />
                                 <div className="founder-img-info">
                                     <h4>Shafaqat Ali</h4>
-                                    <span>Managing Director
+                                    <span>Managing Director |
 Master's in Botany | 15+ Years Experience</span>
                                 </div>
                             </div>
