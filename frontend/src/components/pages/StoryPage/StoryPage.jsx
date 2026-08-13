@@ -59,7 +59,7 @@ function StoryPage() {
             content: (
                 <div className="page-body-content">
                     <p>Founded in 2018 in Multan with a vision to bring pure, natural supplements to Pakistan. </p>
-                    <p>In 2018, Muhammad Ammar stood in the fields of rural Punjab watching farmers struggle to sell their organic produce at fair prices. That moment changed everything. He realized Pakistan had the world's finest organic herbs — but no one was bringing them to the people who needed them most.</p>
+                    <p>In 2018, Muhammad Ammar stood in the fields of rural Punjab watching farmers struggle to sell their organic produce at fair prices. That moment changed everything. He realized Pakistan had the world's finest organic herbs  but no one was bringing them to the people who needed them most.</p>
                     <p>With just three products and a borrowed facility in Lahore, <strong>Organic Heritage</strong> was born. Today, we partner with <strong>12+ certified organic farms</strong>, operate a <strong>state-of-the-art testing laboratory</strong>, and serve <strong>5,000+ customers</strong> across Pakistan and beyond.</p>
                     <p>Every morning, our founder walks through the facility and personally inspects the batches. Why? Because this isn't just business it's a promise to every Pakistani family that the supplements they give their loved ones are 100% pure, lab-tested, and made with the same care he'd give his own children.</p>
                 </div>
@@ -220,7 +220,7 @@ Master's in Botany | 15+ Years Experience</span>
                             </div>
                             <div className="founder-signature">
                                 <span>Shafaqat Ali | Managing Director</span>
-                                <small>Master In Botany | 15+ Years Experience</small>
+                                <small>Master's In Botany | 15+ Years Experience</small>
                             </div>
                         </div>
                     </div>
